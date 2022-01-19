@@ -1,6 +1,6 @@
 .sidebar {
     justify-self: flex-start;
-    background: rgb(0, 90, 67);
+    background: $binghamton-dark-green;
     display: flex;
     flex: 0 0 auto;
     position:absolute;
@@ -34,12 +34,14 @@
 .sidebar-search {
     display: flex;
     justify-self: flex-start;
+    align-self: center;
     height: 85px;
     min-height: 20px;
-    width: 100%;
+    width: 95%;
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
+    border-bottom: 1px solid $white;
 }
 
 .search-bar {

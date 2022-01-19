@@ -1,4 +1,6 @@
 /* generated style.css overwrites */
+
+@import 'variables';
 *{
     box-sizing: border-box;
 }
@@ -52,6 +54,9 @@ padding: 0.1rem;
 align-content: center;
 }
 
+hr {
+    color: $hr-gray;
+}
 
 main {
 display: flex;

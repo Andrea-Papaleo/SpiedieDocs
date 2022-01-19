@@ -6,7 +6,7 @@ tags: [Login, Setup, Configuration, New_User]
 description: Some useful Linux commands.
 ---
 
-***
+
 
 
 ### Table of Contents  
@@ -21,11 +21,11 @@ description: Some useful Linux commands.
    
 
  
-***
 
-<h2 id="getting_help" style="background-color:rgb(0,90,67);color:white">1 - Getting Help</h2>
 
-***
+## <a name="getting_help"></a>1 - Getting Help
+
+
 
 
 
@@ -34,14 +34,7 @@ As we go through this documantation, we well briefly go over various different c
 
 
 
-
-
-***
-
 ### <a name="manuals"></a> 1.1 - Manuals
-
-***
-
 
 
 
@@ -58,7 +51,7 @@ this will give you full documentation of the **ls** command. You can leave the m
 
 
 
-***
+
 
 #### <a name="whatis"></a> whatis
 
@@ -71,7 +64,6 @@ whatis ls
 
 
 
-***
 
 #### <a name="apropos"></a> apropos
 
@@ -92,22 +84,13 @@ Again, type **q** to exit.
 
 
 
-***
 
-<h2 id="exploring_directories" style="background-color:rgb(0,90,67);color:white">2 - Exploring Files and Directories</h2>
-
-***
+## <a name="exploring_directories"></a>2 - Exploring Files and Directories
 
 
 
-
-
-***
 
 ### <a name="listing_files_and_directories"></a> 2.1 - Listing Files and Directories
-
-***
-
 
 
 
@@ -142,11 +125,10 @@ By default the ls command only lists the names of folders and directories. It wi
 
 
 
-***
+
 
 ### <a id="making_directories"></a> 2.2 - Making Directories
 
-***
 
 
 
@@ -165,11 +147,9 @@ You can check to see the directory has been created by using the **ls** command.
 
 
 
-***
-
 ### <a id="changing_directories"></a> 2.3 - Changing Directories
 
-***
+
 
 
 
@@ -187,12 +167,8 @@ If you now type **ls** you will see that this directory is empty.
 
 
 
-
-***
-
 ### <a id="._and_.."></a> 2.4 - The Directories (.) and (..)
 
-***
 
 
 
@@ -222,7 +198,6 @@ you don't move anywhere in the file system. While this might not be usefule for 
 
 
 
-***
 
 #### <a name="parent_dir"></a> The parrent directory (..)
 
@@ -231,17 +206,15 @@ The other special directory (**..**) we see when running **ls -a** is shorthand 
 ``` bash
 cd ..
 ```
-will move you to one direcctory up in the file system's heirarchy. If you typed this from the **leanr_unix** directory, this will take you to the home directory.
+will move you to one direcctory up in the file system's heirarchy. If you typed this from the **learn_unix** directory, this will take you to the home directory.
 
 
 
 
-
-***
 
 ### <a id="pathnames"></a> 2.5 - Path Names
 
-***
+
 
 
 
@@ -259,8 +232,6 @@ The path printed by this command is your full path.
 
 
 
-***
-
 #### <a name="tilde"></a> ~ (home directory)
 
 You can reference your home directory anywhere in the file system by using the tilde (**~**) shorthand. So say you move to some directory deep in the heirarchy **cd path/deep/in/the/heirarchy** and you want to list the contents of your home directory. You can do that by typing
@@ -277,21 +248,14 @@ cd ~/learn_unix
 
 
 
-
-***
-
-<h2 id="manipulating_files_directories" style="background-color:rgb(0,90,67);color:white">3 - Manipulating Files and Directories</h2>
-
-***
+## <a name="manipulating_files_directories"></a>3 - Manipulating Files and Directories
 
 
 
 
-***
 
 ### <a name="creating_files"></a> 3.1 - Creating Empty Files
 
-***
 
 
 
@@ -308,14 +272,9 @@ touch file1
 ```
 
 
-
-
-
-***
-
 ### <a name="copying_files"></a> 3.2 - Copying  Files
 
-***
+
 
 
 
@@ -350,11 +309,8 @@ Also note that in both instances we use the (**.**) shorthand to specify that we
 
 
 
-***
-
 ### <a name="moving_files"></a> 3.3 - Moving  Files
 
-***
 
 
 
@@ -380,12 +336,9 @@ provided we were working from the home directory.
 
 
 
-
-***
-
 ### <a name="removing_files_directories"></a> 3.4 - Removing  Files and Directories
 
-***
+
 
 
 
@@ -414,12 +367,9 @@ rm -r dir1
 
 
 
-
-***
-
 ### <a name="viewing_files"></a> 3.5 - Viewing Files in the Teminal
 
-***
+
 
 
 
@@ -442,9 +392,6 @@ Once the window is clear, we can start viewing files.
 
 
 
-
-***
-
 #### <a name="cat"></a>  cat
 
 The **cat** command (short for concatonate) allows you to view contents of a file called **file1** on the screen. Type
@@ -456,10 +403,6 @@ You can also view multiple files by listing them after **cat**.
 
 If you run the cat command without specifing a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (^D), copies it to the standard output (the screen). We will use this later when talking about redirection.
 
-
-
-
-***
 
 #### <a name="less"></a> less
 
@@ -483,9 +426,6 @@ Once the file is displayed, you can use the keyboard to navigate.
 
 
 
-
-***
-
 #### <a name="head"></a> head
 
 The command **head** will display the first few lines of a file. Type
@@ -494,11 +434,6 @@ The command **head** will display the first few lines of a file. Type
 head file1
 ```
 By default, the fist 10 lines of **file1** are shown, but you can specify the number of lines to show by using the **-n** flag followed by the number.
-
-
-
-
-***
 
 #### <a name="tail"></a> tail
 
@@ -512,9 +447,6 @@ The next two command are useful when trying to compare two files.
 
 
 
-
-***
-
 #### <a name="diff"></a> diff
 
 The diff command (short for difference) compares the contents of two files and displays the differences. To find the difference between **file1** and **file2** you would type
@@ -527,8 +459,6 @@ In the output, lines from **file1** will be denoted by **<** and lines from **fi
 
 
 
-***
-
 #### <a name="paste"></a> paste
 
 The paste command displays the contents of two or more files next to eachother line by line. To view **file1** and **file2**, type
@@ -539,14 +469,7 @@ paste file1 file2
 
 
 
-
-
-***
-
 ### <a name="searching_files"></a> 3.6 - Searching Files
-
-***
-
 
 
 
@@ -582,8 +505,6 @@ You can gain more control over the **grep** command by using flags.
 
 
 
-***
-
 #### <a name="wc"></a> wc
 
 The **wc** command (short for word count) counts the lines, words, and characters in a file. For a file **file1**, type
@@ -596,21 +517,19 @@ wc file1
 
 
 
-***
-
-<h2 id="redirection" style="background-color:rgb(0,90,67);color:white">4 - Redirection</h2>
-
-***
+## <a name="redirection"></a>4 - Redirection
 
 
 
 
 
-***
+
+
+
 
 ### <a name="redirecting_output"></a> 4.1 - Redirecting Output
 
-***
+
 
 
 
@@ -648,8 +567,6 @@ cat list1
 
 
 
-***
-
 #### <a name=">"></a> Appending a File
 
 We can append an already existing file by using **>>**. Lets try appending **list1**, type
@@ -675,7 +592,6 @@ cat list1
 
 
 
-***
 
 #### <a name="concat"></a> Concatenating Files
 
@@ -695,12 +611,8 @@ cat biglist
 
 
 
-
-***
-
 ### <a name="redirecting_input"></a> 4.2 - Redirecting Input
 
-***
 
 
 
@@ -751,11 +663,8 @@ Use **cat** to confirm.
 
 
 
-***
-
 ### <a name="pipes"></a> 4.3 - Pipes
 
-***
 
 
 
@@ -786,13 +695,9 @@ Pipes are a very useful tool for chaining various commands.
 
 
 
+ ## <a name="processes_jobs"></a>5 - Processes and Jobs
 
 
-***
-
-<h2 id="processes_jobs" style="background-color:rgb(0,90,67);color:white">5 - Processes and Jobs</h2>
-
-***
 
 
 
@@ -814,17 +719,7 @@ ps
 A process may be in the foreground, in the background, or be suspended. In general the shell does not return the UNIX prompt until the current process has finished executing.
 
 
-
-
-
-***
-
 ### <a name="background_process"></a> 5.1 - Background Processes
-
-***
-
-
-
 
 
 Some processes take a long time to run and hold up the terminal. Backgrounding a long process has the effect that the UNIX prompt is returned immediately, and other tasks can be carried out while the original process continues executing.
@@ -850,14 +745,7 @@ After typing a command to be run in the background, the terminal will output the
 
 The job number is the number enclosed in brackets, and the PID is the number tha follows. If you type **ps** while the process is still running you should now see the PID and command listed in the output.
 
-
-
-
-
-***
-
 #### <a name="backgrounding_a_process"></a> Backgrounding a Running Process
-
 
 Now what if you cant anticipate how long a process will run for, or if you decide after the fact that you need to run other processes. Fret not, because it is possible to instruct a currently running process to run in the background instead.
 
@@ -877,7 +765,7 @@ bg
 
 to move it to the background.
 
-***
+
 
 #### <a name="Listing_processes"></a> Listing Suspended and Background Processes
 
@@ -896,7 +784,7 @@ You will get a list of all the running job with an output that looks like
 
 [**#**] will be the jub number, [**state**] will be the state of the job, either *"Running"* or *"Suspended"*, and [**job**] will be the job thats running, i.e. *"sleep 1000"*.
 
-***
+
 
 #### <a name="foregrounding_processes"></a> Move a Process to the Foreground
 
@@ -915,11 +803,11 @@ fg %1
 If no jobnumber is given then the last suspended process will be foregrounded.
 
 
-***
+
 
 ### <a name="killing_process"></a> 5.2 - Killing Processes
 
-***
+
 
 There are many reasons why you might want to stop a process from running. To kill a job runningin the foreground you can type **^c** ([**Ctrl**] + [**c**]. 
 
@@ -950,14 +838,7 @@ kill -9 PID
 ```
 
 
-***
-
-<h2 id="other" style="background-color:rgb(0,90,67);color:white">6 - Other Helpful Commands</h2>
-
-***
-
-
-
+## <a name="other"></a>6 - Other Helpful Commands
 
 
 #### <a name="alias"></a> alias
@@ -969,8 +850,6 @@ alias name="command"
 ```
 
 
-***
-
 #### <a name="chmod"></a> chmod
 
 ```bash
@@ -979,7 +858,6 @@ chmod file1
 Changes write/read/execute permissions for a file
 
 
-***
 
 #### <a name="df"></a> df
 
@@ -992,7 +870,6 @@ Displays the disk usage.
 
 
 
-***
 
 #### <a name="du"></a> du
 
@@ -1007,12 +884,6 @@ You can specify root directory to be searched by typing it after the **du** comm
 du dir1
 ```
 
-
-
-
-
-***
-
 #### <a name="echo"></a> echo
 
 The **echo** command prints the string following the command to the temrinal. Try typing
@@ -1021,8 +892,6 @@ The **echo** command prints the string following the command to the temrinal. Tr
 echo string
 ```
 
-
-***
 
 #### <a name="gzip"></a>  gzip
 
@@ -1041,8 +910,6 @@ gunzip file1.gz
 ```
 
 
-***
-
 #### <a name="zcat"></a>  zcat
 
 Once you've compressed a file, theres not much you can with it unless you expand it again. However the **zcat** command allows you to read a compressed file. Ypu can read **file1.gz** by typing
@@ -1057,7 +924,6 @@ Just like the **cat** command, you can pipe the output of **zcat** into another 
 zcat file1.gz | less
 ```
 
-***
 
 #### <a name="find"></a>  find
 
@@ -1077,7 +943,6 @@ find . -size +1M -ls
 This will display any file over 1Mb in size.
 
 
-***
 
 #### <a name="history"></a> history
 
@@ -1111,24 +976,7 @@ You can even repeat the last command starting with some command name. For instan
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-***
-
-<h2 id="editors" style="background-color:rgb(0,90,67);color:white">7 - Editors</h2>
-
-***
-
-
-
+## <a name="editors"></a>7 - Editors
 
 
 #### <a name="nano"></a> nano

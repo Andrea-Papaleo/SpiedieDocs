@@ -6,8 +6,6 @@ tags: [Login, Setup, Configuration, Windows, Mac, Linux, New_User]
 description: How to log on to Spiedie from your personal computer using various operating systems.
 ---
 
-***
-
 
 ### Table of Contents  
 
@@ -29,22 +27,26 @@ description: How to log on to Spiedie from your personal computer using various 
 
 ***Note: Take the following steps if logging in from an off-campus network***
 
+First and foremost, you can only connect to the spiedie cluster when you are using the campus network. If you're off campus and need to connect, you can do so by first connecting to the campus network through a virtual private network (VPN). Luckily, Binghamton University provides information on using a VPN called Pulse Secure.
+
 #### <a name="vpn"></a> Install Pulse Secure VPN
 
-1. Go to [ssl.binghamton.edu](https://ssl.binghamton.edu) and log in using your PODS DOMAIN ID and follow the steps to install Pulse Secure for Windows 
+Go to <a href="https://ssl.binghamton.edu" target = "_blank">ssl.binghamton.edu</a> and log in using your PODS DOMAIN ID. 
 
-	<!-- (Add image of ssl landing page and circle pulse secure for windows link	) -->
+![Log in with SSL](../assets/images/logging_in-ssl.png)
 
-***
+Once you're logged in, you should see options for downloading Pulse Secure depending on which system you are using. Select the appropriate option and follow the given instructions.
+
+![List of puls secure options](../assets/images/logging_in_pulse.png)
 
 
-***Note: The following instructions are for when you are on campus. If you are off campus you must be connected through Pulse Secure.***
+***Note: The following instructions are for when you are connected to the campus network. If you are off campus you must be connected through Pulse Secure.***
 
 
 
 
 ## <a name="using_windows"></a> Using Windows
-***
+
 
 #### <a name="windows_ssh"> </a>Install a SSH client
 
@@ -67,7 +69,7 @@ First we need to install an ssh client. We will be using <a href="https://www.pu
 
 
 ## <a name="using_mac"> </a> Using Mac or Linux <a name="using_linux"> </a>
-***
+
 
 1. Open a new terminal window.
 2. Type in the following command and press enter:
@@ -80,13 +82,13 @@ First we need to install an ssh client. We will be using <a href="https://www.pu
 5. ***Note: Use the password that has been provided to you. Once you have logged in, you can then change your password by using the `passwd` command***
 
 
-***
+
 
 
 ## <a name="bright_web"></a> Accessing Bright Web Portal
 Spiedie uses the Bright Computing cluster manager. You can also check the status of clusters on a web portal by login in with Spiedie username and password. (Note: This is not the same as your PODS account)
 
-*** [Click here to log into the web portal](https://spiedie.binghamton.edu/userportal/) ***
+<a href="https://spiedie.binghamton.edu/userportal/" target="_blank">Click here to log into the web portal (must be on campus-network)</a>
 
 ## <a name="x2go"></a> Accessing Spiedie via X2Go
 

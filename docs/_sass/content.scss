@@ -22,21 +22,89 @@
 
 
 .main-content {
-display: flex;
-flex-direction: column;
-height: calc(100% - $content-detail-small-height);
-margin: 0 1rem;
-max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - $content-detail-small-height);
+    margin: 0 1rem;
+    max-width: 100%;
 
-a {
-    color: $binghamton-light-green;
-    text-decoration: none;
+    h1 {
+        display:flex;
+        justify-content:center;
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $hr-gray;
 
-    &:hover{
-        color: $binghamton-dark-green;
-        text-decoration: underline;
     }
-}
+
+    h2 {
+        display:flex;
+        justify-content: center;
+        padding: 1.5rem 0;
+        margin: 3rem 0;
+        border-bottom: 2px solid $hr-gray;
+        border-top: 2px solid $hr-gray;
+        letter-spacing: 0.2rem;
+    }
+
+    h3 {
+        display:flex;
+        justify-content:flex-start;
+        border-bottom: 1px solid $hr-gray;
+
+    }
+
+    h4 {
+        margin-top: 2rem;
+        font-size:1.1rem;
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+
+
+    p, .language-bash{
+        margin-left: 1rem;
+    }
+
+    a {
+        color: $binghamton-light-green;
+        text-decoration: none;
+
+        &:hover{
+            color: $binghamton-dark-green;
+            text-decoration: underline;
+        }
+    }
+
+    img {
+        max-width: 70%;
+        display:block;
+        margin: 2rem auto;
+        border-radius: 3px;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 95%;
+        border-collapse: collapse;
+        border: 1px solid $hr-gray;
+        margin: 2rem auto;
+    }
+      
+    
+    th, td {
+    padding: 1rem;
+    border: 1px solid $hr-gray;
+    overflow-wrap: break-word;
+    text-align: center;
+    }
+    td {
+        font-size: 0.8rem;
+    }
+
+
+
 }
 
 @media screen and (min-width: 1200px){

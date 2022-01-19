@@ -56,6 +56,10 @@ toc:
             section: 2.1.5
             url: "/docs/x2go_spiedie.html"
             external: false
+      - title: Welcome to Spiedie
+        section: 2.2
+        url: "/docs/welcome-to-spiedie.html"
+        external: false
       - title: Transferring Data
         section: 2.2
         url: "/docs/data_transfer.html"
@@ -73,6 +77,10 @@ toc:
             section: 2.2.3
             url: "/docs/data_transfer.html#Home_dir"
             external: false
+      - title: Using Spiedie Resources
+        section: 2.4
+        url: "/docs/using-spiedie-resources.html"
+        external: false
       - title: Basic Linux Commands
         section: 2.3
         url: "/docs/basic_linux_commands.html"
