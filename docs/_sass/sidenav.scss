@@ -58,31 +58,30 @@
         flex-direction: column;
         color: $binghamton-dark-green;;
         overflow: scroll;
-        padding-left: 1rem;
     }
 
 
-    .sidenav ol {
+    ol {
         list-style-type: none;
         counter-reset: item;
         margin: 0.5rem 0 0 0;
         padding: 0;
     }
 
-    .sidenav li {
+    li {
         display: table;
         counter-increment: item;
         padding-bottom: 0.5rem;
     }
 
-    .sidenav li:before {
+    li:before {
         content: counters(item, ".") ". ";
         display: table-cell;
         padding-right: 0.6em;    
     }
 
 
-    .sidenav li li:before {
+    li li:before {
         content: counters(item, ".") " ";
     }
     .toc-link{
@@ -95,12 +94,12 @@
         font-size: 1rem;
     }
 
-    .sidenav ol.toc-l2{
+    ol.toc-l2{
         padding-bottom: 1rem;
         font-size: 1rem;
     }
 
-    .sidenav .toc-l3{
+    .toc-l3{
         font-weight: 100;
     }
 }
