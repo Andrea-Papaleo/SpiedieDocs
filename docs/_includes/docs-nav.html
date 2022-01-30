@@ -1,0 +1,10 @@
+<div class="docs-nav">
+    {%- for doc in site.pages -%}
+      {% if page.prev and page.prev == doc.title %}
+        <a id="prev-doc" href={{doc.url}}><strong><<</strong> {{doc.title}}</a>
+      {% endif %}
+      {% if page.next and page.next == doc.title %}
+        <a id="next-doc" href={{doc.url}}>{{doc.title}} <strong>>></strong></a>
+      {% endif %}  
+    {%- endfor -%}    
+</div>

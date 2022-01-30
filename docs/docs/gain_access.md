@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Login, Setup, Configuration, New_User]
 description: How to obtain an account on the Spiedie Cluster.
+category: getting-started
 ---
 
 ***

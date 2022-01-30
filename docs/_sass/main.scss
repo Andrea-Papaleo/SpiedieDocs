@@ -1,112 +1,126 @@
 /* generated style.css overwrites */
 
 @import 'variables';
-*{
-    box-sizing: border-box;
-}
-
-.navbar .hidden{
-    display: none;
-}
-
-pre.highlight {
-    overflow-y: scroll;
-}
 
 
 
-html {
-margin: 0;
-padding: 0;
-width: 100%;
-height: 100%;
-font-size: 16px;
-font-family: 'Open Sans', sans-serif;
-}
 
-body {
-display:flex;
-margin: 0;
-padding: 0;
-height: 100%;
-width: 100%;
-justify-content: center;
-}
-
-.no-scroll-bar {
--ms-overflow-style: none;
-scrollbar-width: none;
-overflow-y: scroll;
-
-}
-
-.no-scroll-bar::-webkit-scrollbar {
-display: none;
+main{
+    grid-area: 1/1/2/7;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    @media screen and (min-width: 900px){
+        grid-area: 1/2/2/7
+    }
+    @media screen and (min-width:1100px){
+        grid-area: 1/2/2/6;
+    }
 }
 
 
-.page-container {
-display: flex;
-flex-direction: column;
-height: 100%;
-width: 98%;
-padding: 0.1rem;
-align-content: center;
-}
-
-hr {
-    color: $hr-gray;
-}
-
-main {
-display: flex;
-height: calc(100% - 80px);
-align-items: center;
-width: 100%;
-}
 
 
-@import "sidebar";
-@import "content";
+.docs {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - $content-detail-small-height);
+    margin: 0 1rem;
+    max-width: 100%;
 
-.autocomplete-suggestions {
-border: 1px solid #999;
-background: #fff;
-overflow: auto;
+    h1 {
+        display:flex;
+        justify-content:center;
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $hr-gray;
+
+    }
+
+    h2 {
+        display:flex;
+        justify-content: center;
+        padding: 1.5rem 0;
+        margin: 3rem 0;
+        border-bottom: 2px solid $hr-gray;
+        border-top: 2px solid $hr-gray;
+        letter-spacing: 0.2rem;
+    }
+
+    h3 {
+        display:flex;
+        justify-content:flex-start;
+        border-bottom: 1px solid $hr-gray;
+
+    }
+
+    h4 {
+        margin-top: 2rem;
+        font-size:1.1rem;
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+
+
+    p, .language-bash{
+        margin-left: 1rem;
+    }
+
+    a {
+        color: $binghamton-light-green;
+        text-decoration: none;
+
+        &:hover{
+            color: $binghamton-dark-green;
+            text-decoration: underline;
+        }
+    }
+
+    img {
+        max-width: 70%;
+        display:block;
+        margin: 2rem auto;
+        border-radius: 3px;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 95%;
+        border-collapse: collapse;
+        border: 1px solid $hr-gray;
+        margin: 2rem auto;
+    }
+      
+    
+    th, td {
+    padding: 1rem;
+    border: 1px solid $hr-gray;
+    overflow-wrap: break-word;
+    text-align: center;
+    }
+    td {
+        font-size: 0.8rem;
+    }
+    .docs-nav{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+
+        #prev-doc{
+            grid-column-start:  1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+        }
+        #next-doc{
+            grid-column-start:  2;
+            grid-row-start: 1;
+            justify-self: flex-end;
+        }
+    }
+    
 }
-.autocomplete-suggestion {
-padding: 2px 5px;
-white-space: nowrap;
-overflow: hidden;
-}
-.autocomplete-selected {
-background: #f0f0f0;
-}
-.autocomplete-suggestions strong {
-font-weight: normal;
-color: #3399ff;
-}
-.autocomplete-group {
-padding: 2px 5px;
-}
-.autocomplete-group strong {
-display: block;
-border-bottom: 1px solid #000;
-}
-div.highlight {
-background: #fff;
-}
-pre.highlight {
-padding: 10px;
-border-radius: 10px;
-border-width: 10px;
-background: #ddd;
-}
-.badge-primary {
-background-color: #004333;
-}
-.badge {
-font-size: 14px;
-padding: 8px;
-margin-top: 4px;
-}
+
+
+

@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Setup, Configuration, New_User]
 description: Understanding the SLURM cluster management system
+category: getting-started
 ---
 
 

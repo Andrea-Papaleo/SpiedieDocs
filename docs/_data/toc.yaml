@@ -1,258 +1,202 @@
 toc:
   - title: Introduction to Spiedie
-    section: 1
+    category: getting-started
     contents:
       - title: What ia a Cluster
-        section: 1.1
         url: "/docs/introduction.html"
         external: false
 
       - title: What is Spiedie
-        section: 1.2
         url: https://www.binghamton.edu/watson/facilities/computing/high-performance.html
         external: true
       - title: How do I get an account
-        section: 1.3
         url: https://www.binghamton.edu/watson/facilities/computing/high-performance.html
         external: true
         inner_list:
           - title: Subsidized Access (No Cost)
-            section: 1.3.1
             url: https://docs.google.com/a/binghamton.edu/forms/d/e/1FAIpQLSe3VQGT37cE1wC1IHz9sQDasEgna2JYqpjLTCFUSOAu5SlCUQ/viewform?usp=sf_link
             external: true
           - title: Yearly subscription access
-            section: 1.3.2
             url: https://goo.gl/forms/EKbW3DUSoasTuphu1
             external: true
           - title: Condo Access
-            section: 1.3.3
             url: mailto:pvalenta@binghamton.edu
             external: true
-  - title: How To Use Spiedie
-    section: 2
+  - title: Getting Started
+    category: getting-started
     contents:
       - title: Logging In
-        section: 2.1
         url: "/docs/login.html"
         external: false
         inner_list:
+          - title: Connect from Off-Campus
+            url: "/docs/login.html#off_campus"
+            external: false
           - title: Using Windows
-            section: 2.1.1
             url: "/docs/login.html#using_windows"
             external: false
           - title: Using Mac
-            section: 2.1.2
             url: "/docs/login.html#using_mac"
             external: false
           - title: Using Linux
-            section: 2.1.3
             url: "/docs/login.html#using_linux"
             external: false
           - title: Accessing Bright Web Portal
-            section: 2.1.4
             url: "/docs/login.html#bright_web"
             external: false
           - title: X2Go on Spiedie
-            section: 2.1.5
             url: "/docs/x2go_spiedie.html"
             external: false
       - title: Welcome to Spiedie
-        section: 2.2
         url: "/docs/welcome-to-spiedie.html"
         external: false
       - title: Transferring Data
-        section: 2.2
         url: "/docs/data_transfer.html"
         external: false
         inner_list:
           - title: Using SCP
-            section: 2.2.1
             url: "/docs/data_transfer.html#SCP"
             external: false
           - title: Using Rsync
-            section: 2.2.2
             url: "/docs/data_transfer.html#rsync"
             external: false
           - title: Map Home Directory
-            section: 2.2.3
             url: "/docs/data_transfer.html#Home_dir"
             external: false
       - title: Using Spiedie Resources
-        section: 2.4
         url: "/docs/using-spiedie-resources.html"
         external: false
-      - title: Basic Linux Commands
-        section: 2.3
-        url: "/docs/basic_linux_commands.html"
-        taget: false
-      - title: Basic SLURM Commands
-        section: 2.4
-        url: "/docs/basic_slurm_commands.html"
-        external: false
-        inner_list:
-          - title: Checking Cluster Info
-            section: 2.4.1
-            url: "/docs/basic_slurm_commands.html#info"
-            external: false
-          - title: Running a Program
-            section: 2.4.2
-            url: "/docs/basic_slurm_commands.html#run"
-            external: false
-          - title: Checking the Queue
-            section: 2.4.3
-            url: "/docs/basic_slurm_commands.html#queue"
-            external: false
-          - title: Kill/Stop/Restart
-            section: 2.4.4
-            url: "/docs/basic_slurm_commands.html#ksr"
-            external: false
-          - title: Check Account Utilization
-            section: 2.4.5
-            url: "/docs/basic_slurm_commands.html#util"
-            external: false
       - title: Spiedie Modules
-        section: 2.5
         url: "/docs/spiedie_modules.html"
         external: false
         inner_list:
           - title: Available Modules
-            section: 2.5.1
             url: "/docs/spiedie_modules.html#avail"
             external: false
           - title: Loading a Module
-            section: 2.5.2
             url: "/docs/spiedie_modules.html#load"
             external: false
           - title: Unloading a Module
-            section: 2.5.3
             url: "/docs/spiedie_modules.html#unload"
             external: false
           - title: Switch Modules
-            section: 2.5.4
             url: "/docs/spiedie_modules.html#switch"
             external: false
           - title: View Loaded Modules
-            section: 2.5.5
             url: "/docs/spiedie_modules.html#view"
             external: false
           - title: Reload All Modules
-            section: 2.5.6
             url: "/docs/spiedie_modules.html#reload"
             external: false
           - title: Module Collection
-            section: 2.5.7
             url: "/docs/spiedie_modules.html#collections"
             external: false
           - title: Modules at Log In
-            section: 2.5.8
             url: "/docs/spiedie_modules.html#login"
             external: false
           - title: Further Uses and Help
-            section: 2.5.9
             url: "/docs/spiedie_modules.html#help"
             external: false
-      - title: Spiedie Partitions and Features
-        section: 2.6
-        url: "/docs/spiedie_partitions.html"
-        external: false
-        inner_list:
-          - title: Partitions
-            section: 2.6.1
-            url: "/docs/spiedie_partitions.html#partitions"
-            external: false
-          - title: Features
-            section: 2.6.2
-            url: "/docs/spiedie_partitions.html#features"
-            external: false
       - title: Compiling Code On Spiedie
-        section: 2.7
         url: "/docs/compilers.html"
         external: false
       - title: Running Jobs
-        section: 2.8
         url: "/docs/submitting_jobs.html"
         external: false
         inner_list:
           - title: Using srun
-            section: 2.8.1
             url: "/docs/submitting_jobs.html#srun"
             external: false
           - title: Using sbatch
-            section: 2.8.2
             url: "/docs/submitting_jobs.html#sbatch"
             external: false
           - title: Customizing Resource Allocation
-            section: 2.8.3
             url: "/docs/submitting_jobs.html#resource-alloc"
             external: false
       - title: Using Conda on Spiedie
-        section: 2.9
         url: "/docs/spiedie_conda.html"
         external: false
         inner_list:
           - title: What is Conda
-            section: 2.9.1
             url: "/docs/spiedie_conda.html#conda_intro"
             external: false
           - title: Activating Conda on Spiedie
-            section: 2.9.2
             url: "/docs/spiedie_conda.html#conda_activate"
             external: false
           - title: Deactivating Conda
-            section: 2.9.3
             url: "/docs/spiedie_conda.html#conda_deactivate"
             external: false
           - title: Using Conda
-            section: 2.9.4
             url: "/docs/spiedie_conda.html#conda_use"
             external: false
           - title: Conda Documentation
-            section: 2.9.5
             url: https://docs.conda.io/projects/conda/en/latest/user-guide/overview.html
             external: true
       - title: X11 Fowarding
-        section: 2.10
         url: "/docs/x_11_forwarding.html"
         external: false
       - title: MATLAB on Spiedie
-        section: 2.11
         url: "/docs/spiedie_matlab.html"
         external: false
-      - title: ANSYS on Spiedie
-        section: 2.12
-        url: "/docs/spiedie_ansys.html"
-        external: false
   - title: Tutorials
-    section: 3
+    category: tutorial
     contents:
       - title: Quick Start (Python)
-        section: 3.1
         url: "/tutorials/quick_start.html"
         external: false
       - title: Multi-core Program (Python)
-        section: 3.2
         url: "/tutorials/spiedie_multiprocessing.html"
         external: false
       - title: Multi-core (C++/OpenMPI)
-        section: 3.3
         url: "/tutorials/spiedie_openmpi_multi_core.html"
         external: false
       - title: GPU Compute (CUDA)
-        section: 3.4
         url: "/tutorials/spiedie_gpu_compute.html"
         external: false
       - title: Multi-node Multi-core Program (MPI)
-        section: 3.5
         url: "/tutorials/spiedie_MPI.html"
         external: false
       - title: Using Containers (Singularity)
-        section: 3.1
         url: "/tutorials/singularity.html"
         external: false
       - title: Using Conda (Python)
-        section: 3.1
         url: "/tutorials/conda.html"
         external: false
+  - title: Documentation
+    catecory: documentation
+    contents:
+      - title: Basic Linux Commands
+        url: "/docs/basic_linux_commands.html"
+        taget: false
+      - title: Basic SLURM Commands
+        url: "/docs/basic_slurm_commands.html"
+        external: false
+        inner_list:
+          - title: Checking Cluster Info
+            url: "/docs/basic_slurm_commands.html#info"
+            external: false
+          - title: Running a Program
+            url: "/docs/basic_slurm_commands.html#run"
+            external: false
+          - title: Checking the Queue
+            url: "/docs/basic_slurm_commands.html#queue"
+            external: false
+          - title: Kill/Stop/Restart
+            url: "/docs/basic_slurm_commands.html#ksr"
+            external: false
+          - title: Check Account Utilization
+            url: "/docs/basic_slurm_commands.html#util"
+            external: false
+      - title: Spiedie Partitions and Features
+        url: "/docs/spiedie_partitions.html"
+        external: false
+        inner_list:
+          - title: Partitions
+            url: "/docs/spiedie_partitions.html#partitions"
+            external: false
+          - title: Features
+            url: "/docs/spiedie_partitions.html#features"
+            external: false
 
 
 

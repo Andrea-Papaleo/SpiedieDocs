@@ -4,6 +4,7 @@ layout: default
 images: []
 description: Run Singularity on your personal workstation
 tags: [singularity, containers, docs] 
+category: getting-started
 ---
 
 ***

@@ -1,37 +1,30 @@
-.sidebar {
-    justify-self: flex-start;
-    background: $binghamton-dark-green;
-    display: flex;
-    flex: 0 0 auto;
-    position:absolute;
-    height: 100%;
-    width: 300px;
-    left: -500px;
-    top: 86px;
-    border-radius: 3px;
-    z-index: 100;
-    transition: left 0.2s ease-in-out;
-}
+.sidenav {
+    display: none;
+    color: $binghamton-dark-green;
+    position: sticky;
+    height: calc(100vh - #{$navbar-height});
+    left: 0;
+    top:0;
+    z-index:0;
+    border-right: 1px solid #c4c4c4;
     
-@media screen and (min-width:900px){
-    .sidebar{
-        position: relative;
-        width: 300px;
-        left: 0;
-        top:initial;
-        z-index:0;
-        transition: left 0.2s ease-in-out;
+    @media screen and (min-width:900px){
+        display: flex;
+        
+        
     }
 }
     
-.sidebar-container {
+
+    
+.sidenav-container {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
     
     
-.sidebar-search {
+.sidenav-search {
     display: flex;
     justify-self: flex-start;
     align-self: center;
@@ -48,6 +41,7 @@
     display: flex;
     justify-content: center;
     width: 90%;
+    border-bottom: 1px solid $binghamton-dark-green;
 }
         
 .search-bar input {
@@ -56,42 +50,43 @@
     font-size: 1rem;
     border: transparent;
     border-radius: 5px;
+    color: $binghamton-dark-green;
 }
         
-.sidebar-menu {
+.sidenav-menu {
     display: flex;
     flex-direction: column;
-    color: #fff;
+    color: $binghamton-dark-green;;
     overflow: scroll;
     padding-left: 1rem;
 }
 
 
-.sidebar ol {
+.sidenav ol {
     list-style-type: none;
     counter-reset: item;
     margin: 0.5rem 0 0 0;
     padding: 0;
 }
 
-.sidebar li {
+.sidenav li {
     display: table;
     counter-increment: item;
     padding-bottom: 0.5rem;
 }
 
-.sidebar li:before {
+.sidenav li:before {
     content: counters(item, ".") ". ";
     display: table-cell;
     padding-right: 0.6em;    
 }
 
 
-.sidebar li li:before {
+.sidenav li li:before {
     content: counters(item, ".") " ";
 }
 .toc-link{
-    color:white;
+    color:$binghamton-dark-green;;
     text-decoration: none;
 }
 
@@ -100,12 +95,12 @@
     font-size: 1rem;
 }
 
-.sidebar ol.toc-l2{
+.sidenav ol.toc-l2{
     padding-bottom: 1rem;
     font-size: 1rem;
 }
 
-.sidebar .toc-l3{
+.sidenav .toc-l3{
     font-weight: 100;
 }
         

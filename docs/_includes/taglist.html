@@ -1,0 +1,12 @@
+{% if page.tags[0] %}
+    <h3 class="content-tags-title">Tags</h3>
+    <ul class="content-tags-list">
+    {% for tag in page.tags %}
+        <li class="content-tag">
+        <a class="content-tag-link" href="{{ site.url }}/tags#{{ tag | slugify }}">
+            {{ tag }}
+        </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

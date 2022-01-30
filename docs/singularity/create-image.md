@@ -4,6 +4,7 @@ layout: default
 images: []
 description: Creating your own custom container
 tags: [singularity, containers, docs, custom container, create image] 
+category: getting-started
 ---
 
 

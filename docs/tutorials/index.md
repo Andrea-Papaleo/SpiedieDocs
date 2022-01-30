@@ -3,6 +3,7 @@ title: Tutorials
 layout: default
 images: []
 description: A set of tutorials to get you up and running with Spiedie.
+category: tutorial
 ---
 
 The walk-through tutorials will combine and combine reference the stand alone documentation to help guide users along on practical examples. 

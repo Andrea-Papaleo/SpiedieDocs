@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [New_User]
 description: Welcome to Spiedie and Binghamton University. Glance through here to learn about computer clusters and Spiedie's computing capabilities. 
+category: getting-started
 ---
 
 ### Table of Contents 

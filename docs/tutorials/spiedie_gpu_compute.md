@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [CUDA, CUBLAS, GPU, BLAS, GEMM, SBATCH]
 description: How to run specialzied GPU-accelerated on the GPU partition on Spiedie.
+category: tutorial
 ---
 
 ***

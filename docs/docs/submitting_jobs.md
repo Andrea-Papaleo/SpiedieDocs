@@ -4,6 +4,7 @@ layout: default
 images: [] 
 tags: [SRUN, SBATCH, Job Submission, interactive session, memory allocation, partitions]
 description: Documentation for srun and sbatch commands 
+category: getting-started
 ---
 
 

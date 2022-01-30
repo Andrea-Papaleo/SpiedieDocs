@@ -1,9 +1,14 @@
 ---
 ---
 
+@import "normalize";
 @import "variables";
+@import "global";
+
+@import "base";
 @import "index";
 @import "main";
 @import "navbar";
 @import "content";
-@import "sidebar";
+@import "sidenav";
+@import "content-detail";

@@ -4,6 +4,7 @@ layout: default
 images: [] 
 tags : [partitions, features, memory management]
 description: Learn about the different specialized partitions set up on Spiedie and best practices to improve Spiedie usage.  
+category: documentation
 --- 
 
 ***

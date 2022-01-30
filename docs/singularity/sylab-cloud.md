@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Singularity, Containers, Create Images, Sylabs Cloud Services, Cloud Storage, Remote Build]
 description: Using remote builder on Sylabs cloud to generate images
+category: getting-started
 ---
 
 ***   

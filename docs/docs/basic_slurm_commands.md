@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Submit job, Run Program, Check Job Status, srun, sbatch, sacct, sinfo]
 description: A walk-through of the essential slurm commands to run programs, check usage and job status, and manipulate job states on Spiedie.
+category: documentation
 ---
 
 ***

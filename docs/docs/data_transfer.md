@@ -4,12 +4,14 @@ layout: default
 images: []
 tags: [Login, Setup, File Transfer, Windows, Mac, Linux, New_User]
 description: A guide to transferring data to and from Spiedie and setting up network drives. 
+prev: Spiedie User Environment
+category: getting-started
 ---
 
 
-***
 
 ***Note: The following steps are only applicable while connected to the university network. If working off-campus, you must connect first to a SSL VPN. [Click here for more details](ssl_vpn.html)*** 
+
 
 ### Table of Contents 
 
@@ -20,12 +22,13 @@ description: A guide to transferring data to and from Spiedie and setting up net
     * [Mac](#mac_map_home)
     * [Linux](#linux_map_home)
 
-***
+
+
 
 
 
 ## <a name="SCP"></a> SCP
-***
+
 #### Single File Transfer to/from Spiedie Cluster
 
 SCP (secure copy) is a command-line utility that allows you to securely copy files and directories between two locations.  
@@ -59,7 +62,7 @@ More informion on SCP can be found <a href='https://linuxize.com/post/how-to-use
 
 
 ## <a name="RSYNC"> </a> 2.2.2 Rsync
-***
+
 Similar to SCP, Rsync can also be used to transfer files and folders using the terminal. Rsync differs in that only the portions of the files that have been changed are transferred, minimizing the total amount of data transferred.
 
 Use Rsync when:
@@ -77,7 +80,7 @@ A good resource for using Rsync can be found <a href='https://www.digitalocean.c
 
 
 ## <a name= "Home_dir"> </a>2.2.3 Mapping Home Directory
-***
+
 You can map your Spiedie home directory to your file explorer if you wish to use a graphical interface for file transfer 
 
 #### <a name="windows_map_home"> </a> Windows Explorer

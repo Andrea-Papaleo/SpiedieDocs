@@ -14,12 +14,16 @@ nav {
     margin: 0.3rem;
     border-radius: 3px;
     align-self: center;
+
+    .hidden {
+        display: none;
     }
+}
     
 .navbar-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: $navbar-height;
     z-index: 1;
     width:90%;
     align-self: center;
@@ -34,46 +38,12 @@ nav {
     align-items: center;
     font-weight: 200;
     text-decoration: none;
-}
-
-@media screen and (max-width: 550px){
-    .navbar-brand{
+    @media screen and (max-width: 550px){
+        
         font-size: 1.2rem;
+        
     }
 }
-
-.navbar-toc-toggle{
-    display: flex;
-    justify-self: flex-end;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-}
-@media screen and (min-width: 900px){
-    .navbar-toc-toggle{
-        display:none;
-    }
-}
-.navbar-toc-toggle-button{
-    color:white;
-    background: transparent;
-    border: transparent;
-    font-size: 1.5rem;
-}
-
-.navbar-menu {
-display: none;
-}
-@media screen and (min-width: 900px){
-    .navbar-menu {
-        display: flex;
-        justify-self: flex-end;
-        align-items: center;
-        list-style: none;
-        text-align: center;
-    }
-}
-
 
 .navbar-item {
     display: flex;
@@ -91,6 +61,40 @@ display: none;
     font-size: 1rem;
 }
 
+
+
+.navbar-toc-toggle{
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    @media screen and (min-width: 900px){
+        
+        display:none;
+        
+    }
+}
+
+.navbar-toc-toggle-button{
+    color:white;
+    background: transparent;
+    border: transparent;
+    font-size: 1.5rem;
+}
+
+.navbar-menu {
+    display: none;
+    @media screen and (min-width: 900px){
+        
+        display: flex;
+        justify-self: flex-end;
+        align-items: center;
+        list-style: none;
+        text-align: center;
+        
+    }
+}
 .navbar-toc{
     display: flex;
     flex-direction: column;

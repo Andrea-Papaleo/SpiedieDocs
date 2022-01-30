@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [GUI, x2go]
 description: How to connect to Spiedie via X2Go to utilize an interactive desktop.
+category: getting-started
 ---
 
 1. Install the x2go client from [here](https://wiki.x2go.org/doku.php/download:start)

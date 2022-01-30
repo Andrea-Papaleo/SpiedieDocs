@@ -4,6 +4,7 @@ layout: default
 images: []
 description: A set of tutorials to get you up and running with spiedie.
 tags: [singularity, containers, docs] 
+category: getting-started
 ---
 
 ## <a name="">What is Singulairity?</a>

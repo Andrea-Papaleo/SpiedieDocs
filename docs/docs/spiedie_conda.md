@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Conda, virtual environment]
 description: A quick guide on enabling and using the Conda environment manager on Spiedie. 
+category: getting-started
 ---
 
 ### Table of Contents 

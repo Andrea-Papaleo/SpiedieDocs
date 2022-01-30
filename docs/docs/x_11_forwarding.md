@@ -4,6 +4,7 @@ layout: default
 images: [] 
 tags: [X11, Forwarding, Interactive Sessions]
 description: Enable X11 forwarding to forward X windows from Spiedie to your local machine.
+category: getting-started
 ---
 
 

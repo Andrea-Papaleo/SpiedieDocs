@@ -4,6 +4,9 @@ layout: default
 images: []
 tags: [Setup, Configuration, New_User]
 description: Understanding the Spiedie file system
+category: getting-started
+prev: Connecting to the Cluster
+next: Transfer File to Cluster
 ---
 
 
@@ -92,3 +95,5 @@ Now thate we've moved into the *SpiedieDocs* directory, lets create a file. Ther
 You can check that your file was created by using the *ls* command.
 
 You can learn more about creating and manipulating files and directories [here](basic_linux_commands.html#manipulating_files_directories).
+
+

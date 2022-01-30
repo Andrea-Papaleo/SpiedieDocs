@@ -4,6 +4,7 @@ layout: default
 images: [] 
 tags: [tutorial, mpi, multinode, MVAPICH2, SBATCH]
 description: How to run a multi node MPI program on Spiedie.
+category: tutorial
 --- 
 
 

@@ -54,25 +54,16 @@ sort %} {% endfor %} {% endfor %}
               >
             </li>
           </ul>
-          
-          <!--<form class="form-inline">
-          <input
-            class="form-control mr-sm-2 docs_search"
-            type="search"
-            placeholder="Search Docs"
-            aria-label="Search Documentation"
-          />
-        </form>-->
         </div>
         <div class="navbar-toc no-scroll-bar hidden" onclick="openNavbarToc();">
           {% include table_of_contents.html %}
         </div>
       </nav>
 
-      <main>
-        <aside class="sidebar">
-          <div class="sidebar-container">
-            <div class="sidebar-search">
+      <div class="content-container">
+        <aside class="sidenav">
+          <div class="sidenav-container">
+            <div class="sidenav-search">
               <form class="search-bar">
                 <input
                   type="text"
@@ -81,16 +72,14 @@ sort %} {% endfor %} {% endfor %}
                 />
               </form>
             </div>
-            <div class="sidebar-menu no-scroll-bar">
+            <div class="sidenav-menu no-scroll-bar">
               {% include table_of_contents.html %}
             </div>
           </div>
         </aside>
-        <div class="content-container">
-          
-
-          
-          <section class="main-content no-scroll-bar">
+        <main>
+          <section class="docs no-scroll-bar">
+            {%- include docs-nav.html -%}
             <h1>
               {% if page.title == blank %} {{ page.name }} {% else %} {{
               page.title }} {% endif %}
@@ -98,47 +87,20 @@ sort %} {% endfor %} {% endfor %}
             
             <article >
               {{ content }}
-
-              <!-- Small Screen Images -->
-              <div class="row">
-                <div class="col-sm-12 d-md-block d-lg-none">
-                  {% for image in page.images %}
-                  <img
-                    style="width: 160px"
-                    style="padding: 10px"
-                    src="{{ site.url }}/images/{{ image }}"
-                  />
-                  {% endfor %}
-                </div>
-              </div>
-              <!-- End Small Screen Images -->
-
-              
             </article>
+            {%- include docs-nav.html -%}
           </section>
-          <section class="content-detail">
-            <!-- Begin Tags -->
-            <div class="content-tags-container">
-              {% if page.tags[0] %}
-                <h3 class="content-tags-title">Tags</h3>
-                <ul class="content-tags-list">
-                  {% for tag in page.tags %}
-                    <li class="content-tag">
-                      <a class="content-tag-link" href="{{ site.url }}/tags#{{ tag | slugify }}">
-                        {{ tag }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-              </div>
-            </div>
-            <!-- End Tags -->
-          </section>
-        </div>
-      </main>
+        </main>
+        <aside class="content-detail">
+          <!-- Begin Tags -->
+          <div class="content-tags-container">
+            {%- include taglist.html -%}
+          </div>
+          <!-- End Tags -->
+        </aside>  
+      </div>
       <footer class="row">
-        <script src="{{ site.url }}/assets/js/sidebarToggle.js"></script>
+        <script src="{{ site.url }}/assets/js/sidenavToggle.js"></script>
         <div class="col-sm-12">
           <!-- Footer -->
         </div>

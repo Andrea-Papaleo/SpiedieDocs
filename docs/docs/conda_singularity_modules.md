@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Conda, Singularity, Modules, Workflow]
 description: Identifying which environment solution works best for your workload on Spiedie. 
+category: getting-started
 ---
 
 ***

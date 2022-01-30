@@ -1,0 +1,22 @@
+
+        <main>
+          <section class="docs no-scroll-bar">
+            {%- include brief-nav.html -%}
+            <h1>
+              {% if page.title == blank %} {{ page.name }} {% else %} {{
+              page.title }} {% endif %}
+            </h1>
+            
+            <article >
+              {{ content }}
+            </article>
+            {%- include brief-nav.html -%}
+          </section>
+        </main>
+        <aside class="content-detail">
+          <!-- Begin Tags -->
+          <div class="content-tags-container">
+            {%- include taglist.html -%}
+          </div>
+          <!-- End Tags -->
+        </aside>  

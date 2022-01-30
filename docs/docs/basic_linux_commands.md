@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Login, Setup, Configuration, New_User]
 description: Some useful Linux commands.
+category: documentation
 ---
 
 

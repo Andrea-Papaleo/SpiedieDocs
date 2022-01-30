@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [singularity, containers, docs, singularity definition files, singularity recipes] 
 description: Spiedie-Tested Singularity recipes
+category: getting-started
 ---
 
 *** 

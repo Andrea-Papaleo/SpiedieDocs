@@ -4,22 +4,24 @@ layout: default
 images: []
 tags: [Login, Setup, Configuration, Windows, Mac, Linux, New_User]
 description: How to log on to Spiedie from your personal computer using various operating systems.
+category: getting-started
+next: Spiedie User Environment
 ---
 
 
 ### Table of Contents  
 
- 1. [Connected to off-campus Network](#off_campus)
+ 1. [Connect from off-campus Network](#off_campus)
      * [Installing Pulse Client](#vpn)
- 3. [Using Windows](#using_windows)  
+ 2. [Using Windows](#using_windows)  
      * [Install SSH Client \(PuTTY\)](#windows_ssh) 
      * [Connected to University Network](#using_windows)  
- 4. [Using Mac](#using_mac)
+ 3. [Using Mac](#using_mac)
      * [Connected to University Network](#using_mac) 
- 5. [Using Linux](#using_linux)  
+ 4. [Using Linux](#using_linux)  
      * [Connected to University Network](#using_linux)  
- 6. [Accessing Bright Web Portal](#bright_web)
- 7. [X2Go on Spiedie](#x2go)
+ 5. [Accessing Bright Web Portal](#bright_web)
+ 6. [X2Go on Spiedie](#x2go)
 
 
 

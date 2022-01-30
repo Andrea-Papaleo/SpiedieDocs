@@ -4,6 +4,7 @@ layout: default
 images: []
 tags: [Tutorial, Python, SLURM, Submit Job, New_User]
 description: A walkthrough on how to submit your first job on Spiedie!
+category: tutorial
 ---
 
 ***
