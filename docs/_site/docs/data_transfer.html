@@ -541,6 +541,8 @@
       
       
       
+        <a id="next-doc" href=/docs/using-spiedie-resources.html>Using Spiedie Resources <strong>>></strong></a>
+      
         <a id="prev-doc" href=/docs/welcome-to-spiedie.html><strong><<</strong> Spiedie User Environment</a>
       
       
@@ -555,9 +557,7 @@
             </h1>
             
             <article >
-              <p><strong><em>Note: The following steps are only applicable while connected to the university network. If working off-campus, you must connect first to a SSL VPN. <a href="ssl_vpn.html">Click here for more details</a></em></strong></p>
-
-<h3 id="table-of-contents">Table of Contents</h3>
+              <h3 id="table-of-contents">Table of Contents</h3>
 
 <ol>
   <li><a href="#SCP">Using SCP</a></li>
@@ -571,9 +571,15 @@
   </li>
 </ol>
 
-<h2 id="-scp"><a name="SCP"></a> SCP</h2>
+<hr />
 
-<h4 id="single-file-transfer-tofrom-spiedie-cluster">Single File Transfer to/from Spiedie Cluster</h4>
+<p>As stated in previous sections, the Spiedie cluster should really only be used for running jobs, storing only the data necessary for those jobs. Everything else should be moved off the cluster as early as possible. This prevents hogging the available memory on Spiedie and also protects you’re data from being deleted in the case of system error.</p>
+
+<p>We will look at two ways of moving data to and form the cluster, <strong>scp</strong> and <strong>rsync</strong>. To get started, first download the bash file, <a href="../download/transfer-example.txt" download="">transfer-example.txt</a>. This file contains the complete Sherlock Holmes literature, if you’re interested in a good read.</p>
+
+<p><strong><em>Note: The following steps are only applicable while connected to the university network. If working off-campus, you must connect first to a SSL VPN. <a href="login.html">Click here for more details</a></em></strong></p>
+
+<h2 id="-using-scp-to-transfer-files"><a name="SCP"></a> Using SCP to Transfer Files</h2>
 
 <p>SCP (secure copy) is a command-line utility that allows you to securely copy files and directories between two locations.</p>
 
@@ -587,11 +593,17 @@
   <li><code class="language-plaintext highlighter-rouge">path/to/destination</code> is the path to the directory you want to transfer to.</li>
 </ul>
 
-<p>To transfer a file <strong>from</strong> spiedie onto your local computer, simply swap the source and destination.</p>
+<p>One important note to remember is that you need to give the full path of the directory on the cluster. We can start by transferring the <em>transfer-example.txt</em> file downloaded earlier into the <em>SpiedieDocs</em> directory created in the last section, using the full path of the directory which we can find by <strong>cd</strong>ing into the directory and using the <strong>pwd</strong> command.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp &lt;username&gt;@spiedie.binghamton.edu:your/desired/directory/file.txt <span class="nb">.</span>
-</code></pre></div></div>
-<p>The <code class="language-plaintext highlighter-rouge">.</code> at the end is a shortcut for you current working directory.</p>
+<p><img src="../assets/images/data-transfer/scp.png" alt="scp" /></p>
+
+<p>The output of <strong>scp</strong> will show you the files transferred, as well as their transfer completion, size, transfer speed and time. We can use flags to augment the output and the behaivior of the scp command, but for now we will take note of the 448KB file transfer size.</p>
+
+<p>Now when you look in the <em>SpiedieDocs</em> directory on the cluster you’ll see that the file has been transferred.</p>
+
+<p><img src="../assets/images/data-transfer/transfer-valid.png" alt="scp verification" /></p>
+
+<p>Transferring a file from the Spiedie cluster to your local computer is just as simple. From your local computer just use the <strong>scp</strong> command except now the <em>source</em> is the path to your file(s) on Spiedie and the <em>destination</em> is the path to the directory on your local computer.</p>
 
 <h4 id="transferring-a-directory-to-spiedie-cluster">Transferring a Directory to Spiedie Cluster</h4>
 
@@ -623,11 +635,21 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync file.ext &lt;username&gt;@spiedie.binghamton.edu:your/desired/directory 
 </code></pre></div></div>
 
-<p>A good resource for using Rsync can be found <a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories" target="_blank">here</a>.</p>
+<p>Lets test the <strong>rsync</strong> command by first editing the <em>transfer-example.txt</em> file on your local computer. Add a line to the end of the file that looks something like this…</p>
+
+<p><img src="../assets/images/data-transfer/example-file-changed.png" alt="alter the  example.sh file" /></p>
+
+<p>Once you’ve saved your file you can sync it to Spiedie using <strong>rsync</strong>.</p>
+
+<p><img src="../assets/images/data-transfer/rsync.png" alt="sync to spiedie" /></p>
+
+<p>You can see a significant speedup due to only needing to transfer the changes to the file, and not the entire thing.</p>
+
+<p><strong>rsync</strong> has plenty of flags you can use to manipulate its function. A good resource for can be found <a href="https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories" target="_blank">here</a>.</p>
 
 <h2 id="-223-mapping-home-directory"><a name="Home_dir"> </a>2.2.3 Mapping Home Directory</h2>
 
-<p>You can map your Spiedie home directory to your file explorer if you wish to use a graphical interface for file transfer</p>
+<p>If you prefer to use a graphical interface to access your files you can map your Spiedie home directory. There are a couple different solutions for this, depending on your operating system.<strong><em>NOTE: Just as above, you must be connected to the campus network either directly or through pulse secure</em></strong></p>
 
 <h4 id="--windows-explorer"><a name="windows_map_home"> </a> Windows Explorer</h4>
 <ol>
@@ -646,11 +668,30 @@
   <li>Click on registered users and use your user name and password to mount the network drive.</li>
 </ol>
 
-<h4 id="-mac-directory-mapping"><a name="mac_map_home"></a> Mac Directory Mapping</h4>
-<ol>
-  <li>From the Mac OS X Finder, press Comand+K to bring up the ‘Connect to Server’ window.</li>
-  <li>Follow the instructions for Linux starting at item 3.</li>
-</ol>
+<h4 id="-macos--os-agnostic-directory-mapping-filezilla"><a name="mac_map_home"></a> MacOS / OS Agnostic Directory Mapping (FileZilla)</h4>
+
+<p>Mapping your directory on MacOS is not as simple as on Windows or Linux. The best way to map using a GUI is to install and use <a href="https://filezilla-project.org/" target="_blank">FileZilla</a>. The FileZilla Client not only supports FTP, but also FTP over TLS (FTPS) and SFTP. It is open source software distributed free of charge under the terms of the GNU General Public License.</p>
+
+<p>Once you’ve installed FileZilla and open it, you should be greeted with a view like the following image.</p>
+
+<p><img src="../assets/images/data-transfer/filezilla-new.png" alt="FileZilla new" /></p>
+
+<p>At the top of the window there are fields to enter you remote information, and in the lower left hand window you should see your local file system. You connect to your Spiedie file system by entering your information in the following fields…</p>
+
+<p><strong>Host:</strong> sftp://&lt;username&gt;@spiedie.binghamton.edu</p>
+
+<p><strong>Username:</strong> &lt;username&gt;</p>
+
+<p><strong>Password:</strong> &lt;password&gt;</p>
+
+<p><strong>Port:</strong> Not necessary for basic connection</p>
+
+<p>After you’ve entered your info, you should see the the connection status being printed below the fields. Once a connection has been established you should see your Spiedie file system in the lower right hand window. 
+<img src="../assets/images/data-transfer/filezilla-connected.png" alt="FileZilla connected" /></p>
+
+<p>Transferring files is then as simple as dragging and dropping from one file system to the other.</p>
+
+<p>Now that we’ve gone over transfering data to and from the Spiedie cluster, we can start thinking about using the resources Spiedie provides to actually run some jobs!</p>
 
 
             </article><div class="docs-nav">
@@ -687,6 +728,8 @@
       
       
       
+      
+        <a id="next-doc" href=/docs/using-spiedie-resources.html>Using Spiedie Resources <strong>>></strong></a>
       
         <a id="prev-doc" href=/docs/welcome-to-spiedie.html><strong><<</strong> Spiedie User Environment</a>
       

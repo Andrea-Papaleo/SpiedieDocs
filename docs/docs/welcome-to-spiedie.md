@@ -25,7 +25,7 @@ next: Transfer File to Cluster
 
  Everytime you log into Spiedie you will be greeted with a welcome message similar to the one below.
 
- ![Log in Welcome Message](../assets/images/spiedie-welcome-message.png)
+ ![Log in Welcome Message](../assets/images/welcome-to-spiedie/spiedie-welcome-message.png)
 
  This message contains some information you will need to use the cluster. 
  
@@ -59,7 +59,7 @@ A process is an executing program identified by a unique process identifier (PID
 
 Everything in UNIX is either a file or a process. These files and processes are grouped together and stored in a directory structure, a hierarchical structure similar to an inverted tree. An example is shown below.
 
-![directory-structure](../assets/images/directory-structure.png)
+![directory-structure](../assets/images/welcome-to-spiedie/directory-structure.png)
 
 Instead of *"user"* in the figure above, the directory will be your spiedie username. You can view the path to your current home directory by using the *print working directory* command **pwd** in the terminal. You can do this by typing 
 
@@ -68,7 +68,7 @@ pwd
 ```
 at the command prompt. You shuold get an output which looks like the below figure.
 
-![pwd](../assets/images/pwd.png)
+![pwd](../assets/images/welcome-to-spiedie/pwd.png)
 
 You can learn more about the unix command **pwd**, as well as other commands youll use shortly by checking out the linux command page of these [docs](basic_linux_commands.html)
 
@@ -76,21 +76,21 @@ You can learn more about the unix command **pwd**, as well as other commands you
 
 Your home directory is where you will be keeping all of your data. You can view the contents of you current directory by using the **ls** command. Type
 
-![pwd](../assets/images/ls.png)
+![pwd](../assets/images/welcome-to-spiedie/ls.png)
 
 If you havent yet created any files or folder, then the output of the ls command wont show much. The output will list just one directory, which is the *scratch* directory and is mainly used for temporary files.
 
 Lets go about populating out home directory. We can creat new directories by using the **mkdir** command followed by the name we want to give our directory. Then we can us **ls** again to show that it was created.
 
-![mkdir-spiediedocs](../assets/images/mkdir-spiediedocs.png)
+![mkdir-spiediedocs](../assets/images/welcome-to-spiedie/mkdir-spiediedocs.png)
 
 Once we've created the *SpiedieDocs* directory we can navigate to it using the **cd** command. We can confirm this change by again printing the current working directory.
 
-![cd-spiediedocs](../assets/images/cd-spiediedocs.png)
+![cd-spiediedocs](../assets/images/welcome-to-spiedie/cd-spiediedocs.png)
 
 Now thate we've moved into the *SpiedieDocs* directory, lets create a file. There are a number of ways to create a file, we can use a text editor, such as [emacs or vi](basic_linux_commands.html#editors), or we can create an empty file without adding contents by using the *touch* command.
 
-![touch](../assets/images/touch.png)
+![touch](../assets/images/welcome-to-spiedie/touch.png)
 
 You can check that your file was created by using the *ls* command.
 
