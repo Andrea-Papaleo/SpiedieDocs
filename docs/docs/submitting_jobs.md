@@ -9,11 +9,6 @@ prev: Viewing Spiedie Resources
 next: Spiedie Modules
 ---
 
-
-***
-
-
-
 ### Table of Contents 
 
 1. [Using srun](#srun)
@@ -27,6 +22,8 @@ next: Spiedie Modules
 3. [Customizing resource allocation](#resource-alloc) 
     1. [Using Spiedie-specific Directvies or Features](#features)
     2. [Increase memory allocation](#mem-alloc)
+
+    
 ## <a name="srun"></a> Using srun 
 
 Both the srun and sbatch command have similar capabilities and set of parameters. srun is used to submit a job for execution in real time and blocks the terminal. You will not be able to issue other commands while the program executes and must have an open connection while the program runs. It is generally recommended to use srun for quick test runs and for simple workflows. 

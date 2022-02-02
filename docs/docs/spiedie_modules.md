@@ -5,6 +5,7 @@ images: []
 tags : [partitions, features, memory management, modules]
 description: Learn about the different specialized partitions set up on Spiedie and best practices to improve Spiedie usage.  
 category: getting-started
+prev: Submitting Jobs on Spiedie
 --- 
 
 ***
