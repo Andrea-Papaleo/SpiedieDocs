@@ -1,10 +1,11 @@
 ---
-title: Using Spiedie Resources
+title: Viewing Spiedie Resources
 layout: default
 images: []
 tags: [Setup, Configuration, New_User]
 description: Understanding the SLURM cluster management system
-prev: Transfer File to Cluster
+prev: Transferring Data to the Cluster
+next: Running Jobs
 category: getting-started
 ---
 
@@ -18,7 +19,7 @@ category: getting-started
      * [NODES](#nodes)
      * [STATE](#state)
      * [NODELIST](#nodelist)
- 2. [Queue](#squeue)
+ 2. [Queue Information](#squeue)
      * [JOBID](#jobid) 
      * [PARTITION](#squeue-partition)
      * [NAME](#name)
@@ -39,7 +40,7 @@ category: getting-started
 
  This will give you an output similar to below.
 
- ![sinfo-output](../assets/images/sinfo-output.png)
+ ![sinfo-output](../assets/images/using-resources/sinfo.png)
 
  Lets break down this output and look at the columns individually.
  
@@ -91,7 +92,7 @@ At the time of this writing the spiedie cluser contains 170 nodes. Each node has
 
 For example, the nodes in the **defq** partition that are currently idle are compute[014-020], meaning that compute014, compute015, compute016, compute017 , compute018, compute019 , and compute020 are currently idle. This could be usefule if you need a job to run soon, as you can specify which nodes to rin your job on when you submit.  
 
-## <a name="squeue"></a> Queue
+## <a name="squeue"></a> Queue Information
 
 When you submit a job to the cluster it isn't guarenteed to run immediately. The slurm cluster uses whats called a scheduler, which determines the job's position in the queue based on variety of factors. Modern schedulers provide a fairness component, which gives advantage to under-serivced users, and jobs which require fewer resources or less time to run.
 
@@ -102,7 +103,7 @@ squeue
 ```
 After typing the command, you should see an output like this.
 
-![squeue-output](../assets/images/squeue.png)
+![squeue-output](../assets/images/using-resources/squeue.png)
 
 This output shows the current jobs running/waiting on the cluser. We'll look at the individual columns of this output, like we did with the **sinfo** output.
 

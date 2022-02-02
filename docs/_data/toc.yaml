@@ -25,32 +25,39 @@ toc:
   - title: Getting Started
     category: getting-started
     contents:
-      - title: Logging In
-        url: "/docs/login.html"
+      - title: Connecting to Spiedie
+        url: "/docs/connect-to-spiedie.html"
         external: false
         inner_list:
           - title: Connect from Off-Campus
-            url: "/docs/login.html#off_campus"
+            url: "/docs/connect-to-spiedie.html#off_campus"
             external: false
           - title: Using Windows
-            url: "/docs/login.html#using_windows"
+            url: "/docs/connect-to-spiedie.html#using_windows"
             external: false
           - title: Using Mac
-            url: "/docs/login.html#using_mac"
+            url: "/docs/connect-to-spiedie.html#using_mac"
             external: false
           - title: Using Linux
-            url: "/docs/login.html#using_linux"
+            url: "/docs/connect-to-spiedie.html#using_linux"
             external: false
           - title: Accessing Bright Web Portal
-            url: "/docs/login.html#bright_web"
+            url: "/docs/connect-to-spiedie.html#bright_web"
             external: false
           - title: X2Go on Spiedie
             url: "/docs/x2go_spiedie.html"
             external: false
-      - title: Welcome to Spiedie
-        url: "/docs/welcome-to-spiedie.html"
+      - title: User Home Directory
+        url: "/docs/home-directory.html"
         external: false
-      - title: Transferring Data
+        inner_list:
+          - title: Welcome to Spiedie
+            url: "/docs/home-directory.html#welcome-message"
+            external: false
+          - title: User Environment
+            url: "/docs/home-directory.html#user-environment"
+            external: false
+      - title: Transferring Data to the Cluster
         url: "/docs/data_transfer.html"
         external: false
         inner_list:
@@ -63,9 +70,29 @@ toc:
           - title: Map Home Directory
             url: "/docs/data_transfer.html#Home_dir"
             external: false
-      - title: Using Spiedie Resources
-        url: "/docs/using-spiedie-resources.html"
+      - title: Viewing Spiedie Resources
+        url: "/docs/viewing-spiedie-resources.html"
         external: false
+        inner_list:
+          - title: Cluster Information
+            url: "/docs/viewing-spiedie-resources.html#sinfo"
+            external: false
+          - title: Queue Information
+            url: "/docs/viewing-spiedie-resources.html#squeue"
+            external: false
+      - title: Running Jobs
+        url: "/docs/submitting_jobs.html"
+        external: false
+        inner_list:
+          - title: Using srun
+            url: "/docs/submitting_jobs.html#srun"
+            external: false
+          - title: Using sbatch
+            url: "/docs/submitting_jobs.html#sbatch"
+            external: false
+          - title: Customizing Resource Allocation
+            url: "/docs/submitting_jobs.html#resource-alloc"
+            external: false
       - title: Spiedie Modules
         url: "/docs/spiedie_modules.html"
         external: false
@@ -100,19 +127,6 @@ toc:
       - title: Compiling Code On Spiedie
         url: "/docs/compilers.html"
         external: false
-      - title: Running Jobs
-        url: "/docs/submitting_jobs.html"
-        external: false
-        inner_list:
-          - title: Using srun
-            url: "/docs/submitting_jobs.html#srun"
-            external: false
-          - title: Using sbatch
-            url: "/docs/submitting_jobs.html#sbatch"
-            external: false
-          - title: Customizing Resource Allocation
-            url: "/docs/submitting_jobs.html#resource-alloc"
-            external: false
       - title: Using Conda on Spiedie
         url: "/docs/spiedie_conda.html"
         external: false

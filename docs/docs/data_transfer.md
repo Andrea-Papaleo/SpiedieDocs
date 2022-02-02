@@ -1,11 +1,11 @@
 ---
-title: Transfer File to Cluster
+title: Transferring Data to the Cluster
 layout: default
 images: []
 tags: [Login, Setup, File Transfer, Windows, Mac, Linux, New_User]
 description: A guide to transferring data to and from Spiedie and setting up network drives. 
-prev: Spiedie User Environment
-next: Using Spiedie Resources
+prev: User Home Directory
+next: Viewing Spiedie Resources
 category: getting-started
 ---
 
@@ -23,7 +23,7 @@ As stated in previous sections, the Spiedie cluster should really only be used f
 
 We will look at two ways of moving data to and form the cluster, **scp** and **rsync**. To get started, first download the bash file, <a href="../download/transfer-example.txt" download>transfer-example.txt</a>. This file contains the complete Sherlock Holmes literature, if you're interested in a good read.
 
-***Note: The following steps are only applicable while connected to the university network. If working off-campus, you must connect first to a SSL VPN. [Click here for more details](login.html)*** 
+***Note: The following steps are only applicable while connected to the university network. If working off-campus, you must connect first to a SSL VPN. [Click here for more details](connect-to-spiedie.html)*** 
 
 
 ## <a name="SCP"></a> Using SCP to Transfer Files 

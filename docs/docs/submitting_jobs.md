@@ -5,6 +5,8 @@ images: []
 tags: [SRUN, SBATCH, Job Submission, interactive session, memory allocation, partitions]
 description: Documentation for srun and sbatch commands 
 category: getting-started
+prev: Viewing Spiedie Resources
+next: Spiedie Modules
 ---
 
 

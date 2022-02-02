@@ -70,9 +70,11 @@ main { grid-area: 1/1/2/7; display: flex; flex-direction: column; width: 100%; h
 .docs a { color: #005a43; text-decoration: none; }
 .docs a:hover { color: #004333; text-decoration: underline; }
 .docs img { max-width: 70%; display: block; margin: 2rem auto; border-radius: 3px; }
-.docs table { table-layout: fixed; width: 95%; border-collapse: collapse; border: 1px solid #9a9a9a; margin: 2rem auto; }
-.docs th, .docs td { padding: 1rem; border: 1px solid #9a9a9a; overflow-wrap: break-word; text-align: center; }
+.docs table { table-layout: fixed; width: 95%; border-collapse: collapse; margin: 2rem auto; }
+.docs th, .docs td { padding: 0.5rem; overflow-wrap: break-word; text-align: center; }
 .docs td { font-size: 0.8rem; }
+.docs td:nth-child(1) { width: 200px; }
+.docs th:nth-child(1) { width: 200px; }
 .docs .docs-nav { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
 .docs .docs-nav #prev-doc { grid-column-start: 1; grid-row-start: 1; justify-self: flex-start; }
 .docs .docs-nav #next-doc { grid-column-start: 2; grid-row-start: 1; justify-self: flex-end; }

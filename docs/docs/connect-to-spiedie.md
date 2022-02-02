@@ -1,11 +1,11 @@
 ---
-title: Connecting to the Cluster
+title: Connecting to Spiedie
 layout: default
 images: []
 tags: [Login, Setup, Configuration, Windows, Mac, Linux, New_User]
 description: How to log on to Spiedie from your personal computer using various operating systems.
 category: getting-started
-next: Spiedie User Environment
+next: User Home Directory
 ---
 
 
@@ -35,11 +35,11 @@ First and foremost, you can only connect to the spiedie cluster when you are usi
 
 Go to <a href="https://ssl.binghamton.edu" target = "_blank">ssl.binghamton.edu</a> and log in using your PODS DOMAIN ID. 
 
-![Log in with SSL](../assets/images/logging_in-ssl.png)
+![Log in with SSL](../assets/images/connect-to-spiedie/logging_in-ssl.png)
 
 Once you're logged in, you should see options for downloading Pulse Secure depending on which system you are using. Select the appropriate option and follow the given instructions.
 
-![List of puls secure options](../assets/images/logging_in_pulse.png)
+![List of puls secure options](../assets/images/connect-to-spiedie/logging_in_pulse.png)
 
 
 ***Note: The following instructions are for when you are connected to the campus network. If you are off campus you must be connected through Pulse Secure.***

@@ -89,19 +89,25 @@ main{
         table-layout: fixed;
         width: 95%;
         border-collapse: collapse;
-        border: 1px solid $hr-gray;
         margin: 2rem auto;
     }
       
     
     th, td {
-    padding: 1rem;
-    border: 1px solid $hr-gray;
+    padding: 0.5rem;
     overflow-wrap: break-word;
     text-align: center;
     }
     td {
         font-size: 0.8rem;
+    }
+    
+
+    td:nth-child(1) {
+        width: 200px;
+    }
+    th:nth-child(1){
+        width: 200px;
     }
     .docs-nav{
         display:grid;
