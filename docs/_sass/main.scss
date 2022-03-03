@@ -26,8 +26,13 @@ main{
     display: flex;
     flex-direction: column;
     height: calc(100% - $content-detail-small-height);
-    margin: 0 1rem;
+    margin: 0 2rem;
     max-width: 100%;
+
+    h1, h2, h3, h4, h5{
+        @include header-font;
+        font-weight: 700;
+    }
 
     h1 {
         display:flex;
@@ -40,18 +45,16 @@ main{
 
     h2 {
         display:flex;
-        justify-content: center;
+        justify-content: flex-start;
+        font-size: 1.75rem;
         padding: 1.5rem 0;
-        margin: 3rem 0;
-        border-bottom: 2px solid $hr-gray;
-        border-top: 2px solid $hr-gray;
-        letter-spacing: 0.2rem;
+        margin: 1rem 0;
     }
 
     h3 {
         display:flex;
         justify-content:flex-start;
-        border-bottom: 1px solid $hr-gray;
+        font-size:1.25rem;
 
     }
 
@@ -62,11 +65,13 @@ main{
         font-style: italic;
     }
 
-
-
-    p, .language-bash{
-        margin-left: 1rem;
+    h5{
+        font-size: 1rem;
     }
+
+
+
+    
 
     a {
         color: $binghamton-light-green;

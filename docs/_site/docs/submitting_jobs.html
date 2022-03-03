@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"> -->
     <!--<script>
       window.dataLayer = window.dataLayer || [];
@@ -593,40 +594,81 @@
   </li>
 </ol>
 
-<h2 id="-using-srun"><a name="srun"></a> Using srun</h2>
+<h2 id="-create-and-submit-a-job"><a name="creating-jobs"></a> Create and Submit a Job</h2>
 
-<p>Both the srun and sbatch command have similar capabilities and set of parameters. srun is used to submit a job for execution in real time and blocks the terminal. You will not be able to issue other commands while the program executes and must have an open connection while the program runs. It is generally recommended to use srun for quick test runs and for simple workflows.</p>
+<p>When you want to run a job on the spiedie cluster, there are two main parts that need to be specified. The first of the two is <strong>resource request</strong>. This is when you tell the cluster what your job is going to need to run, i.e. number of nodes/CPUs, expected compute duration, amount of RAM needed, etc.. The next part is <strong>job steps</strong>, which describes the tasks that need to be done, essentially what it is you are truing to run.</p>
 
-<h4 id="running-simple-program"><a name="srun-program"></a>Running simple program</h4>
+<p>Depending on your needs, there are a few ways to go about submitting jobs, if you need to submit a job in real time you can use the <strong>srun</strong> command. Or, if you have a more complex job that you want to submit to the queue and move on to other things, you would use the <strong>squeue</strong> command.</p>
+
+<p>We will first go over submitting jobs via <strong>srun</strong>.</p>
+
+<h3 id="-using-srun"><a name="srun"></a> Using SRUN</h3>
+
+<p>Using <strong>srun</strong> runs the job in the current terminal, blocking other terminal input. Once the job is complete, it relinquishes control of the compute node and allows you to resume input.</p>
+
+<p><strong>srun</strong> also has an option to run interactively, giving you access to the particular node/CPU via the command line. In this mode you can use the command line in the normal way, with any software/tasks executing on the requested node. You will remain “logged in” to the requested compute node/s until the time limit is reached, you manually exit, or an error occurs.</p>
+
+<h4 id="-running-a-simple-program-with-srun"><a name="srun-program"></a> Running a Simple Program with srun</h4>
 
 <p>To queue a quick test program use:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun <span class="nt">-n4</span> <span class="nt">-N1</span> &lt;program run <span class="nb">command</span><span class="o">&gt;</span>
 </code></pre></div></div>
 
-<p>here we have speciefied to allocate one node (-N1) and four tasks(cores) (-N4), and use defaults for other parameters.</p>
+<p>here we have speciefied to allocate four tasks(cores) (-n4) and one node (-N1), using the defaults for other parameters.</p>
+
+<p>For instance, if we wanted to run a python file called <em>run.py</em> which outputs “hello!” to the screen, using one node and one core, we would type..</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>watson@spiedie81 ~]<span class="nv">$ </span>srun <span class="nt">-n1</span> <span class="nt">-N1</span> python run.py
+hello!
+<span class="o">[</span>watson@spiedie81 ~]<span class="err">$</span>
+</code></pre></div></div>
+
+<p>After submitting via srun, the cluster allocated the requested resources and ran the python script. While the process is running, control of the terminal is abdicated. The output of that script is then printed to the console and control is then resumed.</p>
+
+<p>Using <strong>srun</strong> in this way is beneficial if you need to quickly run a single script. If you would instead like to run an interactive session you can also do that.</p>
 
 <h4 id="-interactive-session"><a name="interactive-session"></a> Interactive Session</h4>
 
-<p>A common use case for srun is to open an interactive shell session on a cluster.</p>
+<p>A common use case for srun is to open an interactive shell session on a cluster. This allows you to run multiple scripts, get the results immediately, and continue using the current node for other tasks like analysis (if needed to be run on cluster).</p>
 
 <p>To start a interaactive session run:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun <span class="nt">-n1</span> <span class="nt">--partition</span><span class="o">=</span>&lt;partition_name&gt; <span class="nt">--pty</span> bash 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun <span class="nt">-n1</span> <span class="nt">--partition</span><span class="o">=</span>&lt;partition_name&gt; <span class="nt">--pty</span> bash
 </code></pre></div></div>
 
 <p>This will allow direct access to a single node in a specific partition defined by <strong><em>parition_name</em></strong> once it is available.</p>
 
-<p>For more information on partitions, <a href="spiedie_partitions.html">click here.</a>
-For a list of all srun parameters, <a href="https://slurm.schedmd.com/srun.html" target="_blank">click here.</a></p>
+<p>Running the same python script in interactive mode would look something like this…</p>
 
-<h2 id="-using-sbatch"><a name="sbatch"></a> Using sbatch</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>watson@spiedie81 ~]<span class="nv">$ </span>srun <span class="nt">-N1</span> <span class="nt">--partition</span><span class="o">=</span>quick <span class="nt">--pty</span> bash
+<span class="o">[</span>watson@compute031 ~]<span class="nv">$ </span>python run.py
+hello!
+<span class="o">[</span>watson@compute031 ~]<span class="err">$</span>
+</code></pre></div></div>
+
+<p>Notice how after the srun command we went from “spiedie81” to “compute031” which is a compute node in the quick partition. Once we’ve been given access to the node, we run the python script as we would on any other terminla, and when it is complete we still have use of the node.</p>
+
+<p>As mentioned earlier, once were done using the node we can exit by typing <strong>exit</strong> or typing <strong>[^d]</strong>. This will bring us back to the head node.</p>
+
+<p><strong><em>NOTE: Its important to exit out of the node when you are done running the processes, otherwise the resource will remain held up until the time limit is reached, preventing others from using it.</em></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>watson@compute031 ~]<span class="nv">$ </span><span class="nb">exit
+exit</span>
+<span class="o">[</span>watson@spiedie81 ~]<span class="err">$</span>
+</code></pre></div></div>
+
+<p>For more information on partitions, <a href="spiedie_partitions.html">click here.</a></p>
+
+<p>For a list of all srun parameters, <a href="https://slurm.schedmd.com/srun.html" target="_blank">click here.</a></p>
+
+<h3 id="-using-sbatch"><a name="sbatch"></a> Using SBATCH</h3>
 
 <p>The typical way to run a job on a cluster is to write a submission script and run the sbatch command. This allows for greater control and parameter passing. Also sbatch jobs are stored in internal storage awaiting to be executed and the user can log out without affecting the submitted job.</p>
 
 <h4 id="-writing-a-run-script"><a name="run-script"></a> Writing a run script</h4>
 
-<p>*** Note: Take a look at <a href="https://spiediedocs.binghamton.edu/tutorials/code/example_run_script.sh">example_run_script.sh </a> for a complete run script **</p>
+<p><em>** Note: Take a look at <a href="https://spiediedocs.binghamton.edu/tutorials/code/example_run_script.sh">example_run_script.sh </a> for a complete run script **</em></p>
 
 <p>The very first line of the script must be the shebang. Such as,</p>
 
@@ -639,7 +681,8 @@ For a list of all srun parameters, <a href="https://slurm.schedmd.com/srun.html"
 
 <p>Some example run script directives would be,</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --job-name=name_of_job</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=name_of_job</span>
 <span class="c">#SBATCH --output=output_file_name.txt</span>
 <span class="c">#SBATCH --error=error_file_name.log</span>
 <span class="c">#SBATCH --ntasks=1</span>
@@ -651,31 +694,36 @@ For a list of all srun parameters, <a href="https://slurm.schedmd.com/srun.html"
 
 <p>Finally, we can simply append the shell command to instruct SLURM to the desired program.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>program_run_command program 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=name_of_job</span>
+<span class="c">#SBATCH --output=output_file_name.txt</span>
+<span class="c">#SBATCH --error=error_file_name.log</span>
+<span class="c">#SBATCH --ntasks=1</span>
+
+program_run_command program
 </code></pre></div></div>
 
-<p>For example to run a python script we would write:</p>
+<p>Here <em>program_run_command</em> is whatever you would use to run you program normally. For example, to run a python script <em>program_run_command</em> would instead be <em>python</em>, as shown below.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python python_Script.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=name_of_job</span>
+<span class="c">#SBATCH --output=output_file_name.txt</span>
+<span class="c">#SBATCH --error=error_file_name.log</span>
+<span class="c">#SBATCH --ntasks=1</span>
+
+python run.py
 </code></pre></div></div>
 
-<h5 id="parallel-programs">Parallel Programs</h5>
-
-<p>To run a MPI program, we would write:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load OpenMPI 
-srun MPI_program.mpi 
-</code></pre></div></div>
-<p>It is recommended to use srun inside of the sbatch run script, as srun automatically launches the required processes.</p>
-
-<p>module load OpenMPI loads the MPI runtime library prior to running the program. <a href="spiedie_modules.html">For more information on modules, click here.</a></p>
+<p>Now that a run script has been created, you can submit it using the <strong>sbatch</strong> command.</p>
 
 <h4 id="-submitting-the-run-script"><a name="sbatch-submission"></a> Submitting the run script</h4>
 
 <p>To use a run script to submit a job use:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch <span class="nt">--partition</span><span class="o">=</span>partition_name run_script.sh 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch <span class="nt">--partition</span><span class="o">=</span>partition_name run_script.sh
 </code></pre></div></div>
+
+<p>Once you run the <strong>sbatch</strong> command, You will see your submission on the queue by using <strong>squeue</strong>, along with the requirements needed to be met in order to begin running.</p>
 
 <h2 id="-customizing-resource-allocation"><a name="resource_alloc"></a> Customizing resource allocation</h2>
 
@@ -683,7 +731,7 @@ srun MPI_program.mpi
 
 <p>Proper resource allocation also ensures your program runs as fast and efficiently as possibile and does not halt unexepectedly due to hardware resource shortages such as memory. It is also best practice to allocate the right amount of resources for SLURM to work as efficient as possible for the entire cluster.</p>
 
-<h4 id="-using-spiedie-specific-directvies-or-features"><a name="features"></a> Using Spiedie-specific Directvies or Features</h4>
+<h3 id="-using-spiedie-specific-directvies-or-features"><a name="features"></a> Using Spiedie-specific Directvies or Features</h3>
 
 <p>One way to make sure your programs run properly is to run it on the correct partition, as stated above.</p>
 
@@ -708,6 +756,8 @@ srun MPI_program.mpi
 <p>The above job requests for 4 GB of memory for the default one node.</p>
 
 <p>You can also request memory per core using the –mem-per-cpu flag.</p>
+
+<p>Hopefully this page has helped you understand how to submit jobs to spiedie. You may have noticed that throughout this part of the documentation we have been submitting scripts which run the python program. The reason for that is that python(v2.7) is installed by default on the cluster, with no extra steps for running a python script. In the next section we will discuss spiedie modules, what they are, and how to install and use them in your scripts.</p>
 
 
             </article><div class="docs-nav">

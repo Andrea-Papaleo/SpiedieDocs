@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"> -->
     <!--<script>
       window.dataLayer = window.dataLayer || [];
@@ -513,6 +514,8 @@
       
       
       
+        <a id="prev-doc" href=/docs/spiedie_modules.html><strong><<</strong> Spiedie Modules</a>
+      
       
       
       
@@ -533,9 +536,7 @@
             </h1>
             
             <article >
-              <hr />
-
-<h3 id="table-of-contents">Table of Contents</h3>
+              <h3 id="table-of-contents">Table of Contents</h3>
 
 <ol>
   <li><a href="#gcc">GCC</a></li>
@@ -551,13 +552,14 @@
   </li>
 </ol>
 
-<h5><a name="gcc"></a></h5>
+<h2 id="-compilers"><a name="compilers"></a> Compilers</h2>
+<h3 id="-gcc"><a name="gcc"></a> GCC</h3>
 <p>The open source gcc and g++ compiler is available as a module and can be loaded with:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load gcc
 </code></pre></div></div>
 
-<h5 id="-icc"><a name="Intel"></a> ICC</h5>
+<h3 id="-icc"><a name="Intel"></a> ICC</h3>
 
 <p>Spiedie also provides users with the Intel Parallel Studio Compilers suite to take advantage of the improved performance on the Xeon-Phi architecture available.</p>
 
@@ -582,7 +584,7 @@
 
 <p><a href="https://software.intel.com/en-us/node/685016" target="_blank">Click here for the summary of the toolset</a></p>
 
-<h5 id="-nvcc"><a name="nvidia"></a> NVCC</h5>
+<h3 id="-nvcc"><a name="nvidia"></a> NVCC</h3>
 
 <p>The GPU compute nodes fully support CUDA accelerated applications and libraries.</p>
 
@@ -654,6 +656,8 @@
       
       
       
+      
+        <a id="prev-doc" href=/docs/spiedie_modules.html><strong><<</strong> Spiedie Modules</a>
       
       
       
