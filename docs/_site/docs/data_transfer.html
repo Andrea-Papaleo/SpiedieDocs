@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"> -->
     <!--<script>
       window.dataLayer = window.dataLayer || [];
@@ -603,13 +604,13 @@
 
 <p>One important note to remember is that you need to give the full path of the directory on the cluster. We can start by transferring the <em>transfer-example.txt</em> file downloaded earlier into the <em>SpiedieDocs</em> directory created in the last section, using the full path of the directory which we can find by <strong>cd</strong>ing into the directory and using the <strong>pwd</strong> command.</p>
 
-<p><img src="../assets/images/data-transfer/scp.png" alt="scp" /></p>
+<p><img src="/assets/images/data-transfer/scp.png" alt="scp" /></p>
 
 <p>The output of <strong>scp</strong> will show you the files transferred, as well as their transfer completion, size, transfer speed and time. We can use flags to augment the output and the behaivior of the scp command, but for now we will take note of the 448KB file transfer size.</p>
 
 <p>Now when you look in the <em>SpiedieDocs</em> directory on the cluster you’ll see that the file has been transferred.</p>
 
-<p><img src="../assets/images/data-transfer/transfer-valid.png" alt="scp verification" /></p>
+<p><img src="/assets/images/data-transfer/transfer-valid.png" alt="scp verification" /></p>
 
 <p>Transferring a file from the Spiedie cluster to your local computer is just as simple. From your local computer just use the <strong>scp</strong> command except now the <em>source</em> is the path to your file(s) on Spiedie and the <em>destination</em> is the path to the directory on your local computer.</p>
 
@@ -645,11 +646,11 @@
 
 <p>Lets test the <strong>rsync</strong> command by first editing the <em>transfer-example.txt</em> file on your local computer. Add a line to the end of the file that looks something like this…</p>
 
-<p><img src="../assets/images/data-transfer/example-file-changed.png" alt="alter the  example.sh file" /></p>
+<p><img src="/assets/images/data-transfer/example-file-changed.png" alt="alter the  example.sh file" /></p>
 
 <p>Once you’ve saved your file you can sync it to Spiedie using <strong>rsync</strong>.</p>
 
-<p><img src="../assets/images/data-transfer/rsync.png" alt="sync to spiedie" /></p>
+<p><img src="/assets/images/data-transfer/rsync.png" alt="sync to spiedie" /></p>
 
 <p>You can see a significant speedup due to only needing to transfer the changes to the file, and not the entire thing.</p>
 
@@ -682,7 +683,7 @@
 
 <p>Once you’ve installed FileZilla and open it, you should be greeted with a view like the following image.</p>
 
-<p><img src="../assets/images/data-transfer/filezilla-new.png" alt="FileZilla new" /></p>
+<p><img src="/assets/images/data-transfer/filezilla-new.png" alt="FileZilla new" /></p>
 
 <p>At the top of the window there are fields to enter you remote information, and in the lower left hand window you should see your local file system. You connect to your Spiedie file system by entering your information in the following fields…</p>
 
@@ -695,7 +696,7 @@
 <p><strong>Port:</strong> Not necessary for basic connection</p>
 
 <p>After you’ve entered your info, you should see the the connection status being printed below the fields. Once a connection has been established you should see your Spiedie file system in the lower right hand window. 
-<img src="../assets/images/data-transfer/filezilla-connected.png" alt="FileZilla connected" /></p>
+<img src="/assets/images/data-transfer/filezilla-connected.png" alt="FileZilla connected" /></p>
 
 <p>Transferring files is then as simple as dragging and dropping from one file system to the other.</p>
 

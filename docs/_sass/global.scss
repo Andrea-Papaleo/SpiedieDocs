@@ -1,62 +1,72 @@
 pre.highlight {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
-
 .no-scroll-bar {
--ms-overflow-style: none;
-scrollbar-width: none;
-overflow-y: scroll;
-
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
 
 .no-scroll-bar::-webkit-scrollbar {
-display: none;
+  display: none;
 }
 
 hr {
-    color: $hr-gray;
+  color: $hr-gray;
 }
-
 
 .autocomplete-suggestions {
-    border: 1px solid #999;
-    background: #fff;
-    overflow: auto;
+  border: 1px solid #999;
+  background: #fff;
+  overflow: auto;
 }
 .autocomplete-suggestion {
-padding: 2px 5px;
-white-space: nowrap;
-overflow: hidden;
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .autocomplete-selected {
-background: #f0f0f0;
+  background: #f0f0f0;
 }
 .autocomplete-suggestions strong {
-font-weight: normal;
-color: #3399ff;
+  font-weight: normal;
+  color: #3399ff;
 }
 .autocomplete-group {
-padding: 2px 5px;
+  padding: 2px 5px;
 }
 .autocomplete-group strong {
-display: block;
-border-bottom: 1px solid #000;
+  display: block;
+  border-bottom: 1px solid #000;
 }
 div.highlight {
-background: #fff;
+  background: #fff;
 }
+
+code{
+  border: 1px solid #e1e4e5;
+  background: #f8f8f8;
+  font-size: 0.875rem;
+}
+
 pre.highlight {
-padding: 10px;
-border-radius: 10px;
-border-width: 10px;
-background: #ddd;
+  padding: 10px;
+  border: 1px solid #e1e4e5;
+  background: #f8f8f8;
+  code{
+    border: none;
+    background-color: transparent;
+  }
 }
+
+
 .badge-primary {
-background-color: #004333;
+  background-color: #004333;
 }
 .badge {
-font-size: 14px;
-padding: 8px;
-margin-top: 4px;
+  font-size: 14px;
+  padding: 8px;
+  margin-top: 4px;
 }
+

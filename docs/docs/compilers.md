@@ -5,9 +5,9 @@ images: []
 tags: [GCC, CLANG, CMAKE, ICC, Intel Compilers]
 description: Available compilers on spiedie for optimized compilations.
 category: getting-started
+prev: Spiedie Modules
 ---
 
-***
 
 ### Table of Contents 
 
@@ -17,14 +17,15 @@ category: getting-started
 3. [NVCC](#nvidia)
 	- [Runtime Libraries](#nvidia_libs)
 
-##### <a name="gcc"></a>
+## <a name="compilers"></a> Compilers
+### <a name="gcc"></a> GCC
 The open source gcc and g++ compiler is available as a module and can be loaded with: 
 
 ```bash
 module load gcc
 ```
 
-##### <a name="Intel"></a> ICC
+### <a name="Intel"></a> ICC
 
 Spiedie also provides users with the Intel Parallel Studio Compilers suite to take advantage of the improved performance on the Xeon-Phi architecture available. 
 
@@ -49,7 +50,7 @@ This loads the following libraries:
 
 <a href="https://software.intel.com/en-us/node/685016" target="_blank">Click here for the summary of the toolset</a>
 
-##### <a name="nvidia"></a> NVCC
+### <a name="nvidia"></a> NVCC
 
 The GPU compute nodes fully support CUDA accelerated applications and libraries. 
 

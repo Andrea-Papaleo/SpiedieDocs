@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css"> -->
     <!--<script>
       window.dataLayer = window.dataLayer || [];
@@ -566,6 +567,8 @@
       
       
       
+        <a id="next-doc" href=/docs/compilers.html>Compiling Source Code on Spiedie <strong>>></strong></a>
+      
       
       
       
@@ -611,9 +614,7 @@
             </h1>
             
             <article >
-              <hr />
-
-<h3 id="table-of-contents">Table of Contents</h3>
+              <h3 id="table-of-contents">Table of Contents</h3>
 
 <ol>
   <li><a href="#avail">Available Modules</a></li>
@@ -627,29 +628,74 @@
   <li><a href="#help">Further uses</a></li>
 </ol>
 
-<h4 id="-available-modules"><a name="avail"></a> Available Modules</h4>
-<p>To view all available modules run:</p>
+<h2 id="-spiedie-modules"><a name="module_intro"></a> Spiedie Modules</h2>
+
+<p>Spiedie uses a module system to load software into a user’s environment. With the exception of some (i.e. python), software on Spiedie is not accessible by sefault, and must be loaded through the module system. The reason for this is to accommodate as many users as possible, as specific versions of software may be needed for different users. The module system enables users to easily switch between different software versions depending on individual need.</p>
+
+<h3 id="-available-modules"><a name="avail"></a> Available Modules</h3>
+
+<p>To see what modules are available to load, type:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module avail 
 </code></pre></div></div>
 
-<h4 id="-loading-a-module"><a name="load"></a> Loading a Module</h4>
+<p>This command returns a list of modules available to be loaded into the user’s environment. You can use the arrow keys to scroll the list if necessary and you can type <strong>q</strong> to exit.</p>
 
-<p>To load a module to your current environment run:</p>
+<h3 id="-listing-modules"><a name="list"></a> Listing Modules</h3>
+
+<p>You can check which modules you currently have installed in your environment by typing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module list
+</code></pre></div></div>
+<p>You can see here that there are a few modules loaded by default, it’s best to leave these as they are. Any module you load moving foward will show up here until you end your current session.</p>
+
+<h2 id="-loading-and-unloading-modules"><a name="load_unload"></a> Loading and Unloading Modules</h2>
+
+<p>Modules can be loaded on login if necessary, however it may be cleaner and more efficient to load modules inside of job scripts or interactive jobs. This compartmentalizing will ensure that your jobs always have the necessary resources to run.</p>
+
+<h3 id="-loading-a-module"><a name="load"></a> Loading a Module</h3>
+
+<p>To load a module to your current environment, type:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load module_name
+
+<span class="c"># example: "module load python"</span>
 </code></pre></div></div>
 
 <p>or</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module add module_name
+
+<span class="c"># example: "module add python"</span>
+</code></pre></div></div>
+
+<p>For modules that have more than one version, you can specify the exact version by appending a <code class="language-plaintext highlighter-rouge">/</code> with the version number:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load module_name/version
+
+<span class="c"># example: "module load python/3.7"</span>
 </code></pre></div></div>
 
 <p><strong><em>Note: Loaded modules are available on your path for your current session. So jobs queued with srun will have access to them. Jobs queued with sbatch will need to load the modules again in order to have access to them</em></strong></p>
 
-<h4 id="-unloading-a-module"><a name="unload"></a> Unloading a Module</h4>
+<h3 id="-loading-modules-in-a-job-script"><a name="load_in_script"></a> Loading Modules in a Job Script</h3>
 
-<p>To unload a module from your environment runL</p>
+<p>Modules loaded in a job script exist only in the environment created by the submission script, meaning that you wont have access to the modules in your normal environment. The modukes in a job script can be loaded after your <code class="language-plaintext highlighter-rouge">#SBATCH</code> directives and before your actual executable is called. For example, a script that loads the Python module into the environment would look like the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!bin/bash</span>
+<span class="c">#SBATCH --nodes=1</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --job-name=python-job</span>
+<span class="c">#SBATCH --output=python-job.%j.out</span>
+
+module load python/3.7.0
+
+python3 test-program.py
+</code></pre></div></div>
+
+<h3 id="-unloading-a-module"><a name="unload"></a> Unloading a Module</h3>
+
+<p>To unload a module from your environment run</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module unload module_name
 </code></pre></div></div>
@@ -659,21 +705,22 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module <span class="nb">rm </span>module_name
 </code></pre></div></div>
 
-<h4 id="-switch-module-files"><a name="switch"></a> Switch Module files</h4>
+<h3 id="-switch-module-files"><a name="switch"></a> Switch Module files</h3>
 
-<p>To switch module_file1 with module_file2, run:</p>
+<p>The switch/swap subcommand is essentially a combination of the <code class="language-plaintext highlighter-rouge">module load</code> and <code class="language-plaintext highlighter-rouge">module unload</code> commands. You can switch out a module by typing:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module switch  module_file1 module_file2
+
+<span class="c"># example "module switch python/2.7.0 python/3.7.0"</span>
+</code></pre></div></div>
+<p>or</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module swap  module_file1 module_file2
+
+<span class="c"># example "module swap python/2.7.0 python/3.7.0"</span>
 </code></pre></div></div>
 
-<h4 id="-view-loaded-modules"><a name="view"></a> View Loaded Modules</h4>
-
-<p>To view the modules currently loaded, run:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module list 
-</code></pre></div></div>
-
-<h4 id="-reload-all-modules"><a name="reload"></a> Reload all Modules</h4>
+<h3 id="-reload-all-modules"><a name="reload"></a> Reload all Modules</h3>
 <p>To reload the loaded files and reset the PATH run:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module reload 
@@ -682,11 +729,11 @@
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module refresh 
 </code></pre></div></div>
-<h4 id="-module-collections"><a name="collections"></a> Module Collections</h4>
+<h3 id="-module-collections"><a name="collections"></a> Module Collections</h3>
 
-<p>To save the current set of loaded modules to a collection to be used later, run:</p>
+<p>Module collections is a feature which comes in handy when you have a set of modules which are frequently loaded together. Instead of loading them individually, you can create a store which can be loaded at another time. To save the current set of loaded modules to a collection to be used later, run:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module save filename
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module save collection_name
 </code></pre></div></div>
 
 <p>To restore modules from the saved collection, run:</p>
@@ -699,14 +746,7 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module saveshow
 </code></pre></div></div>
 
-<h4 id="-load-modules-at-log-in"><a name="login"></a> Load Modules at Log in</h4>
-
-<p>You can set up your environment such that modules are automatically loaded when you log in everytime. To add module to the initial list of loaded modules, run:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module initadd module_name 
-</code></pre></div></div>
-
-<h4 id="further-uses"><a name="help">Further Uses</a></h4>
+<h3 id="further-uses"><a name="help"></a>Further Uses</h3>
 
 <p>For further options for the module command, run:</p>
 
@@ -716,6 +756,8 @@
             </article><div class="docs-nav">
       
       
+      
+        <a id="next-doc" href=/docs/compilers.html>Compiling Source Code on Spiedie <strong>>></strong></a>
       
       
       
