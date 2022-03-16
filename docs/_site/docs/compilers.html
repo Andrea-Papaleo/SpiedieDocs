@@ -157,6 +157,15 @@
             <ol class="sub-toc toc-l2"><li class=" toc-item toc-l2-item">
                     
                     
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/python-environment.html" >Setting up a Python Environment</a>
+                    
+                
+                
+                    
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
                         <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/quick_start.html" >Quick Start (Python)</a>
                     
                 
@@ -372,6 +381,15 @@
             <ol class="sub-toc toc-l2"><li class=" toc-item toc-l2-item">
                     
                     
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/python-environment.html" >Setting up a Python Environment</a>
+                    
+                
+                
+                    
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
                         <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/quick_start.html" >Quick Start (Python)</a>
                     
                 
@@ -500,6 +518,7 @@
       
       
       
+      
         <a id="prev-doc" href=/docs/spiedie_modules.html><strong><<</strong> Spiedie Modules</a>
       
       
@@ -539,15 +558,22 @@
 </ol>
 
 <h2 id="-compilers"><a name="compilers"></a> Compilers</h2>
+
+<p>Spiedie offes a variety of node and hardware configurations in order to meet the many different needs of researchers. To best optimize your code, different compilers are available to load as modules.</p>
+
 <h3 id="-gcc"><a name="gcc"></a> GCC</h3>
-<p>The open source gcc and g++ compiler is available as a module and can be loaded with:</p>
+<p>The open source gcc and g++ compiler made by the Free Software Foundation Inc. They were originally written to be the compilers for the GNU operating system. They are capable of generating code for a large number of target architectures and is widely available on Unix-like platforms. To load the gcc module type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load gcc
 </code></pre></div></div>
 
 <h3 id="-icc"><a name="Intel"></a> ICC</h3>
 
+<p>The Intel C++ compiler compiler is made by the Intel Corporation and is highly tuned for Intel processors. Intel C++ compiler features support for the latest C++ and OpenMP standards, as well as support for the latest Intel architectures. Intel C++ compiler is available free of charge for student and open source developers.</p>
+
 <p>Spiedie also provides users with the Intel Parallel Studio Compilers suite to take advantage of the improved performance on the Xeon-Phi architecture available.</p>
+
+<p>Recenty the Intel oneAPI core elements have been added to the cluster. The stated goal of the oneAPI specification is to enable an open, industry standard, cross-architecture software stack for accelerators. You can find out more <a href="https://www.oneapi.io/" target="_blank">here</a>.</p>
 
 <p>You can load the Intel compiler from the modules using:</p>
 
@@ -576,7 +602,7 @@
 
 <p>The CUDA toolkit and runtime libraries are also available as modules on spiedie.</p>
 
-<p><strong><em>Note: Multiple version of the CUDA toolkit is available from CUDA7 to CUDA10.1</em></strong></p>
+<p><strong><em>Note: Multiple version of the CUDA toolkit is available from CUDA7 to CUDA11.3</em></strong></p>
 
 <p>You can find all the available CUDA versions by running:</p>
 
@@ -589,27 +615,21 @@
 
 <p>Addtionally you can load the various runtime libraries such as:</p>
 
-<ul>
-  <li>CuBLAS:
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load CUDA<span class="o">(</span>version<span class="o">)</span>/blas 
-</code></pre></div>    </div>
-  </li>
-  <li>FFT:</li>
-</ul>
+<p>CuBLAS:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load CUDA<span class="o">(</span>version<span class="o">)</span>/blas 
+</code></pre></div></div>
+
+<p>FFT:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load CUDA<span class="o">(</span>version<span class="o">)</span>/fft 
 </code></pre></div></div>
 
-<ul>
-  <li>Nsight:</li>
-</ul>
+<p>Nsight:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load CUDA<span class="o">(</span>version<span class="o">)</span>/nsight 
 </code></pre></div></div>
 
-<ul>
-  <li>Profiler;</li>
-</ul>
+<p>Profiler;</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load CUDA<span class="o">(</span>version<span class="o">)</span>/profiler 
 </code></pre></div></div>
@@ -617,6 +637,7 @@
 <p><a href="https://developer.nvidia.com/gpu-accelerated-libraries" target="_blank"> Click here to learn more about NVidia’s GPU accelerated libraries</a></p>
 
             </article><div class="docs-nav">
+      
       
       
       
@@ -751,6 +772,10 @@
         
       
         
+      
+        
+      
+        
           {
             "url":`/tutorials/`,
             "value": `Tutorials` 
@@ -764,7 +789,10 @@
         
       
         
-      
+          {
+            "url":`/tutorials/python-environment.html`,
+            "value": `Setting Up a Python Environment` 
+          },
         
       
         
@@ -786,12 +814,12 @@
         
       
         
-      
-        
           {
             "url":`/tutorials/spiedie_conda.html`,
             "value": `Conda on Spiedie (intermediate)` 
           },
+        
+      
         
       
         
@@ -1084,6 +1112,11 @@
         {
           "url":`/tags#tutorial`,
           "value":`Tutorial`
+        },
+      
+        {
+          "url":`/tags#virtualenv`,
+          "value":`VirtualEnv`
         },
       
         {

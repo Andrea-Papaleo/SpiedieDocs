@@ -1,137 +1,126 @@
 /* generated style.css overwrites */
 
-@import 'variables';
+@import "variables";
 
-
-
-
-main{
-    grid-area: 1/1/2/7;
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    height:100%;
-    @media screen and (min-width: 900px){
-        grid-area: 1/2/2/7
-    }
-    @media screen and (min-width:1100px){
-        grid-area: 1/2/2/6;
-    }
+main {
+  grid-area: 1/1/2/7;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-bottom: $navbar-height;
+  @media screen and (min-width: 900px) {
+    grid-area: 1/2/2/7;
+  }
+  @media screen and (min-width: 1100px) {
+    grid-area: 1/2/2/6;
+  }
 }
-
-
-
 
 .docs {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - $content-detail-small-height);
+  margin: 0 2rem;
+  max-width: 100%;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @include header-font;
+    font-weight: 700;
+  }
+
+  h1 {
     display: flex;
-    flex-direction: column;
-    height: calc(100% - $content-detail-small-height);
-    margin: 0 2rem;
-    max-width: 100%;
+    justify-content: center;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $hr-gray;
+  }
 
-    h1, h2, h3, h4, h5{
-        @include header-font;
-        font-weight: 700;
+  h2 {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.75rem;
+    padding: 1.5rem 0;
+    margin: 1rem 0;
+  }
+
+  h3 {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    font-style: italic;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  a {
+    color: $binghamton-light-green;
+    text-decoration: none;
+
+    &:hover {
+      color: $binghamton-dark-green;
+      text-decoration: underline;
     }
+  }
 
-    h1 {
-        display:flex;
-        justify-content:center;
-        font-size: 2rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid $hr-gray;
+  img {
+    max-width: 70%;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 3px;
+  }
 
-    }
+  table {
+    table-layout: fixed;
+    width: 95%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+  }
 
-    h2 {
-        display:flex;
-        justify-content: flex-start;
-        font-size: 1.75rem;
-        padding: 1.5rem 0;
-        margin: 1rem 0;
-    }
-
-    h3 {
-        display:flex;
-        justify-content:flex-start;
-        font-size:1.25rem;
-
-    }
-
-    h4 {
-        margin-top: 2rem;
-        font-size:1.1rem;
-        text-decoration: underline;
-        font-style: italic;
-    }
-
-    h5{
-        font-size: 1rem;
-    }
-
-
-
-    
-
-    a {
-        color: $binghamton-light-green;
-        text-decoration: none;
-
-        &:hover{
-            color: $binghamton-dark-green;
-            text-decoration: underline;
-        }
-    }
-
-    img {
-        max-width: 70%;
-        display:block;
-        margin: 2rem auto;
-        border-radius: 3px;
-    }
-
-    table {
-        table-layout: fixed;
-        width: 95%;
-        border-collapse: collapse;
-        margin: 2rem auto;
-    }
-      
-    
-    th, td {
+  th,
+  td {
     padding: 0.5rem;
     overflow-wrap: break-word;
-    text-align: center;
-    }
-    td {
-        font-size: 0.8rem;
-    }
-    
+    text-align: justify;
+  }
+  td {
+    font-size: 0.8rem;
+  }
 
-    td:nth-child(1) {
-        width: 200px;
-    }
-    th:nth-child(1){
-        width: 200px;
-    }
-    .docs-nav{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
+  td:nth-child(1) {
+    width: 200px;
+  }
+  th:nth-child(1) {
+    width: 200px;
+  }
+  .docs-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding-top: 2rem;
 
-        #prev-doc{
-            grid-column-start:  1;
-            grid-row-start: 1;
-            justify-self: flex-start;
-        }
-        #next-doc{
-            grid-column-start:  2;
-            grid-row-start: 1;
-            justify-self: flex-end;
-        }
+    #prev-doc {
+      grid-column-start: 1;
+      grid-row-start: 1;
+      justify-self: flex-start;
     }
-    
+    #next-doc {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      justify-self: flex-end;
+    }
+  }
 }
-
-
-

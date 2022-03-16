@@ -130,6 +130,16 @@ toc:
   - title: Tutorials
     category: tutorial
     contents:
+      - title: Setting up a Python Environment
+        url: "/tutorials/python-environment.html"
+        external: false
+        inner_list:
+          - title: Why Use Python Environments
+            url: "/docs/python-environment.html#why-use"
+            external: false
+          - title: Conda on Spiedie
+            url: "/docs/python-environment.html#conda"
+            external: false
       - title: Quick Start (Python)
         url: "/tutorials/quick_start.html"
         external: false

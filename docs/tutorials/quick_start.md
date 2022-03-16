@@ -7,21 +7,19 @@ description: A walkthrough on how to submit your first job on Spiedie!
 category: tutorial
 ---
 
-***
-
 This tutorial is designed to get you up and running on Spiedie as quickly as possible. You should be able to run simple programs on the Spiedie cluster by the end of this guide. 
 
 Things covered in this guide:
 
-1. [Logging on to Spiedie](../docs/login.html)
+1. [Logging on to Spiedie](../docs/connect-to-spiedie.html)
 2. [Transferring files to the cluster](../docs/data_transfer.html)
-3. [Running basic SLURM commands](../docs/basic_slurm_commands.html)  
+3. [Running SLURM jobs](../docs/submitting_jobs.html)  
 
 Requirements to complete the guide:
 1. A Spiedie user account and password
 2. Computer connected to the internet 
 3. SSL VPN (Pulse) (if not connected to the school internet)
-4. Familairty with programming and <a href="https://www.codecademy.com/articles/command-line-commands">basic command line experience</a>
+4. Familairty with programming and [basic command-line experience](../docs/basic_linux_commands.md)
 
 ## Log in
 ***

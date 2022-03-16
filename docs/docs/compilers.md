@@ -18,8 +18,11 @@ prev: Spiedie Modules
 	- [Runtime Libraries](#nvidia_libs)
 
 ## <a name="compilers"></a> Compilers
+
+Spiedie offes a variety of node and hardware configurations in order to meet the many different needs of researchers. To best optimize your code, different compilers are available to load as modules.
+
 ### <a name="gcc"></a> GCC
-The open source gcc and g++ compiler is available as a module and can be loaded with: 
+The open source gcc and g++ compiler made by the Free Software Foundation Inc. They were originally written to be the compilers for the GNU operating system. They are capable of generating code for a large number of target architectures and is widely available on Unix-like platforms. To load the gcc module type
 
 ```bash
 module load gcc
@@ -27,7 +30,11 @@ module load gcc
 
 ### <a name="Intel"></a> ICC
 
+The Intel C++ compiler compiler is made by the Intel Corporation and is highly tuned for Intel processors. Intel C++ compiler features support for the latest C++ and OpenMP standards, as well as support for the latest Intel architectures. Intel C++ compiler is available free of charge for student and open source developers.
+
 Spiedie also provides users with the Intel Parallel Studio Compilers suite to take advantage of the improved performance on the Xeon-Phi architecture available. 
+
+Recenty the Intel oneAPI core elements have been added to the cluster. The stated goal of the oneAPI specification is to enable an open, industry standard, cross-architecture software stack for accelerators. You can find out more <a href="https://www.oneapi.io/" target="_blank">here</a>.
 
 You can load the Intel compiler from the modules using: 
 
@@ -56,7 +63,7 @@ The GPU compute nodes fully support CUDA accelerated applications and libraries.
 
 The CUDA toolkit and runtime libraries are also available as modules on spiedie. 
 
-***Note: Multiple version of the CUDA toolkit is available from CUDA7 to CUDA10.1***
+***Note: Multiple version of the CUDA toolkit is available from CUDA7 to CUDA11.3***
 
 
 You can find all the available CUDA versions by running:
@@ -72,24 +79,24 @@ module load CUDA(version)/toolkit
 
 Addtionally you can load the various runtime libraries such as: 
 
-- CuBLAS:
+CuBLAS:
 ```bash
 module load CUDA(version)/blas 
 ```
 
-- FFT:
+FFT:
 
 ```bash
 module load CUDA(version)/fft 
 ```
 
-- Nsight:
+Nsight:
 
 ```bash
 module load CUDA(version)/nsight 
 ```
 
-- Profiler;
+Profiler;
 
 ```bash
 module load CUDA(version)/profiler 
