@@ -143,12 +143,12 @@ toc:
       - title: Quick Start (Python)
         url: "/tutorials/quick_start.html"
         external: false
-      - title: Multi-core Program (Python)
-        url: "/tutorials/spiedie_multiprocessing.html"
-        external: false
-      - title: Multi-core (C++/OpenMPI)
-        url: "/tutorials/spiedie_openmpi_multi_core.html"
-        external: false
+      #- title: Multi-core Program (Python)
+      #  url: "/tutorials/spiedie_multiprocessing.html"
+      #  external: false
+      #- title: Multi-core (C++/OpenMPI)
+      #  url: "/tutorials/spiedie_openmpi_multi_core.html"
+      #  external: false
       - title: GPU Compute (CUDA)
         url: "/tutorials/spiedie_gpu_compute.html"
         external: false
