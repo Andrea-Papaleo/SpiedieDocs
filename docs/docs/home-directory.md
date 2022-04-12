@@ -23,7 +23,7 @@ next: Transferring Data to the Cluster
 
 ## <a name="welcome-message"></a>  Welcome to Spiedie
 
- Everytime you log into Spiedie you will be greeted with a welcome message similar to the one below.
+ Every time you log into Spiedie you will be greeted with a welcome message similar to the one below.
 
  ![Log in Welcome Message](../assets/images/user-directory/spiedie-welcome-message.png)
 
@@ -31,7 +31,7 @@ next: Transferring Data to the Cluster
  
  Firstly is a reminder of the first rule of Spiedie...***Don't run significant processes on the head node!***. The reason for this is that every user logs in to the head node, it is design for low resource operations like file system manipulation, creating run files, etc..
 
- Next is a warning about storing youre data. Situations can arise when issues with the cluster may cause data to be deleted. While the maintainers of Spiedie work tirelessly to prevent this from happening, nothing is perfect. ***Move all crucial, non-operational data off of spiedie as soon as possible!*** Ideally you should back up everything you have on Spiedie frequently.
+ Next is a warning about storing you're data. Situations can arise when issues with the cluster may cause data to be deleted. While the maintainers of Spiedie work tirelessly to prevent this from happening, nothing is perfect. ***Move all crucial, non-operational data off of spiedie as soon as possible!*** Ideally you should back up everything you have on Spiedie frequently.
 
  The GPUCompute partition is mentioned next, but this can be applied to any partition. It's a good idea to understand the details of the jobs you're running, such as memory usage, CPU usage, GPU usage, etc.. Not only will this help you optimize for the current needs of your job, but it will also keep partitions and resources available for those who need it.
 
@@ -66,11 +66,11 @@ Instead of *"user"* in the figure above, the directory will be your spiedie user
 ```bash
 pwd
 ```
-at the command prompt. You shuold get an output which looks like the below figure.
+at the command prompt. You should get an output which looks like the below figure.
 
 ![pwd](../assets/images/user-directory/pwd.png)
 
-You can learn more about the unix command **pwd**, as well as other commands youll use shortly by checking out the linux command page of these [docs](basic_linux_commands.html)
+You can learn more about the unix command **pwd**, as well as other commands you'll use shortly by checking out the linux command page of these [docs](basic_linux_commands.html)
 
 ### <a name='create-directory'></a> Creating New Files and Directories
 
@@ -78,9 +78,9 @@ Your home directory is where you will be keeping all of your data. You can view 
 
 ![pwd](../assets/images/user-directory/ls.png)
 
-If you havent yet created any files or folder, then the output of the ls command wont show much. The output will list just one directory, which is the *scratch* directory and is mainly used for temporary files.
+If you haven't yet created any files or folder, then the output of the ls command wont show much. The output will list just one directory, which is the *scratch* directory and is mainly used for temporary files.
 
-Lets go about populating out home directory. We can creat new directories by using the **mkdir** command followed by the name we want to give our directory. Then we can us **ls** again to show that it was created.
+Lets go about populating out home directory. We can create new directories by using the **mkdir** command followed by the name we want to give our directory. Then we can us **ls** again to show that it was created.
 
 ![mkdir-spiediedocs](../assets/images/user-directory/mkdir-spiediedocs.png)
 
@@ -88,7 +88,7 @@ Once we've created the *SpiedieDocs* directory we can navigate to it using the *
 
 ![cd-spiediedocs](../assets/images/user-directory/cd-spiediedocs.png)
 
-Now thate we've moved into the *SpiedieDocs* directory, lets create a file. There are a number of ways to create a file, we can use a text editor, such as [emacs or vi](basic_linux_commands.html#editors), or we can create an empty file without adding contents by using the *touch* command.
+Now that we've moved into the *SpiedieDocs* directory, lets create a file. There are a number of ways to create a file, we can use a text editor, such as [emacs or vi](basic_linux_commands.html#editors), or we can create an empty file without adding contents by using the *touch* command.
 
 ![touch](../assets/images/user-directory/touch.png)
 

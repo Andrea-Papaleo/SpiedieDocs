@@ -31,7 +31,7 @@ category: documentation
 
 
 
-As we go through this documantation, we well briefly go over various different command and try to give the just enough information so that the user can be comfortable using it. As a result much about each command will be ommited, such as various options and full descriptions of possible uses. Luckily it is easy to quickly find out more about a command you wish to use.
+As we go through this documentation, we well briefly go over various different command and try to give the just enough information so that the user can be comfortable using it. As a result much about each command will be omitted, such as various options and full descriptions of possible uses. Luckily it is easy to quickly find out more about a command you wish to use.
 
 
 
@@ -42,7 +42,7 @@ As we go through this documantation, we well briefly go over various different c
 
 #### <a name="man"></a> man
 
-The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. For instance, to learn about the **ls** command, type
+The manual pages tell you which options a particular command can take, and how each option modifies the behavior of the command. For instance, to learn about the **ls** command, type
 
 ```bash
 man ls
@@ -68,7 +68,7 @@ whatis ls
 
 #### <a name="apropos"></a> apropos
 
-If you arent sure of the exact name of a command, but have an idea of what your looking for, you can type
+If you aren't sure of the exact name of a command, but have an idea of what your looking for, you can type
 
 ```bash
 apropos keyword
@@ -158,7 +158,7 @@ You can check to see the directory has been created by using the **ls** command.
 
 #### <a name="cd"></a> cd
 
-The **cd** command (short for change directory) chenges the current working directory to the directory sepcified in the command. To change the current working directory to the one you just created, **learn_unix**, type
+The **cd** command (short for change directory) changes the current working directory to the directory specified in the command. To change the current working directory to the one you just created, **learn_unix**, type
 
 ``` bash
 cd learn_unix
@@ -175,7 +175,7 @@ If you now type **ls** you will see that this directory is empty.
 
 
 
-If you havent yet tried using the **-a** flag with the **ls** command, you can do so now in the **learn_unix** directory, type
+If you haven't yet tried using the **-a** flag with the **ls** command, you can do so now in the **learn_unix** directory, type
 
 ```bash
 ls -a
@@ -194,7 +194,7 @@ In UNIX, the special directory (**.**) is short for the current directory, so wh
 ``` bash
 cd .
 ```
-you don't move anywhere in the file system. While this might not be usefule for changing directories, having a shorthand for the current directory will be usefule in many other commands.
+you don't move anywhere in the file system. While this might not be useful for changing directories, having a shorthand for the current directory will be useful in many other commands.
 
 
 
@@ -202,12 +202,12 @@ you don't move anywhere in the file system. While this might not be usefule for 
 
 #### <a name="parent_dir"></a> The parrent directory (..)
 
-The other special directory (**..**) we see when running **ls -a** is shorthand for the parent or the current directory. Typyng
+The other special directory (**..**) we see when running **ls -a** is shorthand for the parent or the current directory. Typing
 
 ``` bash
 cd ..
 ```
-will move you to one direcctory up in the file system's heirarchy. If you typed this from the **learn_unix** directory, this will take you to the home directory.
+will move you to one directory up in the file system's hierarchy. If you typed this from the **learn_unix** directory, this will take you to the home directory.
 
 
 
@@ -235,7 +235,7 @@ The path printed by this command is your full path.
 
 #### <a name="tilde"></a> ~ (home directory)
 
-You can reference your home directory anywhere in the file system by using the tilde (**~**) shorthand. So say you move to some directory deep in the heirarchy **cd path/deep/in/the/heirarchy** and you want to list the contents of your home directory. You can do that by typing
+You can reference your home directory anywhere in the file system by using the tilde (**~**) shorthand. So say you move to some directory deep in the hierarchy **cd path/deep/in/the/hierarchy** and you want to list the contents of your home directory. You can do that by typing
 
 ``` bash
 ls ~
@@ -266,7 +266,7 @@ cd ~/learn_unix
 
 The **touch** command is used to update timestamps on files. Every file in the unix system has timestamp information for each file or folder including access time, modify time and change time. It is possible to modify timestamps using the touch command either to update a timestamp to the current time or to modify it to a date in the past.
 
-If the specified file desnt exist, the **touch** command will create that file and set the access and modification time for the file to the current time. To create a file type
+If the specified file doesn't exist, the **touch** command will create that file and set the access and modification time for the file to the current time. To create a file type
 
 ```bash
 touch file1
@@ -283,12 +283,12 @@ touch file1
 
 #### <a name="cp"></a>  cp
 
-The **cp** command (short for copy) makes a copy of a file. Say we had some file called **file1** in the current directory, and we wanted to create a copy of this file in the same directory called **file1**, we could achiev this by typing
+The **cp** command (short for copy) makes a copy of a file. Say we had some file called **file1** in the current directory, and we wanted to create a copy of this file in the same directory called **file1**, we could achieve this by typing
 
 ```bash
 cp file1 file2
 ```
-If, for instance, we had some file in our home direcrtory, and we wanted to copy it to our **learn_unix** directory while keeping the same name, we could do this in one of two ways depending on where we are in the file system. If we are in the **home directory**, type
+If, for instance, we had some file in our home directory, and we wanted to copy it to our **learn_unix** directory while keeping the same name, we could do this in one of two ways depending on where we are in the file system. If we are in the **home directory**, type
 
 ```bash
 cp file1 learn_unix/
@@ -302,7 +302,7 @@ or
 ```bash
 cp ~/file1 .
 ```
-Notice the difference in these two commands. In the former we use the (**..**) shorthand to specify that **file1** is located one foler up in the heirarchy. In the latter we use the (**~**) for the home directory, which allows us to acess **file1** regardless of where we are in the file system as long as **file1** is in the home directory.
+Notice the difference in these two commands. In the former we use the (**..**) shorthand to specify that **file1** is located one folder up in the hierarchy. In the latter we use the (**~**) for the home directory, which allows us to access **file1** regardless of where we are in the file system as long as **file1** is in the home directory.
 
 Also note that in both instances we use the (**.**) shorthand to specify that we are copying the file into our current directory.
 
@@ -319,13 +319,13 @@ Also note that in both instances we use the (**.**) shorthand to specify that we
 
 #### <a name="mv"></a>  mv
 
-The **mv** command (short for move) moves a file from one place to another. This differes from the **cp** command in that in the end there is still only one file. If we wanted to move **file1** to **file2** we could type
+The **mv** command (short for move) moves a file from one place to another. This differs from the **cp** command in that in the end there is still only one file. If we wanted to move **file1** to **file2** we could type
 
 ```bash
 mv file1 file2
 ```
 
-This effectively renames the file frome **file1** to **file2**.
+This effectively renames the file from **file1** to **file2**.
 
 Alternatively, if **file1** is in the home directory and we want to move it to the **learn_unix** directory, we would type
 
@@ -384,7 +384,7 @@ There are a handful of commands that let you view a file, or portions of a file 
 
 #### <a name="clear"></a>  clear
 
-The **clear** command will clear all the text in the teminal window, leaving you with a fresh view. To clear you window, type
+The **clear** command will clear all the text in the terminal window, leaving you with a fresh view. To clear you window, type
 
 ```bash
 clear
@@ -395,14 +395,14 @@ Once the window is clear, we can start viewing files.
 
 #### <a name="cat"></a>  cat
 
-The **cat** command (short for concatonate) allows you to view contents of a file called **file1** on the screen. Type
+The **cat** command (short for concatenate) allows you to view contents of a file called **file1** on the screen. Type
 
 ```bash
 cat file1
 ```
 You can also view multiple files by listing them after **cat**.
 
-If you run the cat command without specifing a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (^D), copies it to the standard output (the screen). We will use this later when talking about redirection.
+If you run the cat command without specifying a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (^D), copies it to the standard output (the screen). We will use this later when talking about redirection.
 
 
 #### <a name="less"></a> less
@@ -422,7 +422,7 @@ Once the file is displayed, you can use the keyboard to navigate.
 | **enter** | scroll down one line |
 | **=** | displays information such as line numbers and percentage read |
 | **/*word*** | searches for the word ***word*** following the backslash |
-| **n** | after searching for a worn, n will search for the next occurance |
+| **n** | after searching for a worn, n will search for the next occurrence |
 | **q**  | quit reading |
 
 
@@ -462,7 +462,7 @@ In the output, lines from **file1** will be denoted by **<** and lines from **fi
 
 #### <a name="paste"></a> paste
 
-The paste command displays the contents of two or more files next to eachother line by line. To view **file1** and **file2**, type
+The paste command displays the contents of two or more files next to each-other line by line. To view **file1** and **file2**, type
 
 ```bash
 paste file1 file2 
@@ -557,7 +557,7 @@ Spiedie
 Cluster
 [^d]
 ```
-Note that **[^d]** meand press both **[Ctrl]** and **d** at the same time. Each time we press **enter**, the word we typed gets written to the file **list1**.
+Note that **[^d]** means press both **[Ctrl]** and **d** at the same time. Each time we press **enter**, the word we typed gets written to the file **list1**.
 
 You can see this by now typing
 
@@ -596,7 +596,7 @@ cat list1
 
 #### <a name="concat"></a> Concatenating Files
 
-Redirecting with **>** and **>>** is not only usefule for writing to a file from the standard input, you can also take files as an input. First lets creat a new file **list2**, follow the procedure above to create a new list.
+Redirecting with **>** and **>>** is not only useful for writing to a file from the standard input, you can also take files as an input. First lets create a new file **list2**, follow the procedure above to create a new list.
 
 Now we can concatenate **list1** and **list2** and redirect the output to an new file called **biglist**, type
 
@@ -642,7 +642,7 @@ memory
 ^d
 ```
 
-The output will be the list you just gave sorted alphabeticaly.
+The output will be the list you just gave sorted alphabetically.
 
 Now we can try redirecting an input into the **sort** command by using **<**, type
 
@@ -650,9 +650,9 @@ Now we can try redirecting an input into the **sort** command by using **<**, ty
 sort < biglist
 ```
 
-The sorted content of **biglist** shoul be printed to the screen.
+The sorted content of **biglist** should be printed to the screen.
 
-We can do all sorts of chaning with th redirection symbols, lets create a new file **slist** that contains the sorted content of **biglist**, type
+We can do all sorts of chaining with th redirection symbols, lets create a new file **slist** that contains the sorted content of **biglist**, type
 
 ```bash
 sort < biglist > slist
@@ -673,7 +673,7 @@ Use **cat** to confirm.
 
 As we describes earlier, one way to input a list of items a get a sorted list from them is to first redirect the output of the **cat** command to a file **list1**, the use that file as an input to the **sort** command.
 
-This is a very round about way of doing things, and you can be left with random temporary files which will need to be removed. Ideally what we would like is to route the output of one command into the input of another command. This is accomplished with a **pipe**. The symbol for a pip is a verticle bar **|**.
+This is a very round about way of doing things, and you can be left with random temporary files which will need to be removed. Ideally what we would like is to route the output of one command into the input of another command. This is accomplished with a **pipe**. The symbol for a pip is a vertical bar **|**.
 
 Try typing
 
@@ -733,12 +733,12 @@ sleep 10
 
 will cause the terminal to wait 10 seconds before returning the prompt to the user. Nothing else can be done until the process has completed.
 
-If you want to run processes that take time but retain use of the terminal window, you can run the pricesses in the background by typing **&** after the command, try typing
+If you want to run processes that take time but retain use of the terminal window, you can run the processes in the background by typing **&** after the command, try typing
 
 ```bash
 sleep 10 &
 ```
-After typing a command to be run in the background, the terminal will output the job number and the PID ofthe process, looking something like this
+After typing a command to be run in the background, the terminal will output the job number and the PID of the process, looking something like this
 
 ```bash
 [1] 12345
@@ -810,7 +810,7 @@ If no jobnumber is given then the last suspended process will be foregrounded.
 
 
 
-There are many reasons why you might want to stop a process from running. To kill a job runningin the foreground you can type **^c** ([**Ctrl**] + [**c**]. 
+There are many reasons why you might want to stop a process from running. To kill a job running in the foreground you can type **^c** ([**Ctrl**] + [**c**]. 
 
 ```bash
 sleep 100
@@ -832,7 +832,7 @@ Alternatively you can kill a process by specifying it's PID.
 kill PID
 ```
 
-If a process is refusing to be killed, yuou canuse the **-9** option to force it
+If a process is refusing to be killed, you can use the **-9** option to force it
 
 ```bash
 kill -9 PID
@@ -844,7 +844,7 @@ kill -9 PID
 
 #### <a name="alias"></a> alias
 
-The alias command created a temporary/easier/shorter name for a command or seires of commands.
+The alias command created a temporary/easier/shorter name for a command or series of commands.
 
 ```bash
 alias name="command"
@@ -887,7 +887,7 @@ du dir1
 
 #### <a name="echo"></a> echo
 
-The **echo** command prints the string following the command to the temrinal. Try typing
+The **echo** command prints the string following the command to the terminal. Try typing
 
 ```bash
 echo string
@@ -928,7 +928,7 @@ zcat file1.gz | less
 
 #### <a name="find"></a>  find
 
-The **find** command searches through your your directories for files and directories with a given name, date, soze, or any other attributes you can specify. For instance if you wanted to search for all files with the **.txt** extension starting at the current directory and print them to the screen you can type
+The **find** command searches through your your directories for files and directories with a given name, date, size, or any other attributes you can specify. For instance if you wanted to search for all files with the **.txt** extension starting at the current directory and print them to the screen you can type
 
 ```bash
 find . -name "*.txt" -print

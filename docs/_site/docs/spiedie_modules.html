@@ -236,36 +236,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -498,36 +468,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -635,7 +575,7 @@
 
 <h2 id="-spiedie-modules"><a name="module_intro"></a> Spiedie Modules</h2>
 
-<p>Spiedie uses a module system to load software into a user’s environment. With the exception of some (i.e. python), software on Spiedie is not accessible by sefault, and must be loaded through the module system. The reason for this is to accommodate as many users as possible, as specific versions of software may be needed for different users. The module system enables users to easily switch between different software versions depending on individual need.</p>
+<p>Spiedie uses a module system to load software into a user’s environment. With the exception of some (i.e. python), software on Spiedie is not accessible by default, and must be loaded through the module system. The reason for this is to accommodate as many users as possible, as specific versions of software may be needed for different users. The module system enables users to easily switch between different software versions depending on individual need.</p>
 
 <h3 id="-available-modules"><a name="avail"></a> Available Modules</h3>
 
@@ -652,7 +592,7 @@
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module list
 </code></pre></div></div>
-<p>You can see here that there are a few modules loaded by default, it’s best to leave these as they are. Any module you load moving foward will show up here until you end your current session.</p>
+<p>You can see here that there are a few modules loaded by default, it’s best to leave these as they are. Any module you load moving forward will show up here until you end your current session.</p>
 
 <h2 id="-loading-and-unloading-modules"><a name="load_unload"></a> Loading and Unloading Modules</h2>
 
@@ -685,7 +625,7 @@
 
 <h3 id="-loading-modules-in-a-job-script"><a name="load_in_script"></a> Loading Modules in a Job Script</h3>
 
-<p>Modules loaded in a job script exist only in the environment created by the submission script, meaning that you wont have access to the modules in your normal environment. The modukes in a job script can be loaded after your <code class="language-plaintext highlighter-rouge">#SBATCH</code> directives and before your actual executable is called. For example, a script that loads the Python module into the environment would look like the following:</p>
+<p>Modules loaded in a job script exist only in the environment created by the submission script, meaning that you wont have access to the modules in your normal environment. The modules in a job script can be loaded after your <code class="language-plaintext highlighter-rouge">#SBATCH</code> directives and before your actual executable is called. For example, a script that loads the Python module into the environment would look like the following:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!bin/bash</span>
 <span class="c">#SBATCH --nodes=1</span>

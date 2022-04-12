@@ -198,36 +198,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -422,36 +392,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -553,13 +493,13 @@
 
 <h2 id="1---getting-help"><a name="getting_help"></a>1 - Getting Help</h2>
 
-<p>As we go through this documantation, we well briefly go over various different command and try to give the just enough information so that the user can be comfortable using it. As a result much about each command will be ommited, such as various options and full descriptions of possible uses. Luckily it is easy to quickly find out more about a command you wish to use.</p>
+<p>As we go through this documentation, we well briefly go over various different command and try to give the just enough information so that the user can be comfortable using it. As a result much about each command will be omitted, such as various options and full descriptions of possible uses. Luckily it is easy to quickly find out more about a command you wish to use.</p>
 
 <h3 id="-11---manuals"><a name="manuals"></a> 1.1 - Manuals</h3>
 
 <h4 id="-man"><a name="man"></a> man</h4>
 
-<p>The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. For instance, to learn about the <strong>ls</strong> command, type</p>
+<p>The manual pages tell you which options a particular command can take, and how each option modifies the behavior of the command. For instance, to learn about the <strong>ls</strong> command, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nb">ls</span>
 </code></pre></div></div>
@@ -574,7 +514,7 @@
 
 <h4 id="-apropos"><a name="apropos"></a> apropos</h4>
 
-<p>If you arent sure of the exact name of a command, but have an idea of what your looking for, you can type</p>
+<p>If you aren’t sure of the exact name of a command, but have an idea of what your looking for, you can type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apropos keyword
 </code></pre></div></div>
@@ -651,7 +591,7 @@
 
 <h4 id="-cd"><a name="cd"></a> cd</h4>
 
-<p>The <strong>cd</strong> command (short for change directory) chenges the current working directory to the directory sepcified in the command. To change the current working directory to the one you just created, <strong>learn_unix</strong>, type</p>
+<p>The <strong>cd</strong> command (short for change directory) changes the current working directory to the directory specified in the command. To change the current working directory to the one you just created, <strong>learn_unix</strong>, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>learn_unix
 </code></pre></div></div>
@@ -659,7 +599,7 @@
 
 <h3 id="-24---the-directories--and-"><a id="._and_.."></a> 2.4 - The Directories (.) and (..)</h3>
 
-<p>If you havent yet tried using the <strong>-a</strong> flag with the <strong>ls</strong> command, you can do so now in the <strong>learn_unix</strong> directory, type</p>
+<p>If you haven’t yet tried using the <strong>-a</strong> flag with the <strong>ls</strong> command, you can do so now in the <strong>learn_unix</strong> directory, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
 </code></pre></div></div>
@@ -672,15 +612,15 @@
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nb">.</span>
 </code></pre></div></div>
-<p>you don’t move anywhere in the file system. While this might not be usefule for changing directories, having a shorthand for the current directory will be usefule in many other commands.</p>
+<p>you don’t move anywhere in the file system. While this might not be useful for changing directories, having a shorthand for the current directory will be useful in many other commands.</p>
 
 <h4 id="-the-parrent-directory-"><a name="parent_dir"></a> The parrent directory (..)</h4>
 
-<p>The other special directory (<strong>..</strong>) we see when running <strong>ls -a</strong> is shorthand for the parent or the current directory. Typyng</p>
+<p>The other special directory (<strong>..</strong>) we see when running <strong>ls -a</strong> is shorthand for the parent or the current directory. Typing</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
 </code></pre></div></div>
-<p>will move you to one direcctory up in the file system’s heirarchy. If you typed this from the <strong>learn_unix</strong> directory, this will take you to the home directory.</p>
+<p>will move you to one directory up in the file system’s hierarchy. If you typed this from the <strong>learn_unix</strong> directory, this will take you to the home directory.</p>
 
 <h3 id="-25---path-names"><a id="pathnames"></a> 2.5 - Path Names</h3>
 
@@ -694,7 +634,7 @@
 
 <h4 id="--home-directory"><a name="tilde"></a> ~ (home directory)</h4>
 
-<p>You can reference your home directory anywhere in the file system by using the tilde (<strong>~</strong>) shorthand. So say you move to some directory deep in the heirarchy <strong>cd path/deep/in/the/heirarchy</strong> and you want to list the contents of your home directory. You can do that by typing</p>
+<p>You can reference your home directory anywhere in the file system by using the tilde (<strong>~</strong>) shorthand. So say you move to some directory deep in the hierarchy <strong>cd path/deep/in/the/hierarchy</strong> and you want to list the contents of your home directory. You can do that by typing</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~
 </code></pre></div></div>
@@ -711,7 +651,7 @@
 
 <p>The <strong>touch</strong> command is used to update timestamps on files. Every file in the unix system has timestamp information for each file or folder including access time, modify time and change time. It is possible to modify timestamps using the touch command either to update a timestamp to the current time or to modify it to a date in the past.</p>
 
-<p>If the specified file desnt exist, the <strong>touch</strong> command will create that file and set the access and modification time for the file to the current time. To create a file type</p>
+<p>If the specified file doesn’t exist, the <strong>touch</strong> command will create that file and set the access and modification time for the file to the current time. To create a file type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>file1
 </code></pre></div></div>
@@ -720,11 +660,11 @@
 
 <h4 id="--cp"><a name="cp"></a>  cp</h4>
 
-<p>The <strong>cp</strong> command (short for copy) makes a copy of a file. Say we had some file called <strong>file1</strong> in the current directory, and we wanted to create a copy of this file in the same directory called <strong>file1</strong>, we could achiev this by typing</p>
+<p>The <strong>cp</strong> command (short for copy) makes a copy of a file. Say we had some file called <strong>file1</strong> in the current directory, and we wanted to create a copy of this file in the same directory called <strong>file1</strong>, we could achieve this by typing</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>file1 file2
 </code></pre></div></div>
-<p>If, for instance, we had some file in our home direcrtory, and we wanted to copy it to our <strong>learn_unix</strong> directory while keeping the same name, we could do this in one of two ways depending on where we are in the file system. If we are in the <strong>home directory</strong>, type</p>
+<p>If, for instance, we had some file in our home directory, and we wanted to copy it to our <strong>learn_unix</strong> directory while keeping the same name, we could do this in one of two ways depending on where we are in the file system. If we are in the <strong>home directory</strong>, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>file1 learn_unix/
 </code></pre></div></div>
@@ -735,7 +675,7 @@
 <p>or</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> ~/file1 <span class="nb">.</span>
 </code></pre></div></div>
-<p>Notice the difference in these two commands. In the former we use the (<strong>..</strong>) shorthand to specify that <strong>file1</strong> is located one foler up in the heirarchy. In the latter we use the (<strong>~</strong>) for the home directory, which allows us to acess <strong>file1</strong> regardless of where we are in the file system as long as <strong>file1</strong> is in the home directory.</p>
+<p>Notice the difference in these two commands. In the former we use the (<strong>..</strong>) shorthand to specify that <strong>file1</strong> is located one folder up in the hierarchy. In the latter we use the (<strong>~</strong>) for the home directory, which allows us to access <strong>file1</strong> regardless of where we are in the file system as long as <strong>file1</strong> is in the home directory.</p>
 
 <p>Also note that in both instances we use the (<strong>.</strong>) shorthand to specify that we are copying the file into our current directory.</p>
 
@@ -743,12 +683,12 @@
 
 <h4 id="--mv"><a name="mv"></a>  mv</h4>
 
-<p>The <strong>mv</strong> command (short for move) moves a file from one place to another. This differes from the <strong>cp</strong> command in that in the end there is still only one file. If we wanted to move <strong>file1</strong> to <strong>file2</strong> we could type</p>
+<p>The <strong>mv</strong> command (short for move) moves a file from one place to another. This differs from the <strong>cp</strong> command in that in the end there is still only one file. If we wanted to move <strong>file1</strong> to <strong>file2</strong> we could type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>file1 file2
 </code></pre></div></div>
 
-<p>This effectively renames the file frome <strong>file1</strong> to <strong>file2</strong>.</p>
+<p>This effectively renames the file from <strong>file1</strong> to <strong>file2</strong>.</p>
 
 <p>Alternatively, if <strong>file1</strong> is in the home directory and we want to move it to the <strong>learn_unix</strong> directory, we would type</p>
 
@@ -781,7 +721,7 @@
 
 <h4 id="--clear"><a name="clear"></a>  clear</h4>
 
-<p>The <strong>clear</strong> command will clear all the text in the teminal window, leaving you with a fresh view. To clear you window, type</p>
+<p>The <strong>clear</strong> command will clear all the text in the terminal window, leaving you with a fresh view. To clear you window, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear
 </code></pre></div></div>
@@ -789,13 +729,13 @@
 
 <h4 id="--cat"><a name="cat"></a>  cat</h4>
 
-<p>The <strong>cat</strong> command (short for concatonate) allows you to view contents of a file called <strong>file1</strong> on the screen. Type</p>
+<p>The <strong>cat</strong> command (short for concatenate) allows you to view contents of a file called <strong>file1</strong> on the screen. Type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file1
 </code></pre></div></div>
 <p>You can also view multiple files by listing them after <strong>cat</strong>.</p>
 
-<p>If you run the cat command without specifing a file to read, it reads the standard input (the keyboard), and on receiving the ‘end of file’ (^D), copies it to the standard output (the screen). We will use this later when talking about redirection.</p>
+<p>If you run the cat command without specifying a file to read, it reads the standard input (the keyboard), and on receiving the ‘end of file’ (^D), copies it to the standard output (the screen). We will use this later when talking about redirection.</p>
 
 <h4 id="-less"><a name="less"></a> less</h4>
 
@@ -836,7 +776,7 @@
     </tr>
     <tr>
       <td><strong>n</strong></td>
-      <td>after searching for a worn, n will search for the next occurance</td>
+      <td>after searching for a worn, n will search for the next occurrence</td>
     </tr>
     <tr>
       <td><strong>q</strong></td>
@@ -872,7 +812,7 @@
 
 <h4 id="-paste"><a name="paste"></a> paste</h4>
 
-<p>The paste command displays the contents of two or more files next to eachother line by line. To view <strong>file1</strong> and <strong>file2</strong>, type</p>
+<p>The paste command displays the contents of two or more files next to each-other line by line. To view <strong>file1</strong> and <strong>file2</strong>, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">paste </span>file1 file2 
 </code></pre></div></div>
@@ -927,7 +867,7 @@ Spiedie
 Cluster
 <span class="o">[</span>^d]
 </code></pre></div></div>
-<p>Note that <strong>[^d]</strong> meand press both <strong>[Ctrl]</strong> and <strong>d</strong> at the same time. Each time we press <strong>enter</strong>, the word we typed gets written to the file <strong>list1</strong>.</p>
+<p>Note that <strong>[^d]</strong> means press both <strong>[Ctrl]</strong> and <strong>d</strong> at the same time. Each time we press <strong>enter</strong>, the word we typed gets written to the file <strong>list1</strong>.</p>
 
 <p>You can see this by now typing</p>
 
@@ -955,7 +895,7 @@ node
 
 <h4 id="-concatenating-files"><a name="concat"></a> Concatenating Files</h4>
 
-<p>Redirecting with <strong>&gt;</strong> and <strong>»</strong> is not only usefule for writing to a file from the standard input, you can also take files as an input. First lets creat a new file <strong>list2</strong>, follow the procedure above to create a new list.</p>
+<p>Redirecting with <strong>&gt;</strong> and <strong>»</strong> is not only useful for writing to a file from the standard input, you can also take files as an input. First lets create a new file <strong>list2</strong>, follow the procedure above to create a new list.</p>
 
 <p>Now we can concatenate <strong>list1</strong> and <strong>list2</strong> and redirect the output to an new file called <strong>biglist</strong>, type</p>
 
@@ -985,16 +925,16 @@ memory
 ^d
 </code></pre></div></div>
 
-<p>The output will be the list you just gave sorted alphabeticaly.</p>
+<p>The output will be the list you just gave sorted alphabetically.</p>
 
 <p>Now we can try redirecting an input into the <strong>sort</strong> command by using <strong>&lt;</strong>, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sort</span> &lt; biglist
 </code></pre></div></div>
 
-<p>The sorted content of <strong>biglist</strong> shoul be printed to the screen.</p>
+<p>The sorted content of <strong>biglist</strong> should be printed to the screen.</p>
 
-<p>We can do all sorts of chaning with th redirection symbols, lets create a new file <strong>slist</strong> that contains the sorted content of <strong>biglist</strong>, type</p>
+<p>We can do all sorts of chaining with th redirection symbols, lets create a new file <strong>slist</strong> that contains the sorted content of <strong>biglist</strong>, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sort</span> &lt; biglist <span class="o">&gt;</span> slist
 </code></pre></div></div>
@@ -1008,7 +948,7 @@ memory
 <table>
   <tbody>
     <tr>
-      <td>This is a very round about way of doing things, and you can be left with random temporary files which will need to be removed. Ideally what we would like is to route the output of one command into the input of another command. This is accomplished with a <strong>pipe</strong>. The symbol for a pip is a verticle bar **</td>
+      <td>This is a very round about way of doing things, and you can be left with random temporary files which will need to be removed. Ideally what we would like is to route the output of one command into the input of another command. This is accomplished with a <strong>pipe</strong>. The symbol for a pip is a vertical bar **</td>
       <td>**.</td>
     </tr>
   </tbody>
@@ -1054,11 +994,11 @@ memory
 
 <p>will cause the terminal to wait 10 seconds before returning the prompt to the user. Nothing else can be done until the process has completed.</p>
 
-<p>If you want to run processes that take time but retain use of the terminal window, you can run the pricesses in the background by typing <strong>&amp;</strong> after the command, try typing</p>
+<p>If you want to run processes that take time but retain use of the terminal window, you can run the processes in the background by typing <strong>&amp;</strong> after the command, try typing</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sleep </span>10 &amp;
 </code></pre></div></div>
-<p>After typing a command to be run in the background, the terminal will output the job number and the PID ofthe process, looking something like this</p>
+<p>After typing a command to be run in the background, the terminal will output the job number and the PID of the process, looking something like this</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>1] 12345
 </code></pre></div></div>
@@ -1114,7 +1054,7 @@ memory
 
 <h3 id="-52---killing-processes"><a name="killing_process"></a> 5.2 - Killing Processes</h3>
 
-<p>There are many reasons why you might want to stop a process from running. To kill a job runningin the foreground you can type <strong>^c</strong> ([<strong>Ctrl</strong>] + [<strong>c</strong>].</p>
+<p>There are many reasons why you might want to stop a process from running. To kill a job running in the foreground you can type <strong>^c</strong> ([<strong>Ctrl</strong>] + [<strong>c</strong>].</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sleep </span>100
 </code></pre></div></div>
@@ -1132,7 +1072,7 @@ memory
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill </span>PID
 </code></pre></div></div>
 
-<p>If a process is refusing to be killed, yuou canuse the <strong>-9</strong> option to force it</p>
+<p>If a process is refusing to be killed, you can use the <strong>-9</strong> option to force it</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> <span class="nt">-9</span> PID
 </code></pre></div></div>
@@ -1141,7 +1081,7 @@ memory
 
 <h4 id="-alias"><a name="alias"></a> alias</h4>
 
-<p>The alias command created a temporary/easier/shorter name for a command or seires of commands.</p>
+<p>The alias command created a temporary/easier/shorter name for a command or series of commands.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">name</span><span class="o">=</span><span class="s2">"command"</span>
 </code></pre></div></div>
@@ -1173,7 +1113,7 @@ memory
 
 <h4 id="-echo"><a name="echo"></a> echo</h4>
 
-<p>The <strong>echo</strong> command prints the string following the command to the temrinal. Try typing</p>
+<p>The <strong>echo</strong> command prints the string following the command to the terminal. Try typing</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span>string
 </code></pre></div></div>
@@ -1206,7 +1146,7 @@ memory
 
 <h4 id="--find"><a name="find"></a>  find</h4>
 
-<p>The <strong>find</strong> command searches through your your directories for files and directories with a given name, date, soze, or any other attributes you can specify. For instance if you wanted to search for all files with the <strong>.txt</strong> extension starting at the current directory and print them to the screen you can type</p>
+<p>The <strong>find</strong> command searches through your your directories for files and directories with a given name, date, size, or any other attributes you can specify. For instance if you wanted to search for all files with the <strong>.txt</strong> extension starting at the current directory and print them to the screen you can type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.txt"</span> <span class="nt">-print</span>
 </code></pre></div></div>

@@ -24,7 +24,7 @@ next: Compiling Source Code on Spiedie
 
 ## <a name="module_intro"></a> Spiedie Modules
 
-Spiedie uses a module system to load software into a user's environment. With the exception of some (i.e. python), software on Spiedie is not accessible by sefault, and must be loaded through the module system. The reason for this is to accommodate as many users as possible, as specific versions of software may be needed for different users. The module system enables users to easily switch between different software versions depending on individual need.
+Spiedie uses a module system to load software into a user's environment. With the exception of some (i.e. python), software on Spiedie is not accessible by default, and must be loaded through the module system. The reason for this is to accommodate as many users as possible, as specific versions of software may be needed for different users. The module system enables users to easily switch between different software versions depending on individual need.
 
 ### <a name="avail"></a> Available Modules 
 
@@ -43,7 +43,7 @@ You can check which modules you currently have installed in your environment by 
 ``` bash
 module list
 ```
-You can see here that there are a few modules loaded by default, it's best to leave these as they are. Any module you load moving foward will show up here until you end your current session.
+You can see here that there are a few modules loaded by default, it's best to leave these as they are. Any module you load moving forward will show up here until you end your current session.
 
 ## <a name="load_unload"></a> Loading and Unloading Modules
 
@@ -79,7 +79,7 @@ module load module_name/version
 
 ### <a name="load_in_script"></a> Loading Modules in a Job Script
 
-Modules loaded in a job script exist only in the environment created by the submission script, meaning that you wont have access to the modules in your normal environment. The modukes in a job script can be loaded after your `#SBATCH` directives and before your actual executable is called. For example, a script that loads the Python module into the environment would look like the following:
+Modules loaded in a job script exist only in the environment created by the submission script, meaning that you wont have access to the modules in your normal environment. The modules in a job script can be loaded after your `#SBATCH` directives and before your actual executable is called. For example, a script that loads the Python module into the environment would look like the following:
 
 ``` bash
 #!bin/bash

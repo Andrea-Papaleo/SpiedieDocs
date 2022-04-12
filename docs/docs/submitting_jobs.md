@@ -53,7 +53,7 @@ To queue a quick test program use:
 srun -n4 -N1 <program run command>
 ```
 
-here we have speciefied to allocate four tasks(cores) (-n4) and one node (-N1), using the defaults for other parameters.
+here we have specified to allocate four tasks(cores) (-n4) and one node (-N1), using the defaults for other parameters.
 
 For instance, if we wanted to run a python file called _run.py_ which outputs "hello!" to the screen, using one node and one core, we would type..
 
@@ -71,7 +71,7 @@ Using **srun** in this way is beneficial if you need to quickly run a single scr
 
 A common use case for srun is to open an interactive shell session on a cluster. This allows you to run multiple scripts, get the results immediately, and continue using the current node for other tasks like analysis (if needed to be run on cluster).
 
-To start a interaactive session run:
+To start a interactive session run:
 
 ```bash
 srun -n1 --partition=<partition_name> --pty bash
@@ -88,7 +88,7 @@ hello!
 [watson@compute031 ~]$
 ```
 
-Notice how after the srun command we went from "spiedie81" to "compute031" which is a compute node in the quick partition. Once we've been given access to the node, we run the python script as we would on any other terminla, and when it is complete we still have use of the node.
+Notice how after the srun command we went from "spiedie81" to "compute031" which is a compute node in the quick partition. Once we've been given access to the node, we run the python script as we would on any other terminal, and when it is complete we still have use of the node.
 
 As mentioned earlier, once were done using the node we can exit by typing **exit** or typing **[^d]**. This will bring us back to the head node.
 
@@ -176,9 +176,9 @@ Once you run the **sbatch** command, You will see your submission on the queue b
 
 One of the important advantages of using Spiedie is the flexibility of hardware resources available to the user. You can tailor your resource request to suit the needs of your program.
 
-Proper resource allocation also ensures your program runs as fast and efficiently as possibile and does not halt unexepectedly due to hardware resource shortages such as memory. It is also best practice to allocate the right amount of resources for SLURM to work as efficient as possible for the entire cluster.
+Proper resource allocation also ensures your program runs as fast and efficiently as possible and does not halt unexpectedly due to hardware resource shortages such as memory. It is also best practice to allocate the right amount of resources for SLURM to work as efficient as possible for the entire cluster.
 
-### <a name="features"></a> Using Spiedie-specific Directvies or Features
+### <a name="features"></a> Using Spiedie-specific Directives or Features
 
 One way to make sure your programs run properly is to run it on the correct partition, as stated above.
 

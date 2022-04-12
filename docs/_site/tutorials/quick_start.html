@@ -198,36 +198,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -422,36 +392,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -554,7 +494,7 @@
   <li>A Spiedie user account and password</li>
   <li>Computer connected to the internet</li>
   <li>SSL VPN (Pulse) (if not connected to the school internet)</li>
-  <li>Familairty with programming and <a href="/docs/basic_linux_commands.html">basic command-line experience</a></li>
+  <li>Familiarity with programming and <a href="/docs/basic_linux_commands.html">basic command-line experience</a></li>
 </ol>
 
 <h2 id="log-in">Log in</h2>
@@ -579,11 +519,11 @@
 
 <hr />
 
-<p>Before we go further, <a href="/tutorials/code/quick_start.py">download</a> the python script we will be running. <a href="data_transfer.html">There are various ways to transfer data to and from cluster.</a></p>
+<p>Before we go further, <a href="/tutorials/code/quick_start.py">download</a> the python script we will be running. <a href="../docs/data_transfer.html">There are various ways to transfer data to and from cluster.</a></p>
 
 <p>In this example we will be using SCP to transfer the data from our local machine to the quick_start directory located on the Spiedie server.</p>
 
-<p>On your terminal or command prompt go to the directory of the downloaded python script and run</p>
+<p>Exit the Spiedie cluster or open a new terminal or command prompt on your local machine and <code class="language-plaintext highlighter-rouge">cd</code> into the directory of the downloaded python script and run</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp quick_start.py username@spiedie.binghamton.edu:quick_start/
 </code></pre></div></div>
@@ -610,7 +550,7 @@
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sinfo
 </code></pre></div></div>
-<p>We’ll be using the quick partition as it is used mostly for rapid prototyping. You’ll notice quick has a time cutoff of 10 minutes, so jobs are atuomatically cleared after 10 minutes. This makes sure we don’t have to wait too long for allocation.</p>
+<p>We’ll be using the quick partition as it is used mostly for rapid prototyping. You’ll notice quick has a time cutoff of 10 minutes, so jobs are automatically cleared after 10 minutes. This makes sure we don’t have to wait too long for allocation.</p>
 
 <p>Before we ask for allocation on the cluster, we can check how busy the system is by running</p>
 

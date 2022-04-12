@@ -212,36 +212,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -450,36 +420,6 @@
                     
                 
                 
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/singularity.html" >Using Containers (Singularity)</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_conda.html" >Using Conda on Spiedie</a>
-                    
-                
-                
-                    
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/x_11_forwarding.html" >X11 Fowarding</a>
-                    
-                
-                
-                </li><li class=" toc-item toc-l2-item">
-                    
-                    
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/docs/spiedie_matlab.html" >MATLAB on Spiedie</a>
-                    
-                
-                
                 </li></ol>
         
         </li><li class="toc-item toc-l1-item">
@@ -620,7 +560,7 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun <span class="nt">-n4</span> <span class="nt">-N1</span> &lt;program run <span class="nb">command</span><span class="o">&gt;</span>
 </code></pre></div></div>
 
-<p>here we have speciefied to allocate four tasks(cores) (-n4) and one node (-N1), using the defaults for other parameters.</p>
+<p>here we have specified to allocate four tasks(cores) (-n4) and one node (-N1), using the defaults for other parameters.</p>
 
 <p>For instance, if we wanted to run a python file called <em>run.py</em> which outputs “hello!” to the screen, using one node and one core, we would type..</p>
 
@@ -637,7 +577,7 @@ hello!
 
 <p>A common use case for srun is to open an interactive shell session on a cluster. This allows you to run multiple scripts, get the results immediately, and continue using the current node for other tasks like analysis (if needed to be run on cluster).</p>
 
-<p>To start a interaactive session run:</p>
+<p>To start a interactive session run:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun <span class="nt">-n1</span> <span class="nt">--partition</span><span class="o">=</span>&lt;partition_name&gt; <span class="nt">--pty</span> bash
 </code></pre></div></div>
@@ -652,7 +592,7 @@ hello!
 <span class="o">[</span>watson@compute031 ~]<span class="err">$</span>
 </code></pre></div></div>
 
-<p>Notice how after the srun command we went from “spiedie81” to “compute031” which is a compute node in the quick partition. Once we’ve been given access to the node, we run the python script as we would on any other terminla, and when it is complete we still have use of the node.</p>
+<p>Notice how after the srun command we went from “spiedie81” to “compute031” which is a compute node in the quick partition. Once we’ve been given access to the node, we run the python script as we would on any other terminal, and when it is complete we still have use of the node.</p>
 
 <p>As mentioned earlier, once were done using the node we can exit by typing <strong>exit</strong> or typing <strong>[^d]</strong>. This will bring us back to the head node.</p>
 
@@ -734,9 +674,9 @@ python run.py
 
 <p>One of the important advantages of using Spiedie is the flexibility of hardware resources available to the user. You can tailor your resource request to suit the needs of your program.</p>
 
-<p>Proper resource allocation also ensures your program runs as fast and efficiently as possibile and does not halt unexepectedly due to hardware resource shortages such as memory. It is also best practice to allocate the right amount of resources for SLURM to work as efficient as possible for the entire cluster.</p>
+<p>Proper resource allocation also ensures your program runs as fast and efficiently as possible and does not halt unexpectedly due to hardware resource shortages such as memory. It is also best practice to allocate the right amount of resources for SLURM to work as efficient as possible for the entire cluster.</p>
 
-<h3 id="-using-spiedie-specific-directvies-or-features"><a name="features"></a> Using Spiedie-specific Directvies or Features</h3>
+<h3 id="-using-spiedie-specific-directives-or-features"><a name="features"></a> Using Spiedie-specific Directives or Features</h3>
 
 <p>One way to make sure your programs run properly is to run it on the correct partition, as stated above.</p>
 

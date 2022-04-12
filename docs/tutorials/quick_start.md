@@ -19,7 +19,7 @@ Requirements to complete the guide:
 1. A Spiedie user account and password
 2. Computer connected to the internet 
 3. SSL VPN (Pulse) (if not connected to the school internet)
-4. Familairty with programming and [basic command-line experience](../docs/basic_linux_commands.md)
+4. Familiarity with programming and [basic command-line experience](../docs/basic_linux_commands.md)
 
 ## Log in
 ***
@@ -46,11 +46,11 @@ Which will list all the files and directories in your Home directory.
 
 ***
 
-Before we go further, [download](code/quick_start.py) the python script we will be running. [There are various ways to transfer data to and from cluster.](data_transfer.html)
+Before we go further, [download](code/quick_start.py) the python script we will be running. [There are various ways to transfer data to and from cluster.](../docs/data_transfer.html)
 
 In this example we will be using SCP to transfer the data from our local machine to the quick_start directory located on the Spiedie server. 
 
-On your terminal or command prompt go to the directory of the downloaded python script and run 
+Exit the Spiedie cluster or open a new terminal or command prompt on your local machine and `cd` into the directory of the downloaded python script and run 
 
 ``` bash 
 scp quick_start.py username@spiedie.binghamton.edu:quick_start/
@@ -81,7 +81,7 @@ You can get a quick overview of the cluster by running
 ``` bash
 sinfo
 ```
-We'll be using the quick partition as it is used mostly for rapid prototyping. You'll notice quick has a time cutoff of 10 minutes, so jobs are atuomatically cleared after 10 minutes. This makes sure we don't have to wait too long for allocation. 
+We'll be using the quick partition as it is used mostly for rapid prototyping. You'll notice quick has a time cutoff of 10 minutes, so jobs are automatically cleared after 10 minutes. This makes sure we don't have to wait too long for allocation. 
 
 Before we ask for allocation on the cluster, we can check how busy the system is by running 
 

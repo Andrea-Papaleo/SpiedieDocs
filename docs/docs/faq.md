@@ -3,7 +3,7 @@ title: FAQs
 layout: default
 images: [] 
 tags: [New_User, FAQ]
-description: Freqeuntly Asked Questions on how to get access to and use Spiedie
+description: Frequently Asked Questions on how to get access to and use Spiedie
 category: getting-started
 ---
 

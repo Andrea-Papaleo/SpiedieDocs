@@ -8,7 +8,7 @@ category: tutorial
 
 The walk-through tutorials will combine and combine reference the stand alone documentation to help guide users along on practical examples. 
 
-The guides are designed to get users quickly running programs on the Spiedie Cluster. The tutorials will also focus on giving users experience with the various difference aspects of SLURM and the Spiedie environment such as adding modules, compiling customs programs, running and scehduling batch scripts, and monitoring job status. The different guides also make use of the various computing architecutres such the Knights Landing Many Core Architecture (XEON Phi), GPU Compute (Nvidia P100), and distriibuted compute that Spiedie has to offer. 
+The guides are designed to get users quickly running programs on the Spiedie Cluster. The tutorials will also focus on giving users experience with the various difference aspects of SLURM and the Spiedie environment such as adding modules, compiling customs programs, running and scheduling batch scripts, and monitoring job status. The different guides also make use of the various computing architectures such the Knights Landing Many Core Architecture (XEON Phi), GPU Compute (Nvidia P100), and distributed compute that Spiedie has to offer. 
 
 
 ### Tutorial Series: 

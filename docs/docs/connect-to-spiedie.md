@@ -11,7 +11,7 @@ next: User Home Directory
 
 ### Table of Contents  
 
- 1. [Connect from off-campus Network](#off_campus)
+ 1. [Connect from Off-Campus Network](#off_campus)
      * [Installing Pulse Client](#vpn)
  2. [Using Windows](#using_windows)  
      * [Install SSH Client \(PuTTY\)](#windows_ssh) 
@@ -20,8 +20,9 @@ next: User Home Directory
      * [Connected to University Network](#using_mac) 
  4. [Using Linux](#using_linux)  
      * [Connected to University Network](#using_linux)  
- 5. [Accessing Bright Web Portal](#bright_web)
- 6. [X2Go on Spiedie](#x2go)
+ 5. [Changing Your Password](#passwd_chng)
+ 6. [Accessing Bright Web Portal](#bright_web)
+ 7. [X2Go on Spiedie](#x2go)
 
 
 
@@ -64,7 +65,6 @@ First we need to install an ssh client. We will be using <a href="https://www.pu
 	Caption: putty log in --->
 3. Click Open or press enter
 4. Type in password (your typed characters will remain hidden on the screen)
-5. ***Note: Use the password that has been provided to you. Once you have logged in, you can then change your password by using the `passwd` command***
 
  
 
@@ -79,12 +79,24 @@ First we need to install an ssh client. We will be using <a href="https://www.pu
 	ssh username@spiedie.binghamton.edu
 	```
 	replace `username` with your Spiedie username
-3. If this is your frist time connecting, type yes and press enter to recognize the ssh fingerprint.
+3. If this is your first time connecting, type yes and press enter to recognize the ssh fingerprint.
 4. Enter password when prompted.
-5. ***Note: Use the password that has been provided to you. Once you have logged in, you can then change your password by using the `passwd` command***
 
+## <a name="passwd_chng"></a> Changing Your Password
 
+The first thing you should do when connecting for the first time is change your password. The password provided with your account is not unique, and unless you change it your account may not be secure.
 
+You can change your password by using the `passwd` command. Type
+
+```bash
+[@spiedie81 ~]$ passwd
+Old SMB password:
+New SMB password:
+Retype new SMB password:
+Password changed for user 
+[watson@spiedie81 ~]$ 
+```
+When you enter the `passwd` command, your are prompted to enter your current password, then your new password. Once done, your password is successfully changed.
 
 
 ## <a name="bright_web"></a> Accessing Bright Web Portal

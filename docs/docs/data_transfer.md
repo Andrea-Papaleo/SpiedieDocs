@@ -43,7 +43,7 @@ One important note to remember is that you need to give the full path of the dir
 
 ![scp](../assets/images/data-transfer/scp.png)
 
-The output of **scp** will show you the files transferred, as well as their transfer completion, size, transfer speed and time. We can use flags to augment the output and the behaivior of the scp command, but for now we will take note of the 448KB file transfer size.
+The output of **scp** will show you the files transferred, as well as their transfer completion, size, transfer speed and time. We can use flags to augment the output and the behavior of the scp command, but for now we will take note of the 448KB file transfer size.
 
 Now when you look in the *SpiedieDocs* directory on the cluster you'll see that the file has been transferred.
 
@@ -58,7 +58,7 @@ This is similar to transferring a single file except instead of specifying a fil
 ``` bash 
 scp -r local-directory <username>@spiedie.binghamton.edu:your/desired/destination
 ```
-More informion on SCP can be found <a href='https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/' target="_blank">here</a>.
+More information on SCP can be found <a href='https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/' target="_blank">here</a>.
 
 
 ## <a name="RSYNC"> </a> 2.2.2 Rsync
@@ -132,7 +132,7 @@ After you've entered your info, you should see the the connection status being p
 
 Transferring files is then as simple as dragging and dropping from one file system to the other.
 
-Now that we've gone over transfering data to and from the Spiedie cluster, we can start thinking about using the resources Spiedie provides to actually run some jobs!
+Now that we've gone over transferring data to and from the Spiedie cluster, we can start thinking about using the resources Spiedie provides to actually run some jobs!
 
 
 

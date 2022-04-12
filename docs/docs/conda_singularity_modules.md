@@ -21,7 +21,7 @@ category: getting-started
 
 ### <a name="avail_app_solutions"></a> Solution available on Spiedie
 
-Spiedie provides different approaches to load third pirty programs and libraries. 
+Spiedie provides different approaches to load third party programs and libraries. 
 
 We have a choice between using 
 - [Modules](spiedie_modules.html)
@@ -85,12 +85,12 @@ all the dependencies required for the package automatically making installing th
 ##### Writing a quick test program and need unavailable packages? Use Conda. 
 
 - Conda simplifies creating virtual environments and makes creating isolated environments much simpler. The turnaround time for creating a conda environment with all 
-desired packages versus building from source or building a new container is much lower. Conda evnironments are available for reuse and can be quickly updated and modified. 
+desired packages versus building from source or building a new container is much lower. Conda environments are available for reuse and can be quickly updated and modified. 
 
 
 ***
 
 
-##### Wnat to use Intel Math Kernel Library (MKL) accelerated Python and packages? Use Conda
+##### Want to use Intel Math Kernel Library (MKL) accelerated Python and packages? Use Conda
 
 - If you would like to use the MKL accelerated version of Python, Numpy, Scipy and other available packages, it is recommended to use Conda, rather than building each package and python from source. 

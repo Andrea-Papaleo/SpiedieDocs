@@ -155,40 +155,21 @@ toc:
       - title: Multi-node Multi-core Program (MPI)
         url: "/tutorials/spiedie_MPI.html"
         external: false
-      - title: Using Containers (Singularity)
-        url: "/tutorials/singularity.html"
-        external: false
-      - title: Using Conda on Spiedie
-        url: "/docs/spiedie_conda.html"
-        external: false
-        inner_list:
-          - title: What is Conda
-            url: "/docs/spiedie_conda.html#conda_intro"
-            external: false
-          - title: Activating Conda on Spiedie
-            url: "/docs/spiedie_conda.html#conda_activate"
-            external: false
-          - title: Deactivating Conda
-            url: "/docs/spiedie_conda.html#conda_deactivate"
-            external: false
-          - title: Using Conda
-            url: "/docs/spiedie_conda.html#conda_use"
-            external: false
-          - title: Conda Documentation
-            url: https://docs.conda.io/projects/conda/en/latest/user-guide/overview.html
-            external: true
-      - title: X11 Fowarding
-        url: "/docs/x_11_forwarding.html"
-        external: false
-      - title: MATLAB on Spiedie
-        url: "/docs/spiedie_matlab.html"
-        external: false
+      #- title: Using Containers (Singularity)
+      #  url: "/tutorials/singularity.html"
+      #  external: false
+      #- title: X11 Fowarding
+      #  url: "/docs/x_11_forwarding.html"
+      #  external: false
+      #- title: MATLAB on Spiedie
+      #  url: "/docs/spiedie_matlab.html"
+      #  external: false
   - title: Documentation
-    catecory: documentation
+    category: documentation
     contents:
       - title: Basic Linux Commands
         url: "/docs/basic_linux_commands.html"
-        taget: false
+        target: false
       - title: Basic SLURM Commands
         url: "/docs/basic_slurm_commands.html"
         external: false

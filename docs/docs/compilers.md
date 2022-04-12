@@ -19,7 +19,7 @@ prev: Spiedie Modules
 
 ## <a name="compilers"></a> Compilers
 
-Spiedie offes a variety of node and hardware configurations in order to meet the many different needs of researchers. To best optimize your code, different compilers are available to load as modules.
+Spiedie offers a variety of node and hardware configurations in order to meet the many different needs of researchers. To best optimize your code, different compilers are available to load as modules.
 
 ### <a name="gcc"></a> GCC
 The open source gcc and g++ compiler made by the Free Software Foundation Inc. They were originally written to be the compilers for the GNU operating system. They are capable of generating code for a large number of target architectures and is widely available on Unix-like platforms. To load the gcc module type
@@ -34,7 +34,7 @@ The Intel C++ compiler compiler is made by the Intel Corporation and is highly t
 
 Spiedie also provides users with the Intel Parallel Studio Compilers suite to take advantage of the improved performance on the Xeon-Phi architecture available. 
 
-Recenty the Intel oneAPI core elements have been added to the cluster. The stated goal of the oneAPI specification is to enable an open, industry standard, cross-architecture software stack for accelerators. You can find out more <a href="https://www.oneapi.io/" target="_blank">here</a>.
+Recently the Intel oneAPI core elements have been added to the cluster. The stated goal of the oneAPI specification is to enable an open, industry standard, cross-architecture software stack for accelerators. You can find out more <a href="https://www.oneapi.io/" target="_blank">here</a>.
 
 You can load the Intel compiler from the modules using: 
 
@@ -55,7 +55,7 @@ This loads the following libraries:
 - Intel MPI library
 - Intel Thread Building Block Library (Intel TBB&copy;)
 
-<a href="https://software.intel.com/en-us/node/685016" target="_blank">Click here for the summary of the toolset</a>
+<a href="https://software.intel.com/en-us/node/685016" target="_blank">Click here for the summary of the tool-set</a>
 
 ### <a name="nvidia"></a> NVCC
 

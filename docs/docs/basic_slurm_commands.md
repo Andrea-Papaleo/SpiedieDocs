@@ -34,7 +34,7 @@ sinfo
 To quickly run a program for prototyping or testing small programs run: 
 
 ``` bash 
-srun -N 1 --partition=quick ./exectubale 
+srun -N 1 --partition=quick ./executable 
 ```  
 This will allocate one node for a default amount of time on the quick partition. We suggest to use the quick partition as they are limited to 10 minutes per job and are generally easier to find allocation on.
 

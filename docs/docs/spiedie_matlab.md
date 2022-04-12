@@ -40,7 +40,7 @@ We must map the Spiedie Home directory to the "Y" drive.
 3. Select the drive letter you prefer (Y is recommended)
 4. In the folder box type \\\\spiediefiles.binghamton.edu\username (replace username with your user name)
 	- Select "Connect using different credentials"
-	- To automatically connect every tiem you log on, check the box "Reconnect at log on"
+	- To automatically connect every time you log on, check the box "Reconnect at log on"
 5. Click "Finish"
 6. When prompted, select "Use another account"
 7. input ".\username" where "username" is your Spiedie username and your Spiedie password
@@ -49,7 +49,7 @@ We must map the Spiedie Home directory to the "Y" drive.
 
 ## <a name="matlab_configure"></a> MATLAB configuration 
 
-Once you have your home directory mapped, you can open up MATBAL to configure it 
+Once you have your home directory mapped, you can open up MATLAB to configure it 
 
 1. Open MATLAB R2019b
 2. In the top bar in "Environment" select "Set Path"

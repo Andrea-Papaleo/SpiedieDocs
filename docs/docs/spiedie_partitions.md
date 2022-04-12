@@ -26,7 +26,7 @@ For programs with short run times. Ideal for testing out your code as queue rema
 
 #### Standard / DefQ
 
-Standard and Default queue are the standard compute nodes used by default. The memory and cpu allocation for this partition are restricted, as some nodes are hardware limited. If you do not need specialized hardware (i.e. GPU) or massive multi-core support and high memoery( > 16 cores), these partitions are ideal.  
+Standard and Default queue are the standard compute nodes used by default. The memory and cpu allocation for this partition are restricted, as some nodes are hardware limited. If you do not need specialized hardware (i.e. GPU) or massive multi-core support and high memory( > 16 cores), these partitions are ideal.  
 
 #### Knights Landing 
 
