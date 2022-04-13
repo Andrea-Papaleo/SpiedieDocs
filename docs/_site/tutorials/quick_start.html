@@ -474,18 +474,14 @@
 
 <p>After acquiring your username and password, you should be able to log in to the Spiedie cluster following the steps listed <a href="../docs/login.html">here</a>.</p>
 
-<p>You will be logged in at your home directory. You can add modules and quickly prototype the code you with to run here. You should <strong><em>note</em></strong> run any lengthy programs in the log in node as it may cause disruptions for other users. You should only run programs using srun and sbatch, which will be explained these tutorials.</p>
+<p>You will be logged in at your home directory. You can add modules and quickly prototype the code you with to run here. You should <strong><em>note</em></strong> run any lengthy programs in the log in node as it may cause disruptions for other users. You should only run programs using <code class="language-plaintext highlighter-rouge">srun</code> and <code class="language-plaintext highlighter-rouge">sbatch</code>, which will be explained these tutorials.</p>
 
 <p>Once logged in you can create a new directory by running</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>quick_start
 </code></pre></div></div>
 
-<p>This will create a new directory called quick_start in your Home directory. You can quickly verify by typing</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> 
-</code></pre></div></div>
-<p>Which will list all the files and directories in your Home directory.</p>
+<p>This will create a new directory called quick_start in your Home directory. You can quickly verify by typing <code class="language-plaintext highlighter-rouge">ls</code>.</p>
 
 <h2 id="transfer-files-to-cluster">Transfer files to Cluster</h2>
 
@@ -495,39 +491,63 @@
 
 <p>In this example we will be using SCP to transfer the data from our local machine to the quick_start directory located on the Spiedie server.</p>
 
-<p>Exit the Spiedie cluster or open a new terminal or command prompt on your local machine and <code class="language-plaintext highlighter-rouge">cd</code> into the directory of the downloaded python script and run</p>
+<p>Exit the Spiedie cluster or open a new terminal on your local machine and <code class="language-plaintext highlighter-rouge">cd</code> into the directory of the downloaded python script and run</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp quick_start.py username@spiedie.binghamton.edu:quick_start/
 </code></pre></div></div>
-<p>replace username with your username and fill in your password when prompted. This should place the quick_start.py file on the quick_start directory on Spiedie.</p>
+<p>replace username with your username and fill in your password when prompted. This should place the <em>quick_start.py</em> file on the quick_start directory on Spiedie.</p>
 
-<p>To verify the transfer, go back to your logged in session and run</p>
+<p>To verify the transfer, go back to your logged in  spiedie session and run</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>quick_start
-<span class="nb">ls</span> 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 ~]<span class="nv">$ </span><span class="nb">cd </span>quick_start/
+<span class="o">[</span>spiedie81 quick_start]<span class="nv">$ </span><span class="nb">ls
+</span>quick_start.py
 </code></pre></div></div>
 <p>You should see the python file listed on your screen.</p>
 
 <h2 id="run-the-program">Run the program</h2>
 
-<p>Since this is a small prototype program we believe will finish quickly, we will run it interactively using srun. For larger programs we usually need to write a batch script and use sbatch. Running more complex jobs and srun and sbatch are covered here and <a href="/docs/submitting_jobs.html">here</a></p>
+<p>Since this is a small prototype program we believe will finish quickly, we will run it interactively using <code class="language-plaintext highlighter-rouge">srun</code>. For larger programs we usually need to write a batch script and use <code class="language-plaintext highlighter-rouge">sbatch</code>. Running more complex jobs and <code class="language-plaintext highlighter-rouge">srun</code> and <code class="language-plaintext highlighter-rouge">sbatch</code> are covered here and <a href="/docs/submitting_jobs.html">here</a></p>
 
-<p>Go back to your logged in Spiedie session and make sure you are on the directory of the qiuck_start.py.</p>
+<p>Go back to your logged in Spiedie session and make sure you are in the directory of the <em>quick_start.py</em>.</p>
 
-<p>We will interactively run the quick_start.py on Spiedie by using the srun command. srun will submit our job to the SLURM queue to be allocated, and the output will be printed to the terminal.</p>
+<p>We can take a quick look at the python file by using the <code class="language-plaintext highlighter-rouge">cat</code> command.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>watson@spiedie81 quick_start]<span class="nv">$ </span><span class="nb">cat </span>quick_start.py 
+import random 
+import <span class="nb">time 
+
+</span>def rand<span class="o">(</span>start, end, length<span class="o">)</span>:
+    ret <span class="o">=</span> <span class="o">[]</span>
+    <span class="k">for </span>i <span class="k">in </span>range<span class="o">(</span>length<span class="o">)</span>:
+        ret.append<span class="o">(</span>random.randint<span class="o">(</span>start,end<span class="o">))</span>
+    <span class="k">return </span>ret
+
+def main<span class="o">()</span>:
+
+    start_time <span class="o">=</span> time.clock<span class="o">()</span>
+    <span class="k">for </span>i <span class="k">in </span>range <span class="o">(</span>100<span class="o">)</span>:
+        unsorted_list <span class="o">=</span> rand<span class="o">(</span>0,100000,1000<span class="o">)</span>
+        sorted_list <span class="o">=</span> unsorted_list.sort<span class="o">()</span>
+
+    end_time <span class="o">=</span> time.clock<span class="o">()</span>
+    print<span class="o">(</span><span class="s2">"Welcome to Spiedie!"</span><span class="o">)</span>
+    print<span class="o">(</span><span class="s2">"You are running the quick start python tutorial."</span><span class="o">)</span>
+    print <span class="o">(</span><span class="s2">"Soritng done"</span><span class="o">)</span>
+    print<span class="o">(</span><span class="s2">" I ran for "</span> + str<span class="o">(</span>end_time-start_time<span class="o">)</span> + <span class="s2">" s"</span><span class="o">)</span>
+
+main<span class="o">()</span>
+<span class="o">[</span>watson@spiedie81 quick_start]<span class="nv">$ </span>
+</code></pre></div></div>
+<p>A full breakdown of this script is outside the scope of this documentation, but the gist is that it sorts an array of <em>1000</em> elements <em>100</em> times, measures the time necessary to complete the task, and prints a message to the specified output.</p>
+
+<p>We will interactively run the quick_start.py on Spiedie by using the <code class="language-plaintext highlighter-rouge">srun</code> command. <code class="language-plaintext highlighter-rouge">srun</code> will submit our job to the SLURM queue to be allocated, and the output will be printed to the terminal.</p>
 
 <p>You should familiarize with the different partitions and compute capabilities of Spiedie, as different partitions may be more well suited depending on the task.</p>
 
-<p>You can get a quick overview of the cluster by running</p>
+<p>You can get a quick overview of the cluster by running the <code class="language-plaintext highlighter-rouge">sinfo</code> command.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sinfo
-</code></pre></div></div>
-<p>We’ll be using the quick partition as it is used mostly for rapid prototyping. You’ll notice quick has a time cutoff of 10 minutes, so jobs are automatically cleared after 10 minutes. This makes sure we don’t have to wait too long for allocation.</p>
-
-<p>Before we ask for allocation on the cluster, we can check how busy the system is by running</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>squeue
-</code></pre></div></div>
+<p>We’ll be using the <em>quick</em> partition as it is used mostly for rapid prototyping. You’ll notice quick has a time cutoff of 10 minutes, so jobs are automatically cleared after 10 minutes. This makes sure we don’t have to wait too long for allocation. Before we ask for allocation on the cluster, we can check how busy the system is by running <code class="language-plaintext highlighter-rouge">squeue</code>.</p>
 
 <p>This will list all jobs currently running and waiting to be allocated. 
 <a href="http://www.ceci-hpc.be/slurm_prio.html" target="_blank">You can learn more about how SLURM priorities work here</a></p>
@@ -539,7 +559,9 @@
 
 <p>This will send your job to the SLURM daemon to be allocated and then run on a quick partition node. We have chosen to use default parameters for srun such number of nodes (1) and number of tasks (1) and number of CPU’s (1).</p>
 
-<p>We have directed the outputs of the program to the quick_start.log and quick_start_error.log and retained the control of the terminal.</p>
+<p>It isn’t necessary to include the content after you specify the python file. We included the <code class="language-plaintext highlighter-rouge">1&gt;quick_start.log 2&gt;quick_start_error.log</code> here for convenience as it will direct the outputs of the program to the quick_start.log and quick_start_error.log.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">&amp;</code> ant the end of the command will run the process in the background, allowing us to continue using the terminal.</p>
 
 <p><a href="https://explainshell.com/explain?cmd=srun+--partition%3Dquick+python3+quick_start.py+1%3Equick_start.log+2%3Equick_start_error.log+%26" target="_blank">You can see a full explanation of the shell command here</a></p>
 
@@ -550,7 +572,7 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>squeue <span class="nt">-u</span> username
 </code></pre></div></div>
 
-<p>Replace username with your user name and you should see your job listed as either pending or active and on which node it has been allocated to.</p>
+<p>Replace <code class="language-plaintext highlighter-rouge">username</code> with your user name and you should see your job listed as either pending or active and on which node it has been allocated to.</p>
 
 <p>You can also check your account status using</p>
 
