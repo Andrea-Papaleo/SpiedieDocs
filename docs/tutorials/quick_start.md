@@ -5,6 +5,8 @@ images: []
 tags: [Tutorial, Python, SLURM, Submit Job, New_User]
 description: A walkthrough on how to submit your first job on Spiedie!
 category: tutorial
+prev: Setting Up a Python Environment
+next: MPI on Spiedie (advanced)
 ---
 
 This tutorial is designed to get you up and running on Spiedie as quickly as possible. You should be able to run simple programs on the Spiedie cluster by the end of this guide. 

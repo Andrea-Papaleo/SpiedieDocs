@@ -5,10 +5,9 @@ images: []
 tags: [tutorial, mpi, multinode, MVAPICH2, SBATCH]
 description: How to run a multi node MPI program on Spiedie.
 category: tutorial
+prev: Quick Start Tutorial - Python
 --- 
 
-
-***
 
 One of the advantages of Spiedie is the high performing computing hardware available for each user. In this tutorial, we will be running an MPI Hello World program on Spiedie. 
 
@@ -17,17 +16,43 @@ Covered in this guide:
 1. [Compiling a MPI program](#mpi_run)
 2. [Run script for MPI](#mpi_sbatch)
 
-***
+
 ## <a name="mpi_run"></a> Compiling a MPI Program
 
 Massage Passing Interface (MPI) is a standardized massage-passing standard used for high performance parallel computing on a distributed network. Spiedie supports the following standards implementations:
-1. MPICH
-2. MVAPICH(2)
-3. OPENMPI
+
+1. <a href="https://www.mpich.org/" target="_blank">MPICH</a>
+2. <a href="http://mvapich.cse.ohio-state.edu/" target="_blank">MVAPICH(2)</a>
+3. <a href="https://www.open-mpi.org/" target="_blank">OPENMPI</a>
+4. <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html#gs.zgnm9c" target="_blank">INTEL MPI</a>
 
 We will be using mvapich2 implementation of MPI. We will be using the MPI Hello World Example from Wes Kendall <a href="https://mpitutorial.com/tutorials/mpi-hello-world/" target="_blank"> from here</a>. 
 
 You can download the <a href="code/mpi.c" download> code from here.</a>
+
+### <a name="environment_setup"></a> Set up the Environment
+
+Similar to the previous tutorials, its best to keep our file system organized, so lets create a new directory called *mpi-tutorial*.
+
+```bash
+mkdir mpi-tutorial
+```
+
+Now exit out of spiedie or open a new terminal window on your local machine. If you haven't downloaded the *mpi.c* file yet, do so now. Once you have the *mpi.c* file, secure copy it to your new folder in spiedie.
+
+```bash
+scp path/to/mpi.c username@spiedie.binghamton.edu:mpi-tutorial
+```
+
+Back in your spiedie terminal you can verify you have the file in the right place by changing into to *mpi-tutorial* directory and usung ```ls```.
+
+```bash
+[spiedie81 ~]$ cd mpi-tutorial/
+[spiedie81 mpi-tutorial]$ ls
+mpi.c
+```
+
+You can use ```cat``` or a text editor to view the contents of *mpi.c*.
 
 mpi.c: 
 
@@ -68,13 +93,21 @@ The code will print out the name of the compute node, and the rank of the proces
 
 We will need the MPI-wrapper for gcc in order to compile the code. 
 
+
+
+
 ## <a name="mpi_sbatch"></a> Run script for MPI
 
 
 #### Preliminaries
-We can create a run script called, ```mpi_run.sh```. 
 
-We have to add the shebang at the beginning of the run script. It is aslo good practice to name our job so we can add: 
+In order to set up the necessary dependencies and run our program we need to create a run script and can call it *mpi_run.sh*. You can use whichever text editor you're most comfortable with, however we will be using **emacs**. While in the tutorial folder, type
+
+```bash
+emacs mpi_run.sh
+```
+
+We have to add the shebang at the beginning of the run script. It is also good practice to name our job so we can add: 
 ```bash
 #!/bin/bash
 #
@@ -103,15 +136,21 @@ We will also run the program on the quick partition with;
 #SBATCH --partition=quick
 ```
 
+
+There are more sbatch options you can add here, for a more detailed list you can visit the <a href="https://slurm.schedmd.com/sbatch.html" target="_blank">slurm documentation</a>.
+
 #### Running the Program 
 
-We must add the MPI library with:
+Once weve finished defining the sbatch options, we want to set up our runtime environment and then run our program.
+
+Firstly, in order to utilize mpi, we must add the MPI library with:
 
 ```bash
-module load mvapich2/gcc/64/2.3b
+module load mvapich2/gcc/64/2.3.2
 ```
+***NOTE: At the time of this writing, the mvapich2 version install on spiedie is 2.3.2. This may change in the future so it is important that you find the currently installed version and use that library.***
 
-To then compile the program: 
+After we've loaded the MPI library, we need to compile our source code with:
 
 ```bash
 mpicc -o mpi_test mpi.c 
@@ -123,7 +162,7 @@ Since MVAPICH2 is built with Slurm support on Spiedie, it is best practice to le
 srun ./mpi_test
 ```
 
-The final run script can be downloaded <a href="code/mpi_run.sh" download=> here</a> :
+The final run script can be downloaded <a href="code/mpi_run.sh" download> here</a> :
 
 ```bash
 #!/bin/bash
@@ -135,7 +174,7 @@ The final run script can be downloaded <a href="code/mpi_run.sh" download=> here
 #SBATCH --partition=quick
 #
 
-module load mvapich2/gcc/64/2.3b
+module load mvapich2/gcc/64/2.3.2
 
 mpicc -o mpi_test mpi.c
 
@@ -162,5 +201,7 @@ We expect an output such as,
 Hello world from processor compute030, rank 0 out of 1 processors
 Hello world from processor compute031, rank 0 out of 1 processors
 ```
+
+Thats it, you've run a MPI program!
 
 

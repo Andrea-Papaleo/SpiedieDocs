@@ -5,6 +5,7 @@ images: []
 tags: [Python, Conda, Python Program, VirtualEnv]
 description: Setting up local python environments for compartmentalizing code
 category: tutorial
+next: Quick Start Tutorial - Python
 ---
 
 ### Table of Contents  

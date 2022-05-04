@@ -423,6 +423,8 @@
       
       
       
+        <a id="prev-doc" href=/tutorials/quick_start.html><strong><<</strong> Quick Start Tutorial - Python</a>
+      
       
       
       
@@ -451,9 +453,7 @@
             </h1>
             
             <article >
-              <hr />
-
-<p>One of the advantages of Spiedie is the high performing computing hardware available for each user. In this tutorial, we will be running an MPI Hello World program on Spiedie.</p>
+              <p>One of the advantages of Spiedie is the high performing computing hardware available for each user. In this tutorial, we will be running an MPI Hello World program on Spiedie.</p>
 
 <p>Covered in this guide:</p>
 
@@ -462,19 +462,41 @@
   <li><a href="#mpi_sbatch">Run script for MPI</a></li>
 </ol>
 
-<hr />
 <h2 id="-compiling-a-mpi-program"><a name="mpi_run"></a> Compiling a MPI Program</h2>
 
 <p>Massage Passing Interface (MPI) is a standardized massage-passing standard used for high performance parallel computing on a distributed network. Spiedie supports the following standards implementations:</p>
+
 <ol>
-  <li>MPICH</li>
-  <li>MVAPICH(2)</li>
-  <li>OPENMPI</li>
+  <li><a href="https://www.mpich.org/" target="_blank">MPICH</a></li>
+  <li><a href="http://mvapich.cse.ohio-state.edu/" target="_blank">MVAPICH(2)</a></li>
+  <li><a href="https://www.open-mpi.org/" target="_blank">OPENMPI</a></li>
+  <li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html#gs.zgnm9c" target="_blank">INTEL MPI</a></li>
 </ol>
 
 <p>We will be using mvapich2 implementation of MPI. We will be using the MPI Hello World Example from Wes Kendall <a href="https://mpitutorial.com/tutorials/mpi-hello-world/" target="_blank"> from here</a>.</p>
 
 <p>You can download the <a href="code/mpi.c" download=""> code from here.</a></p>
+
+<h3 id="-set-up-the-environment"><a name="environment_setup"></a> Set up the Environment</h3>
+
+<p>Similar to the previous tutorials, its best to keep our file system organized, so lets create a new directory called <em>mpi-tutorial</em>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>mpi-tutorial
+</code></pre></div></div>
+
+<p>Now exit out of spiedie or open a new terminal window on your local machine. If you haven’t downloaded the <em>mpi.c</em> file yet, do so now. Once you have the <em>mpi.c</em> file, secure copy it to your new folder in spiedie.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp path/to/mpi.c username@spiedie.binghamton.edu:mpi-tutorial
+</code></pre></div></div>
+
+<p>Back in your spiedie terminal you can verify you have the file in the right place by changing into to <em>mpi-tutorial</em> directory and usung <code class="language-plaintext highlighter-rouge">ls</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 ~]<span class="nv">$ </span><span class="nb">cd </span>mpi-tutorial/
+<span class="o">[</span>spiedie81 mpi-tutorial]<span class="nv">$ </span><span class="nb">ls
+</span>mpi.c
+</code></pre></div></div>
+
+<p>You can use <code class="language-plaintext highlighter-rouge">cat</code> or a text editor to view the contents of <em>mpi.c</em>.</p>
 
 <p>mpi.c:</p>
 
@@ -517,9 +539,13 @@
 <h2 id="-run-script-for-mpi"><a name="mpi_sbatch"></a> Run script for MPI</h2>
 
 <h4 id="preliminaries">Preliminaries</h4>
-<p>We can create a run script called, <code class="language-plaintext highlighter-rouge">mpi_run.sh</code>.</p>
 
-<p>We have to add the shebang at the beginning of the run script. It is aslo good practice to name our job so we can add:</p>
+<p>In order to set up the necessary dependencies and run our program we need to create a run script and can call it <em>mpi_run.sh</em>. You can use whichever text editor you’re most comfortable with, however we will be using <strong>emacs</strong>. While in the tutorial folder, type</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emacs mpi_run.sh
+</code></pre></div></div>
+
+<p>We have to add the shebang at the beginning of the run script. It is also good practice to name our job so we can add:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c">#</span>
 <span class="c">#SBATCH --job-name=MPI_TEST</span>
@@ -544,14 +570,19 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --partition=quick</span>
 </code></pre></div></div>
 
+<p>There are more sbatch options you can add here, for a more detailed list you can visit the <a href="https://slurm.schedmd.com/sbatch.html" target="_blank">slurm documentation</a>.</p>
+
 <h4 id="running-the-program">Running the Program</h4>
 
-<p>We must add the MPI library with:</p>
+<p>Once weve finished defining the sbatch options, we want to set up our runtime environment and then run our program.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load mvapich2/gcc/64/2.3b
+<p>Firstly, in order to utilize mpi, we must add the MPI library with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load mvapich2/gcc/64/2.3.2
 </code></pre></div></div>
+<p><strong><em>NOTE: At the time of this writing, the mvapich2 version install on spiedie is 2.3.2. This may change in the future so it is important that you find the currently installed version and use that library.</em></strong></p>
 
-<p>To then compile the program:</p>
+<p>After we’ve loaded the MPI library, we need to compile our source code with:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpicc <span class="nt">-o</span> mpi_test mpi.c 
 </code></pre></div></div>
@@ -561,7 +592,7 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun ./mpi_test
 </code></pre></div></div>
 
-<p>The final run script can be downloaded &lt;a href=”code/mpi_run.sh” download=&gt; here&lt;/a&gt; :</p>
+<p>The final run script can be downloaded <a href="code/mpi_run.sh" download=""> here</a> :</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c">#</span>
@@ -572,7 +603,7 @@
 <span class="c">#SBATCH --partition=quick</span>
 <span class="c">#</span>
 
-module load mvapich2/gcc/64/2.3b
+module load mvapich2/gcc/64/2.3.2
 
 mpicc <span class="nt">-o</span> mpi_test mpi.c
 
@@ -596,6 +627,8 @@ srun ./mpi_test
 Hello world from processor compute031, rank 0 out of 1 processors
 </code></pre></div></div>
 
+<p>Thats it, you’ve run a MPI program!</p>
+
 
             </article><div class="docs-nav">
       
@@ -616,6 +649,8 @@ Hello world from processor compute031, rank 0 out of 1 processors
       
       
       
+      
+        <a id="prev-doc" href=/tutorials/quick_start.html><strong><<</strong> Quick Start Tutorial - Python</a>
       
       
       
