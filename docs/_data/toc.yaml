@@ -12,7 +12,7 @@ toc:
       - title: How do I get an account
         url: https://www.binghamton.edu/watson/facilities/computing/high-performance.html
         external: true
-        inner_list:
+        inner_contents:
           - title: Subsidized Access (No Cost)
             url: https://docs.google.com/a/binghamton.edu/forms/d/e/1FAIpQLSe3VQGT37cE1wC1IHz9sQDasEgna2JYqpjLTCFUSOAu5SlCUQ/viewform?usp=sf_link
             external: true
@@ -28,7 +28,7 @@ toc:
       - title: Connecting to Spiedie
         url: "/docs/connect-to-spiedie.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Connect from Off-Campus
             url: "/docs/connect-to-spiedie.html#off_campus"
             external: false
@@ -50,7 +50,7 @@ toc:
       - title: User Home Directory
         url: "/docs/home-directory.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Welcome to Spiedie
             url: "/docs/home-directory.html#welcome-message"
             external: false
@@ -60,7 +60,7 @@ toc:
       - title: Transferring Data to the Cluster
         url: "/docs/data_transfer.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Using SCP
             url: "/docs/data_transfer.html#SCP"
             external: false
@@ -73,7 +73,7 @@ toc:
       - title: Viewing Spiedie Resources
         url: "/docs/viewing-spiedie-resources.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Cluster Information
             url: "/docs/viewing-spiedie-resources.html#sinfo"
             external: false
@@ -83,7 +83,7 @@ toc:
       - title: Running Jobs
         url: "/docs/submitting_jobs.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Using srun
             url: "/docs/submitting_jobs.html#srun"
             external: false
@@ -96,7 +96,7 @@ toc:
       - title: Spiedie Modules
         url: "/docs/spiedie_modules.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Available Modules
             url: "/docs/spiedie_modules.html#avail"
             external: false
@@ -133,7 +133,7 @@ toc:
       - title: Setting up a Python Environment
         url: "/tutorials/python-environment.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Why Use Python Environments
             url: "/docs/python-environment.html#why-use"
             external: false
@@ -170,11 +170,11 @@ toc:
     contents:
       - title: Basic Linux Commands
         url: "/docs/basic_linux_commands.html"
-        target: false
+        external: false
       - title: Basic SLURM Commands
         url: "/docs/basic_slurm_commands.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Checking Cluster Info
             url: "/docs/basic_slurm_commands.html#info"
             external: false
@@ -193,7 +193,7 @@ toc:
       - title: Spiedie Partitions and Features
         url: "/docs/spiedie_partitions.html"
         external: false
-        inner_list:
+        inner_contents:
           - title: Partitions
             url: "/docs/spiedie_partitions.html#partitions"
             external: false

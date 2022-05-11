@@ -15,10 +15,10 @@
                         <a class="toc-link toc-l2-link" href="{{ site.url }}{{ entry.url }}" >{{ entry.title }}</a>
                     {% endif %}
                 
-                {% if entry.inner_list[0] %}
+                {% if entry.inner_contents[0] %}
                     {% if entry.url == page.url %}
                     <ol class="sub-toc toc-l3">
-                        {%- for subentry in entry.inner_list -%}
+                        {%- for subentry in entry.inner_contents -%}
                         <li class="toc-item toc-l3-item">
                             {% if subentry.external %}
                                 <a class="toc-link toc-l3-link" href="{{ subentry.url }}" target="_blank">{{ subentry.title }}</a>
