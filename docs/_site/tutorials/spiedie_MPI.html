@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MPI on Spiedie (advanced) | Spiedie | Binghamton University</title>
+    <title>MPI on Spiedie (C/MPI) | Spiedie | Binghamton University</title>
     <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.ico" />
 
     <link rel="stylesheet" href="http://localhost:4000/assets/css/pygments.css" />
@@ -173,14 +173,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -353,14 +360,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -436,6 +450,8 @@
       
       
       
+        <a id="next-doc" href=/tutorials/spiedie_openmp_multi_core.html>Multi-Core Processing (C++/OpenMP) <strong>>></strong></a>
+      
       
       
       
@@ -449,7 +465,7 @@
       
       
       </div><h1>
-               MPI on Spiedie (advanced) 
+               MPI on Spiedie (C/MPI) 
             </h1>
             
             <article >
@@ -462,7 +478,7 @@
   <li><a href="#mpi_sbatch">Run script for MPI</a></li>
 </ol>
 
-<h2 id="-compiling-a-mpi-program"><a name="mpi_run"></a> Compiling a MPI Program</h2>
+<h2 id="-getting-started-with-mpi"><a name="getting_started"></a> Getting Started with MPI</h2>
 
 <p>Massage Passing Interface (MPI) is a standardized massage-passing standard used for high performance parallel computing on a distributed network. Spiedie supports the following standards implementations:</p>
 
@@ -475,7 +491,7 @@
 
 <p>We will be using mvapich2 implementation of MPI. We will be using the MPI Hello World Example from Wes Kendall <a href="https://mpitutorial.com/tutorials/mpi-hello-world/" target="_blank"> from here</a>.</p>
 
-<p>You can download the <a href="code/mpi.c" download=""> code from here.</a></p>
+<p>You can download the code from <a href="code/mpi.c" download="">here</a>.</p>
 
 <h3 id="-set-up-the-environment"><a name="environment_setup"></a> Set up the Environment</h3>
 
@@ -486,7 +502,7 @@
 
 <p>Now exit out of spiedie or open a new terminal window on your local machine. If you haven’t downloaded the <em>mpi.c</em> file yet, do so now. Once you have the <em>mpi.c</em> file, secure copy it to your new folder in spiedie.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp path/to/mpi.c username@spiedie.binghamton.edu:mpi-tutorial
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp path/to/mpi.c &lt;username&gt;@spiedie.binghamton.edu:mpi-tutorial
 </code></pre></div></div>
 
 <p>Back in your spiedie terminal you can verify you have the file in the right place by changing into to <em>mpi-tutorial</em> directory and usung <code class="language-plaintext highlighter-rouge">ls</code>.</p>
@@ -536,14 +552,13 @@
 
 <p>We will need the MPI-wrapper for gcc in order to compile the code.</p>
 
-<h2 id="-run-script-for-mpi"><a name="mpi_sbatch"></a> Run script for MPI</h2>
-
-<h4 id="preliminaries">Preliminaries</h4>
+<h2 id="-creating-the-run-script-for-mpi"><a name="mpi_sbatch"></a> Creating the Run Script for MPI</h2>
 
 <p>In order to set up the necessary dependencies and run our program we need to create a run script and can call it <em>mpi_run.sh</em>. You can use whichever text editor you’re most comfortable with, however we will be using <strong>emacs</strong>. While in the tutorial folder, type</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emacs mpi_run.sh
 </code></pre></div></div>
+<h4 id="resource-allocation">Resource Allocation</h4>
 
 <p>We have to add the shebang at the beginning of the run script. It is also good practice to name our job so we can add:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
@@ -551,48 +566,73 @@
 <span class="c">#SBATCH --job-name=MPI_TEST</span>
 </code></pre></div></div>
 
-<p>We can pipe our output to a log file with:</p>
+<p>We can pipe our output to a log file with the <code class="language-plaintext highlighter-rouge">--output</code> option:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --output=mpi_out.log</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --job-name=MPI_TEST</span>
+<span class="c">#SBATCH --output=mpi_out.log</span>
 </code></pre></div></div>
 
-<h4 id="resource-allocation">Resource Allocation</h4>
+<h4 id="resource-allocation-1">Resource Allocation</h4>
 
-<p>We will be asking for multiple nodes in our test program with:</p>
+<p>We will be asking for multiple nodes in our test program with the <code class="language-plaintext highlighter-rouge">-N</code> option:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH -N 2</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --job-name=MPI_TEST</span>
+<span class="c">#SBATCH --output=mpi_out.log</span>
+<span class="c">#SBATCH -N 2</span>
 </code></pre></div></div>
 
 <p>This asks for 2 compute nodes which will allow us to fully take advantage of the multiple node infrastructure.</p>
 
-<p>We will also run the program on the quick partition with;</p>
+<p>We will also run the program on the quick partition with <code class="language-plaintext highlighter-rouge">--partition</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --partition=quick</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --job-name=MPI_TEST</span>
+<span class="c">#SBATCH --output=mpi_out.log</span>
+<span class="c">#SBATCH -N 2</span>
+<span class="c">#SBATCH --partition=quick</span>
 </code></pre></div></div>
 
 <p>There are more sbatch options you can add here, for a more detailed list you can visit the <a href="https://slurm.schedmd.com/sbatch.html" target="_blank">slurm documentation</a>.</p>
 
-<h4 id="running-the-program">Running the Program</h4>
+<h4 id="loading-the-modules">Loading the Modules</h4>
 
-<p>Once weve finished defining the sbatch options, we want to set up our runtime environment and then run our program.</p>
+<p>Once we’ve finished defining the sbatch options, we want to set up our runtime environment and then run our program.</p>
 
-<p>Firstly, in order to utilize mpi, we must add the MPI library with:</p>
+<p>Firstly, in order to utilize mpi, we must add the MPI library using <code class="language-plaintext highlighter-rouge">module load [module]</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load mvapich2/gcc/64/2.3.2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --job-name=MPI_TEST</span>
+<span class="c">#SBATCH --output=mpi_out.log</span>
+<span class="c">#SBATCH -N 2</span>
+<span class="c">#SBATCH --partition=quick</span>
+<span class="c">#</span>
+
+module load mvapich2/gcc/64/2.3.2
 </code></pre></div></div>
 <p><strong><em>NOTE: At the time of this writing, the mvapich2 version install on spiedie is 2.3.2. This may change in the future so it is important that you find the currently installed version and use that library.</em></strong></p>
 
-<p>After we’ve loaded the MPI library, we need to compile our source code with:</p>
+<p>After we’ve loaded the MPI library, we need to compile our source code using <code class="language-plaintext highlighter-rouge">mpicc</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpicc <span class="nt">-o</span> mpi_test mpi.c 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --job-name=MPI_TEST</span>
+<span class="c">#SBATCH --output=mpi_out.log</span>
+<span class="c">#SBATCH -N 2</span>
+<span class="c">#SBATCH --partition=quick</span>
+<span class="c">#</span>
+
+module load mvapich2/gcc/64/2.3.2
+
+mpicc <span class="nt">-o</span> mpi_test mpi.c 
 </code></pre></div></div>
 
 <p>Since MVAPICH2 is built with Slurm support on Spiedie, it is best practice to let slurm spin up the processes on the multiple nodes, and so we will use srun to run our program.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srun ./mpi_test
-</code></pre></div></div>
-
-<p>The final run script can be downloaded <a href="code/mpi_run.sh" download=""> here</a> :</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c">#</span>
@@ -609,6 +649,10 @@ mpicc <span class="nt">-o</span> mpi_test mpi.c
 
 srun ./mpi_test 
 </code></pre></div></div>
+
+<p>The final run script can be downloaded <a href="code/mpi_run.sh" download=""> here</a></p>
+
+<h2 id="-submitting-the-run-script-for-mpi"><a name="mpi_submit"></a> Submitting the Run Script for MPI</h2>
 
 <p>We can simply run the job with:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch mpi_run.sh
@@ -662,6 +706,8 @@ Hello world from processor compute031, rank 0 out of 1 processors
       
       
       
+      
+        <a id="next-doc" href=/tutorials/spiedie_openmp_multi_core.html>Multi-Core Processing (C++/OpenMP) <strong>>></strong></a>
       
       
       
@@ -803,7 +849,7 @@ Hello world from processor compute031, rank 0 out of 1 processors
         
           {
             "url":`/tutorials/spiedie_MPI.html`,
-            "value": `MPI on Spiedie (advanced)` 
+            "value": `MPI on Spiedie (C/MPI)` 
           },
         
       
@@ -819,7 +865,7 @@ Hello world from processor compute031, rank 0 out of 1 processors
         
           {
             "url":`/tutorials/spiedie_gpu_compute.html`,
-            "value": `GPU on Spiedie (advanced)` 
+            "value": `GPU on Spiedie (CUDA)` 
           },
         
       
@@ -837,7 +883,7 @@ Hello world from processor compute031, rank 0 out of 1 processors
         
           {
             "url":`/tutorials/spiedie_openmp_multi_core.html`,
-            "value": `OpenMP on Spiedie (advanced)` 
+            "value": `Multi-Core Processing (C++/OpenMP)` 
           },
         
       

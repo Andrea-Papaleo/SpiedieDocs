@@ -4,6 +4,7 @@
 #
 #SBATCH --partition=gpucompute
 #SBATCH --ntasks=1
+#SBATCH --gres=gpu:1
 
 module load cuda10.0/blas/10.0.130
 module load cuda10.0/toolkit/10.0.130

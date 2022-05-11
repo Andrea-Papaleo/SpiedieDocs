@@ -146,15 +146,16 @@ toc:
       #- title: Multi-core Program (Python)
       #  url: "/tutorials/spiedie_multiprocessing.html"
       #  external: false
-      #- title: Multi-core (C++/OpenMPI)
-      #  url: "/tutorials/spiedie_openmpi_multi_core.html"
-      #  external: false
-      - title: GPU Compute (CUDA)
-        url: "/tutorials/spiedie_gpu_compute.html"
-        external: false
-      - title: Multi-node Multi-core Program (MPI)
+      - title: MPI on Spiedie (C/MPI)
         url: "/tutorials/spiedie_MPI.html"
         external: false
+      - title: Multi-Core Processing (C++/OpenMP)
+        url: "/tutorials/spiedie_openmp_multi_core.html"
+        external: false
+      - title: GPU on Spiedie (CUDA)
+        url: "/tutorials/spiedie_gpu_compute.html"
+        external: false
+      
       #- title: Using Containers (Singularity)
       #  url: "/tutorials/singularity.html"
       #  external: false

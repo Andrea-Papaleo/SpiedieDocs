@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenMP on Spiedie (advanced) | Spiedie | Binghamton University</title>
+    <title>Multi-Core Processing (C++/OpenMP) | Spiedie | Binghamton University</title>
     <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.ico" />
 
     <link rel="stylesheet" href="http://localhost:4000/assets/css/pygments.css" />
@@ -173,14 +173,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -353,14 +360,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -426,9 +440,13 @@
       
       
       
+        <a id="prev-doc" href=/tutorials/spiedie_MPI.html><strong><<</strong> MPI on Spiedie (C/MPI)</a>
       
       
       
+      
+      
+        <a id="next-doc" href=/tutorials/spiedie_gpu_compute.html>GPU on Spiedie (CUDA) <strong>>></strong></a>
       
       
       
@@ -447,13 +465,11 @@
       
       
       </div><h1>
-               OpenMP on Spiedie (advanced) 
+               Multi-Core Processing (C++/OpenMP) 
             </h1>
             
             <article >
-              <hr />
-
-<p>Things covered in this tutorial:</p>
+              <p>Things covered in this tutorial:</p>
 
 <ol>
   <li><a href="#sbatch_omp">Writing batch scripts for multi-core programs</a></li>
@@ -465,15 +481,33 @@
 
 <p><a href="http://www.openmp.org" target="_blank"> Click here if you would like to learn more</a></p>
 
-<h2 id="writing-batch-scripts-for-multi-core-programs"><a name="sbatch_omp">Writing batch scripts for multi-core programs</a></h2>
+<h2 id="-getting-started-with-openmp"><a name="getting_started"></a> Getting Started with OpenMP</h2>
 
 <p>We are going to run a multi-core program which will utilize shared memory parallelism in a single node for high performance computing.</p>
 
 <p><strong><em>Note: If you would like to utilize parallelization using multiple nodes, checkout the MPI tutorial <a href="spiedie_MPI.html">here</a></em></strong></p>
 
-<p>We’ve provided a simple openmp program source code <a href="code/open_mp.c" download=""> here</a>.</p>
+<p>We’ve provided a simple openMP program source code <a href="code/open_mp.c" download=""> here</a>.</p>
 
-<p>The simple program prints out a message for each active thread:</p>
+<h3 id="-set-up-the-environment"><a name="environment_setup"></a> Set up the Environment</h3>
+
+<p>Similar to the previous tutorials, lets create a new directory called <em>openMP-tutorial</em>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>openMP-tutorial
+</code></pre></div></div>
+
+<p>Now exit out of spiedie or open a new terminal window on your local machine. If you haven’t downloaded the <em>open_mp.c</em> file yet, do so now. Once you have the <em>open_mp.c</em> file, secure copy it to your new folder in spiedie.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp path/to/open_mp.c &lt;username&gt;@spiedie.binghamton.edu:openMP-tutorial
+</code></pre></div></div>
+
+<p>Back in your spiedie terminal you can verify you have the file in the right place by changing into to <em>openMP-tutorial</em> directory and using <code class="language-plaintext highlighter-rouge">ls</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 ~]<span class="nv">$ </span><span class="nb">cd </span>openMP-tutorial/
+<span class="o">[</span>spiedie81 openMP-tutorial]<span class="nv">$ </span><span class="nb">ls
+</span>open_mp.c
+</code></pre></div></div>
+<p>open_mp.c:</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;omp.h&gt;
@@ -490,93 +524,287 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Let’s write a run script omp_run.sh to run our program.</p>
+<p>The simple program prints out a message for each active thread.</p>
+
+<h2 id="-creating-the-run-script-for-openmp"><a name="openmp_sbatch"></a> Creating the Run Script for OpenMP</h2>
+
+<p>Let’s write a run script <em>omp_run.sh</em> to run our program using a text editor, for this tutorial we use <strong>emacs</strong>.</p>
 
 <p>First of all, we will include the shebang, as usual,</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 </code></pre></div></div>
+<h4 id="resource-allocation">Resource Allocation</h4>
 
-<p>Let’s name our job with</p>
+<p>Next we will give our job a name:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --job-name=OMP_TEST</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
 </code></pre></div></div>
 
-<p>Also, we can assign our output file name with:</p>
+<p>Also, we can assign our output file name:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --output=omp_output.log</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
 </code></pre></div></div>
 
 <p>Since we are using OpenMP and shared memory parallelism, we will only be using a single compute node:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH -N 1</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
 </code></pre></div></div>
 
 <p>We will set the number of cores to 4 with:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH -c 4</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
 </code></pre></div></div>
 
-<p>It is good practice to clear the environment from any previously loaded modules</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module purge <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
-</code></pre></div></div>
-
-<p>The following line sets
-We are now going to dynamically assign the number of OpenMP threads the program utilizes depending on the -c parameter we used above.</p>
-
-<p>The following line sets the OMP_NUM_THREADS to the same values as -c:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
-  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
-</code></pre></div></div>
-
-<p>In case the -c is not set, we fall back to 1 core (as is the default):</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">else
-  </span><span class="nv">omp_threads</span><span class="o">=</span>1
-</code></pre></div></div>
-
-<p>Export the value to complete the process:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
-</code></pre></div></div>
-<h2 id="suitable-partitions-for-job-requirements">Suitable Partitions for job requirements</h2>
-
-<p>Depending on the number of cores being used, it is a good idea to consider with partition would be the suitable for our program. <a href="../docs/spiedie_partitions.html">The details for the partitions and the number of cores available per compute node can be found here</a></p>
+<p>Depending on the number of cores being used, it is a good idea to consider with partition would be the suitable for our program. The details for the partitions and the number of cores available per compute node can be found <a href="../docs/spiedie_partitions.html">here</a></p>
 
 <p>If you are using more thant 20 cores, it is recommended to assign the partition to KNL nodes.</p>
 
 <p>In our test, we will use the standard partition due to our relatively small number of cores.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --partition-standard</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
 </code></pre></div></div>
 
-<h2 id="compiling-and-linking-on-the-fly">Compiling and linking on the fly</h2>
+<p>We are now going to dynamically assign the number of OpenMP threads the program utilizes depending on the -c parameter we used above.</p>
 
-<p>It is good practice to compile and link custom code during your run, in order to make sure the programs run correctly.</p>
+<p>We’ll add a line which sets the OMP_NUM_THREADS to the same values as -c:</p>
 
-<p>So we can load the gcc module with:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load gcc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH --c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+</code></pre></div></div>
+
+<p>In case the -c is not set, we fall back to 1 core (as is the default):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>Export the value to complete the process:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi
+
+</span><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
+</code></pre></div></div>
+<h4 id="loading-the-modules">Loading the Modules</h4>
+
+<p>It is good practice to clear the environment from any previously loaded modules</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi
+
+</span><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
+
+<span class="c"># Clear the environment from any previously loaded modules</span>
+module purge <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
+
+</code></pre></div></div>
+
+<p>It is also good practice to compile and link custom code during your run, in order to make sure the programs run correctly.</p>
+
+<p>So we can load the gcc module:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi
+
+</span><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
+
+<span class="c"># Clear the environment from any previously loaded modules</span>
+module purge <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
+
+module load gcc
 </code></pre></div></div>
 
 <p>We can call the compiler as usual:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-o</span> spiedie_omp open_mp.c <span class="nt">-fopenmp</span>
-</code></pre></div></div>
-<p>and, run the program:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./spiedie_omp
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi
+
+</span><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
+
+<span class="c"># Clear the environment from any previously loaded modules</span>
+module purge <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
+
+module load gcc
+
+gcc <span class="nt">-o</span> spiedie_omp open_mp.c <span class="nt">-fopenmp</span>
 </code></pre></div></div>
 
-<h2 id="submitting-the-job">Submitting the job</h2>
+<p>and finally, we can instruct the script to run the program:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=OMP_TEST</span>
+<span class="c">#SBATCH --output=omp_output.log</span>
+<span class="c"># Number of processors</span>
+<span class="c">#SBATCH -N 1</span>
+<span class="c"># Number of cores</span>
+<span class="c">#SBATCH -c 4</span>
+<span class="c">#SBATCH --partition=Standard</span>
+
+<span class="c"># Set OMP_NUM_THREADS to the same value as -c</span>
+<span class="c"># with a fallback in case it isn't set.</span>
+<span class="c"># SLURM_CPUS_PER_TASK is set to the value of -c, but only if -c is explicitly set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$SLURM_CPUS_PER_TASK</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nv">omp_threads</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="k">else
+  </span><span class="nv">omp_threads</span><span class="o">=</span>1
+<span class="k">fi
+
+</span><span class="nb">export </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$omp_threads</span>
+
+<span class="c"># Clear the environment from any previously loaded modules</span>
+module purge <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
+
+module load gcc
+
+gcc <span class="nt">-o</span> spiedie_omp open_mp.c <span class="nt">-fopenmp</span>
+
+./spiedie_omp
+</code></pre></div></div>
+<p>The final run script can be downloaded <a href="code/omp_run.sh" download=""> here</a></p>
+
+<h2 id="-submitting-the-run-script-for-openmpi"><a name="mpi_submit"></a> Submitting the Run Script for OpenMPI</h2>
 
 <p>We can submit our script by simply using:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch omp_run.sh
+</code></pre></div></div>
+<p>The job should run pretty quickly, but since we are running on the Standard compute nodes the time may vary depending on their current load.</p>
+
+<p>You can monitor the job status but running</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>squeue | <span class="nb">grep </span>username
+</code></pre></div></div>
+<p>replacing <em>username</em> with your username.</p>
+
+<p>Once the job is complete you can view the output by using <code class="language-plaintext highlighter-rouge">cat</code>. You should expect to see an output like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 openMP-tutorial]<span class="nv">$ </span><span class="nb">cat </span>omp_output.log 
+Greetings from process 1 out of 4 
+Greetings from process 0 out of 4 
+Greetings from process 3 out of 4 
+Greetings from process 2 out of 4 
+parallel <span class="k">for </span>ends.
 </code></pre></div></div>
 
 <p>We can also change the number of cores being assigned by using:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch <span class="nt">-c</span> 2 omp_run.sh
 </code></pre></div></div>
+<p>The output for this should be:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 openMP-tutorial]<span class="nv">$ </span><span class="nb">cat </span>omp_output.log 
+Greetings from process 0 out of 2 
+Greetings from process 1 out of 2 
+parallel <span class="k">for </span>ends.
+</code></pre></div></div>
+
+<p>Congratulations, you’ve run your first openMP script!</p>
 
 
             </article><div class="docs-nav">
@@ -602,9 +830,13 @@ We are now going to dynamically assign the number of OpenMP threads the program 
       
       
       
+        <a id="prev-doc" href=/tutorials/spiedie_MPI.html><strong><<</strong> MPI on Spiedie (C/MPI)</a>
       
       
       
+      
+      
+        <a id="next-doc" href=/tutorials/spiedie_gpu_compute.html>GPU on Spiedie (CUDA) <strong>>></strong></a>
       
       
       
@@ -732,7 +964,7 @@ We are now going to dynamically assign the number of OpenMP threads the program 
         
           {
             "url":`/tutorials/spiedie_MPI.html`,
-            "value": `MPI on Spiedie (advanced)` 
+            "value": `MPI on Spiedie (C/MPI)` 
           },
         
       
@@ -748,7 +980,7 @@ We are now going to dynamically assign the number of OpenMP threads the program 
         
           {
             "url":`/tutorials/spiedie_gpu_compute.html`,
-            "value": `GPU on Spiedie (advanced)` 
+            "value": `GPU on Spiedie (CUDA)` 
           },
         
       
@@ -766,7 +998,7 @@ We are now going to dynamically assign the number of OpenMP threads the program 
         
           {
             "url":`/tutorials/spiedie_openmp_multi_core.html`,
-            "value": `OpenMP on Spiedie (advanced)` 
+            "value": `Multi-Core Processing (C++/OpenMP)` 
           },
         
       

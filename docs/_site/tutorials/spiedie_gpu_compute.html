@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPU on Spiedie (advanced) | Spiedie | Binghamton University</title>
+    <title>GPU on Spiedie (CUDA) | Spiedie | Binghamton University</title>
     <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.ico" />
 
     <link rel="stylesheet" href="http://localhost:4000/assets/css/pygments.css" />
@@ -173,14 +173,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -353,14 +360,21 @@
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU Compute (CUDA)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >MPI on Spiedie (C/MPI)</a>
                     
                 
                 
                 </li><li class=" toc-item toc-l2-item">
                     
                     
-                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_MPI.html" >Multi-node Multi-core Program (MPI)</a>
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_openmp_multi_core.html" >Multi-Core Processing (C++/OpenMP)</a>
+                    
+                
+                
+                </li><li class=" toc-item toc-l2-item">
+                    
+                    
+                        <a class="toc-link toc-l2-link" href="http://localhost:4000/tutorials/spiedie_gpu_compute.html" >GPU on Spiedie (CUDA)</a>
                     
                 
                 
@@ -433,6 +447,8 @@
       
       
       
+        <a id="prev-doc" href=/tutorials/spiedie_openmp_multi_core.html><strong><<</strong> Multi-Core Processing (C++/OpenMP)</a>
+      
       
       
       
@@ -447,13 +463,11 @@
       
       
       </div><h1>
-               GPU on Spiedie (advanced) 
+               GPU on Spiedie (CUDA) 
             </h1>
             
             <article >
-              <hr />
-
-<p>In this tutorial, we will be running the BLAS sample test on a GPU compute node on Spiedie.</p>
+              <p>In this tutorial, we will be running the BLAS sample test on a GPU compute node on Spiedie.</p>
 
 <p>Covered in this guide:</p>
 
@@ -465,93 +479,170 @@
 
 <h2 id="using-sbatch-and-writing-a-batch-script">Using sbatch and writing a batch script</h2>
 
-<p>In this tutorial, we will be using a batch script to submit our job to Spiedie and we will be using the sbatch command. <a href="../docs/submitting_jobs.html">For more examples on submitting jobs, click here</a></p>
+<p>In this tutorial, we will be using a batch script to submit our job to Spiedie and we will be using the sbatch command. For more examples on submitting jobs, <a href="../docs/submitting_jobs.html">click here</a></p>
 
-<p>We will be using the BLAS and CUDA to run a general matrix-matrix multiplication (GEMM) test code available from Nvidia for this example. GEMM operations are fundamental for many scientific, engineering and deep leanring applications and are well suited for GPU-based programming. You can download the <a href="/tutorials/code/simpleCUBLAS.cpp">source code</a></p>
+<p>We will be using the BLAS and CUDA to run a general matrix-matrix multiplication (GEMM) test code available from Nvidia for this example. GEMM operations are fundamental for many scientific, engineering and deep learning applications and are well suited for GPU-based programming.</p>
+
+<p>You can download the source code for this tutorial <a href="code/simpleCUBLAS.cpp" download="">here</a>.</p>
 
 <p>For more CUDA examples checkout <a href="https://github.com/NVIDIA/cuda-samples" target="_blank"> this repository</a></p>
 
-<p>Log in to Spiedie and create a new directory:</p>
+<h3 id="-set-up-the-environment"><a name="environment_setup"></a> Set up the Environment</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>CUDA_Example
+<p>Similar to the previous tutorials, its best to keep our file system organized, so lets create a new directory called <em>CUDA-tutorial</em>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 ~]<span class="nv">$ </span><span class="nb">mkdir </span>CUDA-tutorial
 </code></pre></div></div>
 
-<p>Download the  <a href="/tutorials/code/simpleCUBLAS.cpp">source code</a> and transfer to the directory:</p>
+<p>Now exit out of spiedie or open a new terminal window on your local machine. If you haven’t downloaded the <em>simpleCUBLAS.cpp</em> file yet, do so now. Once you have the <em>simpleCUBLAS.cpp</em> file, secure copy it to your new folder in spiedie.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp /path/to/simpleCUBLAS.cpp &lt;username&gt;@spiedie.binghamton.edu:./CUDA_Example
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp path/to/mpi.c &lt;username&gt;@spiedie.binghamton.edu:CUDA-tutorial
 </code></pre></div></div>
 
-<p>You can find other methods to transfer the file <a href="../docs/data_transfer.html">here</a>.</p>
+<p>Back in your spiedie terminal you can verify you have the file in the right place by changing into to <em>CUDA-tutorial</em> directory and using <code class="language-plaintext highlighter-rouge">ls</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 ~]<span class="nv">$ </span><span class="nb">cd </span>CUDA-tutorial/
+<span class="o">[</span>spiedie81 CUDA-tutorial]<span class="nv">$ </span><span class="nb">ls
+</span>simpleCUBLAS.cpp
+</code></pre></div></div>
+
+<p>You can use <code class="language-plaintext highlighter-rouge">cat</code> or a text editor to view the contents of <em>simpleCUBLAS.cpp</em>.</p>
 
 <p>Once the source code is uploaded, we can write the batch script to submit our job request.</p>
 
+<h2 id="-creating-the-run-script-for-cuda"><a name="cuda_sbatch"></a> Creating the Run Script for CUDA</h2>
+
 <p>Create a new file in the same directory called, cuda_blas_test.sh.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>cuda_blas_test.sh
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 CUDA-tutorial]<span class="nv">$ </span>emacs cuda_blas_test.sh
 </code></pre></div></div>
-<p>Using your preferred editor such as nano, emacs, or vim, edit the new file.</p>
 
 <p>The first line in the batch script must be the shebang. So we must have,</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin.bash</span>
 </code></pre></div></div>
-<p>Next, we will name our job so we are able to monitor it if we wish to on the slurm queue. To assign a job name add :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<h4 id="resource-allocation">Resource Allocation</h4>
+
+<p>Next, we will name our job so we are able to monitor it if we wish to on the slurm queue. To assign a job name use <code class="language-plaintext highlighter-rouge">--job-name</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
 </code></pre></div></div>
-
-<p>This will name the job CUBLASTEST.</p>
 
 <p>Next, we will assign output file to log all the standard output from our program.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --output=cuda_output.log</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
 </code></pre></div></div>
 
-<p>This will direct the output of the program to the cuda_out.log file.</p>
+<p>Next, we must request the correct partition for our program to properly run and have access to the P100 gpus available on Spiedie. We therefore request the gpucompute partition with the <code class="language-plaintext highlighter-rouge">--partition</code> option:</p>
 
-<p>Next, we must request the correct partition for our program to properly run and have access to the P100 gpus available on Spiedie. We therefore request the gpucompute partition with:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --partition=gpucompute</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
 </code></pre></div></div>
 <p>We can use the default number of nodes (1) and default memory for this program.</p>
 
 <p>We need to let SLURM know how many tasks we will require for our program. Since we will not be using any parallel CPU computation, we will only request one.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --ntasks=1</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
 </code></pre></div></div>
 <p>Finally, we should also let SLURM know how many GPUs we will require for our program. In this instance we are requesting 1 GPU.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#SBATCH --gres=gpu:1</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
 </code></pre></div></div>
+
 <p>We’ve finished defining our resource allocation parameters for our job.</p>
 
-<h2 id="loading-modules">Loading modules</h2>
-
-<hr />
+<h4 id="loading-modules">Loading modules</h4>
 
 <p>Next we must make sure we have the necessary drivers and tools to run our CUDA code. To load the correct modules, we must add the following lines to our shell script.</p>
 
 <p>First we must load the CUDA toolkit, which includes the CUDA compiler.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load cuda10.0/toolkit/10.0.130
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
+
+module load cuda10.0/blas/10.0.130
 </code></pre></div></div>
 
 <p><strong><em>Note: We will be CUDA10.0 for this tutorial</em></strong></p>
 
 <p>Since we are using the CUDA-enabled BLAS library, we must also load it.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load cuda10.0/blas/10.0.130
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
+
+module load cuda10.0/blas/10.0.130
+module load cuda10.0/toolkit/10.0.130
 </code></pre></div></div>
 
-<p>We are now ready to write the commands to compile, link, and execute the program.</p>
+<p>We are now ready to write the commands to compile, link, and execute the program using <code class="language-plaintext highlighter-rouge">nvcc</code>.</p>
 
-<p>To compile the source code, add the following line:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc simpleCUBLAS.cpp <span class="nt">-c</span> simpleCUBLAS.o
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
+
+module load cuda10.0/blas/10.0.130
+module load cuda10.0/toolkit/10.0.130
+nvcc simpleCUBLAS.cpp <span class="nt">-c</span> simpleCUBLAS.o
 </code></pre></div></div>
 
-<p>To link object code with the CUBLAS library, add the following line:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lcublas</span>
+<p>To link object code with the CUBLAS library, add <code class="language-plaintext highlighter-rouge">nvcc simpleCUBLAS.o -o simpleCUBLAS -lcublas</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
+
+module load cuda10.0/blas/10.0.130
+module load cuda10.0/toolkit/10.0.130
+nvcc simpleCUBLAS.cpp <span class="nt">-c</span> simpleCUBLAS.o
+nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lcublas</span>
 </code></pre></div></div>
 
-<p>Finally, we can run the program by adding:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./simpleCUBLAS
+<p>Finally, we can run the program by adding <code class="language-plaintext highlighter-rouge">./simpleCUBLAS</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#SBATCH --job-name=CUBLASTEST</span>
+<span class="c">#SBATCH --output=cuda_output.log</span>
+<span class="c">#</span>
+<span class="c">#SBATCH --partition=gpucompute</span>
+<span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
+
+module load cuda10.0/blas/10.0.130
+module load cuda10.0/toolkit/10.0.130
+nvcc simpleCUBLAS.cpp <span class="nt">-c</span> simpleCUBLAS.o
+nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lcublas</span>
+./simpleCUBLAS
 </code></pre></div></div>
 
 <h2 id="submitting-using-sbatch">Submitting using SBATCH</h2>
@@ -564,6 +655,7 @@
 <span class="c">#</span>
 <span class="c">#SBATCH --partition=gpucompute</span>
 <span class="c">#SBATCH --ntasks=1</span>
+<span class="c">#SBATCH --gres=gpu:1</span>
 
 module load cuda10.0/blas/10.0.130
 module load cuda10.0/toolkit/10.0.130
@@ -572,16 +664,23 @@ nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lc
 ./simpleCUBLAS
 </code></pre></div></div>
 
-<p><a href="/tutorials/code/cuda_blas_test.sh">Click here to download the complete batch file.</a></p>
-
-<p><strong><em>Note: The cuda_blas_test.sh file should be in the same directory as simpleCUBLAS.cpp file</em></strong></p>
+<p>Click <a href="code/cuda_blas_test.sh" download="">here</a> to download the complete batch file.</p>
 
 <p>Since, our parameters are specified in the shell script, we just need to submit the shell script with:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sbatch cuda_blas_test.sh 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 CUDA-tutorial]<span class="nv">$ </span>sbatch cuda_blas_test.sh 
 </code></pre></div></div>
 
 <p>The job should be queued and the results should be output in the cuda_output.log file once the job has been assigned and finished.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>spiedie81 CUDA-tutorial]<span class="nv">$ </span><span class="nb">cat </span>cuda_output.log 
+GPU Device 0: <span class="s2">"Tesla P100-PCIE-12GB"</span> with compute capability 6.0
+
+simpleCUBLAS <span class="nb">test </span>running..
+simpleCUBLAS <span class="nb">test </span>passed.
+<span class="o">[</span>spiedie81 CUDA-tutorial]<span class="nv">$ </span>
+</code></pre></div></div>
+
 
             </article><div class="docs-nav">
       
@@ -612,6 +711,8 @@ nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lc
       
       
       
+      
+        <a id="prev-doc" href=/tutorials/spiedie_openmp_multi_core.html><strong><<</strong> Multi-Core Processing (C++/OpenMP)</a>
       
       
       
@@ -760,7 +861,7 @@ nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lc
         
           {
             "url":`/tutorials/spiedie_MPI.html`,
-            "value": `MPI on Spiedie (advanced)` 
+            "value": `MPI on Spiedie (C/MPI)` 
           },
         
       
@@ -776,7 +877,7 @@ nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lc
         
           {
             "url":`/tutorials/spiedie_gpu_compute.html`,
-            "value": `GPU on Spiedie (advanced)` 
+            "value": `GPU on Spiedie (CUDA)` 
           },
         
       
@@ -794,7 +895,7 @@ nvcc simpleCUBLAS.o <span class="nt">-o</span> simpleCUBLAS <span class="nt">-lc
         
           {
             "url":`/tutorials/spiedie_openmp_multi_core.html`,
-            "value": `OpenMP on Spiedie (advanced)` 
+            "value": `Multi-Core Processing (C++/OpenMP)` 
           },
         
       
